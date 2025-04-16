@@ -1,0 +1,675 @@
+/* Recuerda definir las Custom properties */
+:root {
+    /* Tipografía definida por el usuario */
+    font-size: 100%;
+    /* Tipografía por defecto */
+    font-family: system-ui, sans-serif;
+    /* Anclas suaves */
+    scroll-behavior: smooth;
+}
+
+/* (Reset clásico) Reseteamos los margin, paddings y bordes de todas las etiquetas */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+/* Reseteamos los before y after */
+*::before,
+*::after {
+    display: block;
+}
+
+/* Evitamos problemas con las imagenes y vídeos */
+img,
+picture,
+video,
+iframe,
+figure,
+canvas {
+    max-width: 100%;
+    display: block;
+    /* width : 100%; */
+    height: initial;
+    /* Ajustamos el tamaño del objeto imagen dentro de img y video */
+    object-fit: cover;
+    /* Ponemos la posicion del objeto imagen dentro de img y video */
+    object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+    display: block;
+    /* text-decoration: none; */
+    color: inherit;
+    font: inherit;
+}
+
+p a {
+    display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li,
+menu,
+summary {
+    list-style-type: none;
+}
+
+ol {
+    counter-reset: revert;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+pre,
+code,
+mark,
+del {
+    font: inherit;
+    text-decoration: none;
+    color: inherit;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+}
+
+
+mark {
+    background-color: transparent;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: none;
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+    font: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+    /* Desactivamos los estilos base */
+
+}
+
+fieldset {
+    border: none;
+}
+
+::placeholder {
+    color: unset;
+}
+
+button,
+label {
+    cursor: pointer;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td,
+th,
+tbody,
+thead,
+tfoot {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: inherit;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+
+/* Configuramos la tipografía para toda la web */
+body {
+    min-height: 100vh;
+    line-height: 1.5em;
+    color: inherit;
+    /* Evitamos que el texto se desborde */
+    hyphens: auto;
+
+    /* La tipografía es más limpia en macOS */
+    -webkit-font-smoothing: antialiased;
+    /* La tipografía es más limpia en macOS */
+    -moz-osx-font-smoothing: grayscale;
+
+    font-family: "Crimson Text", serif;
+    /* font-weight: 400;
+  font-style: normal; */
+    font-size: 20px;
+    cursor: none;
+}
+
+:root{
+
+    --font-s-2: 1.8rem;
+    --font-s-3: 3.5rem;
+}
+
+.Header {
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+    padding: 1rem 5rem;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: "Crimson Text", serif;
+    background: rgba(10, 18, 25, 1);
+    
+}
+
+.Header-logo {
+    width: 6.25rem;
+    height: 6.25rem;
+}
+
+.Header-btn {
+    display: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.Header-btn:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+.Header-nav {
+    width: 70%;
+}
+
+.Header-ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 3rem;
+
+
+}
+
+.Header-a {
+    position: relative;
+    padding: 0.2rem 0;
+    transition: color 0.3s ease;
+    color: #EAE3D2;
+
+}
+
+.Header-a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+
+}
+
+.Header-a:hover::before,
+.Header-a--selected::before {
+    width: 100%;
+}
+
+
+.Main {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 3rem 6rem;
+
+    background: rgb(23, 49, 82);
+    background: linear-gradient(0deg, rgba(23, 49, 82, 1) 0%, rgba(10, 18, 25, 1) 100%);
+    color: #EAE3D2;
+    font-family: "Crimson Text", serif;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+
+
+/* Especificoooo */
+
+.Acordeon-wrapper {
+    width: 75%;
+    min-height: 100vh;
+    max-width: 2000px;
+    margin: auto;
+}
+
+.Acordeon-wrapper-h1 {
+    font-family: "Bodoni Moda", serif;
+    font-size: clamp(1.2rem , 4vw , 2rem);
+    color: #eae3d2;
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1875rem;
+    margin: 0 0.3rem 2rem 0.3rem;
+
+    text-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.3),
+        0 0 1.25rem rgba(234, 227, 210, 0.2),
+        0 0 2.5rem rgba(234, 227, 210, 0.1);
+
+}
+
+.Acordeon-wrapper-p{
+text-align: center;
+margin: 0 0.5rem 3rem 0.5rem;
+font-size: clamp(1rem , 4vw , 1.3rem);
+}
+  
+
+.Acordeon {
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+  
+    gap: 1rem;
+
+  }
+  
+  .Acordeon-container {
+    border: 1px solid rgba(234, 227, 210, 0.3);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(0.25rem);
+    padding: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  
+  .Acordeon-btn{
+    color: #eae3d2;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(1rem , 4vw , 1.25rem);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 1rem 0.5rem 0 1rem; 
+  transition: all 0.3s ease;
+
+  }
+
+ 
+  .Acordeon-p{
+    width: 100%;
+    padding: 1rem 0.5rem 0 1rem; 
+    
+    font-family: "Crimson Text", serif;
+    font-size: 1em;
+
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease;
+  }
+
+
+
+  
+
+.Footer {
+
+    width: 100%;
+    min-height: 20vh;
+    max-width: 2000px;
+    background-color: #EAE3D2;
+    margin: 0 auto;
+    padding: 2rem;
+
+    /* display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+
+    font-family: "Crimson Text", serif;
+
+    /* background-image: url('../assets/Fondo-pergamino.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;  */
+}
+
+.Footer-column--logo{
+    /* width: 20%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Footer-column--info{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.Footer-column--links{
+    text-align: left;
+}
+  .Footer-quote{
+    font-style: italic;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  .Footer-h4 {
+    font-weight: 600;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1rem 0;
+  }
+
+  .Footer-copy {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .Footer-coordinates {
+    font-weight: 600;
+
+  }
+.Footer-coordinates--trigger{
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
+}
+.Footer-coordinates--trigger:hover{
+    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
+    color: #132841;
+}
+
+.Footer-up{
+    width: 8rem;
+    height:auto;
+
+}
+
+.Footer-links a{
+    transition: color 0.3s ease;
+  }
+
+.Footer-links a:hover{
+color: #132841;
+}
+
+
+
+ .Cursor {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    position: fixed;
+    top: -20px;
+    left: -20px;
+
+    /* background-color: white; */
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }
+  
+  /* Cuando haces click */
+  .Cursor.isClicked {
+    transform: scale(0.3);
+    box-shadow: 0 0 1.6rem rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Cuando pasa sobre un botón */
+   .Cursor.isHover{
+    transform: scale(2);
+    
+  } 
+
+
+
+
+.Popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    backdrop-filter: blur(4px);
+    padding: 2rem;
+  }
+
+  /* .Popup.isActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+  
+  .Popup-wrapper {
+
+    background: #0e0e0e;
+    /* background-image: url('../assets/Fondo-pergamino.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;  */
+    color: #eae3d2;
+    /* color:#0e0e0e; */
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
+    animation: popupFade 0.5s ease-out;
+  }
+  
+  .Popup-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #eae3d2;
+    /* color:#0e0e0e; */
+    cursor: pointer;
+  }
+
+  .Popup-typewriter{
+    font-family: 'Courier New', monospace;
+    color: #eae3d2;
+    /* color:#0e0e0e; */
+    white-space: pre-line;
+    font-size: 1rem;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+
+  .Popup-typewriter::after{
+    content: '|';
+    animation: blink 1s step-start infinite;
+    color: #eae3d2;
+  }
+  
+
+  
+@media (max-width:1120px) {
+
+    .Header {
+        display: flex;
+        flex-direction: row-reverse; 
+        justify-content: space-between;
+        
+      }
+    
+      .Header-logo-wrapper {
+        width: auto;
+        order: 1; 
+      }
+
+
+
+    .Header-svg {
+        width: 2rem;
+        height: 2rem;
+        color: #eae3d2;
+    }
+
+    .Header-btn {
+        /*Aqui es display: BLOCK!!*/
+        
+        display: block;
+        cursor: pointer;
+        transition: all 0.6s ease;
+    }
+
+    .Header-nav {
+        width: 100%;
+       
+
+    }
+
+    .Header-ul {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        opacity: 0;
+        gap: 0.5rem;
+        height: 0; 
+    
+
+    }
+
+    .Header-a {
+        width: 100%;
+        color: #fff;
+    }
+
+
+    .Header-ul.isVisible {
+        height: 10rem;
+        opacity: 1;
+    }
+
+}
+
+@media (max-width:1120px) {
+    .Footer {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        text-align: center;
+        /* gap: 2rem; */
+      }
+      .Footer-column--logo,
+      .Footer-column--info,
+      .Footer-column--links {
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .Footer-column--links {
+        text-align: center;
+      }
+    
+      .Footer-links {
+        padding: 0;
+      }
+    
+      .Footer-links li {
+        margin-bottom: 0.5rem;
+      }
+    
+      .Footer-up {
+        width: 6rem;
+      }
+}
+
+@media (max-width:875px) {
+    .Main{
+        padding: 3rem ;
+    }
+
+    .Acordeon-wrapper {
+        width: 90%;
+    }
+
+}
+
+@media (max-width:600px){
+    .Acordeon-wrapper {
+        width: 100%;
+    }
+
+    
+}
+
+
+
+@media (max-width:510px){
+
+
+    /* .Intro-p, .Scenario-p,.Footer-quote,
+    .Footer-copy {
+        font-size: 1rem
+    } */
+}
+
+
+
+

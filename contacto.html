@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contacto.css">
+    <script src="js/contacto.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <title>Hallazgos</title>
+</head>
+<body>
+    <header class="Header">
+        <picture>
+            <source srcset="assets/Logo.svg" type="image/svg+xml" >
+            <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100" height="100" fetchpriority="high">
+          </picture>
+
+        <!-- Importante: el boton antes que el nav!!! -->
+        <button class="Header-btn" title="Menú">
+            <svg class="Header-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+        </button>
+
+        <nav class="Header-nav">
+            <ul class="Header-ul">
+                <li class="Header-li"><a class="Header-a " href="index.html" title="Inicio">Explorador</a>
+                </li>
+                <li class="Header-li"><a class="Header-a" href="sobre-nosotros.html" title="Quienes somos">La Sociedad del Viento</a>
+                </li>
+                <li class="Header-li"><a class="Header-a" href="archivo.html" title="Archivo de Escenarios">Archivo de Escenarios</a>
+                </li>
+                <li class="Header-li"><a class="Header-a Header-a--selected" href="contacto.html" title="Contacto">Hallazgos</a></li>
+            </ul>
+        </nav>
+
+
+    </header>
+
+    <main class="Main">
+        <section class="Contact">
+            <h2 class="Contact-h1">Envía tu hallazgo</h2>
+            <p class="Contact-p">¿Has visto algo fuera de lugar? ¿Un reflejo, una estructura imposible, un lugar que no debería existir? Redacta aquí tu informe. Nuestro equipo de archivistas lo analizará con la discreción que merece.
+            </p>
+
+            <form class="Contact-form" action="#" method="post">
+                <label for="form-name">Nombre en clave*</label>
+                <input class="Contact-input" type="text" id="form-name" name="name" placeholder="Introduce tu nombre en clave" required>
+               
+                <label for="form-email">Canal de contacto*</label>
+                <input class="Contact-input" type="email" id="form-email" name="email" placeholder="Introduce el canal de contacto" required>
+
+                <label for="form-message">Mensaje*</label>
+                <textarea class="Contact-input" id="form-message" name="message" placeholder="Cuentanos más detalles sobre tu hallazgo" required></textarea>
+                <div class="Contact-privacy">
+                    <input class="Contact-checkbox" type="checkbox" name="privacidad" id="acepto" required>
+                    <label class="Contact-label--privacy" for="acepto">
+                        Autorizo a la Sociedad del Viento a custodiar este hallazgo. El archivo lo guardará en silencio. He leído y acepto la <a class="Contact-link" href="politica-confidencialidad.html">política de confidencialidad</a>.*
+                      </label>
+                    </div>
+                <button type="submit" class="Contact-btn" title="Eviar informe">Enviar informe</button>
+            </form>
+        </section>
+
+
+    </main>
+
+    <footer class="Footer">
+
+        <div class="Footer-column Footer-column--logo">
+            <a href="#" title="Ir arriba">
+                <picture>
+                    <source srcset="assets/flecha.png" type="image/svg+xml">
+                    <img class="Footer-up" src="assets/flecha.png" alt="Logo de la Sociedad del Viento"  width="160" height="160" loading="lazy">
+                </picture>
+            </a>
+        </div>
+        
+        <div class="Footer-column Footer-column--info">
+            <div class="Footer-coordinates ">
+                LAT.93-13-13 / LON.-42-404 <span id="Popup-trigger" class="Footer-coordinates--trigger">X-973A</span>
+            </div>
+            <p class="Footer-quote">Aquí termina lo que puedes ver. Lo demás... permanece entre las sombras. </p>
+
+            <div class="Footer-copy">2025 © La Sociedad del Viento. Fragmentado por Irene Molina.
+            </div>
+        </div>
+        <div class="Footer-column Footer-column--links">
+            <h4 class="Footer-h4">Otros archivos de interés:</h4>
+            <ul class="Footer-links">
+                <li><a href="preguntas-no-autorizadas.html">Preguntas no autorizadas</a></li>
+                <li><a href="politica-confidencialidad.html">Política de confidencialidad</a></li>
+            </ul>
+        </div>
+
+    </footer>
+    <!-- POPUP -->
+    <div class="Popup">
+        <div class="Popup-wrapper">
+            <button class="Popup-btn">✕</button>
+            <div class="Popup-typewriter"></div>
+        </div>
+    </div>
+    <!-- Cursor  -->
+ <div class="Cursor"></div> 
+</body>
+</html>

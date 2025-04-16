@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/sobre-nosotros.css">
+    <script src="js/sobre-nosotros.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <title>La Sociedad del Viento</title>
+</head>
+
+
+
+<body>
+    <header class="Header">
+        <picture>
+            <source srcset="assets/Logo.svg" type="image/svg+xml" >
+            <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100"
+                height="100" fetchpriority="high" >
+        </picture>
+
+        <!-- Importante: el boton antes que el nav!!! -->
+        <button class="Header-btn" title="Menú">
+            <svg class="Header-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+        </button>
+
+        <nav class="Header-nav">
+            <ul class="Header-ul">
+                <li class="Header-li"><a class="Header-a " href="index.html" title="Inicio">Explorador</a>
+                </li>
+                <li class="Header-li"><a class="Header-a Header-a--selected" href="sobre-nosotros.html"
+                        title="Quienes somos">La Sociedad del Viento</a>
+                </li>
+                <li class="Header-li"><a class="Header-a" href="archivo.html" title="Archivo de Escenarios">Archivo de Escenarios</a>
+                </li>
+                <li class="Header-li"><a class="Header-a" href="contacto.html" title="Contacto">Hallazgos</a></li>
+            </ul>
+        </nav>
+
+
+    </header>
+
+    <main class="Main">
+        <section class="About">
+          <h1 class="About-h1">La Sociedad del Viento</h1>
+      
+          <p class="About-p">
+            Fundada en 1991 bajo un juramento de silencio, la Sociedad del Viento reúne a un grupo de cronistas,
+            cartógrafos y soñadores que dedican sus vidas a documentar lo que no debe ser encontrado.
+          </p>
+          <p class="About-p">
+            Los miembros de esta orden secreta no buscan fama ni verdad. Solo rastrean los fragmentos
+            dispersos de escenarios que el tiempo quiso borrar. Lugares que aparecen en visiones, pinturas antiguas,
+            relatos olvidados. Algunos creen que provienen de otras realidades. Otros... que son los ecos de mundos
+            destruidos.
+          </p>
+          <p class="About-p">
+            Algunos dicen que la Sociedad del Viento no tiene sede, que sus reuniones ocurren en lugares que solo existen durante ciertos atardeceres. Otros aseguran haber visto marcas talladas en árboles viejos, muros húmedos o páginas sueltas que aparecen en libros donde nunca debieron estar. Sea como sea, los rastros son escasos… y siempre ambiguos.
+          </p>
+          <p class="About-p">
+            Cada miembro tiene una función, aunque rara vez se revela. Están los que escuchan, los que trazan, los que custodian, y aquellos que simplemente sueñan. Todos comparten una misión: preservar la memoria de lo que no pertenece a este mundo. Y quizás, algún día, entender por qué ciertos escenarios se niegan a ser olvidados.
+          </p>
+          <p class="About-p">
+            Nadie conoce el número exacto de miembros. Se comunican mediante símbolos, notas cifradas y, a veces, sueños compartidos.
+            Si estás leyendo esto, es porque has sido contactado. Y tu mirada ya no es la misma.
+          </p>
+        </section>
+      
+        <section class="About-members">
+          <h2 class="About-members-h2">Miembros registrados</h2>
+          <p class="About-members-p">
+            Algunos rostros han sido capturados... aunque pocos los recuerdan. Estos son los exploradores cuyo rastro aún no ha sido borrado del todo.
+          </p>
+      
+          <div class="Members-list">
+            <article class="Members-card">
+              <img src="assets/cronista.png" alt="Ilustración de la Cronista del Olvido" class="Members-card-img">
+              <div class="Members-card-text">
+                <h3 class="Members-card-h3">La Cronista del Olvido</h3>
+                <p class="Members-card-p">
+                  Recoge los relatos susurrados por los que regresan de los escenarios perdidos. Su cuaderno nunca se llena, y lo que escribe desaparece con la tinta.
+                </p>
+              </div>
+            </article>
+      
+            <article class="Members-card">
+              <img src="assets/cartografo.png" alt="Ilustración del Cartógrafo Ciego" class="Members-card-img">
+              <div class="Members-card-text">
+                <h3 class="Members-card-h3">El Cartógrafo Ciego</h3>
+                <p class="Members-card-p">
+                  Ve más allá de lo visible. Dibuja mapas de lugares que aún no existen… pero que algún día existirán.
+                </p>
+              </div>
+            </article>
+      
+            <article class="Members-card">
+              <img src="assets/mensajero.png" alt="Ilustración del Mensajero Silente" class="Members-card-img">
+              <div class="Members-card-text">
+                <h3 class="Members-card-h3">El Mensajero Silente</h3>
+                <p class="Members-card-p">
+                  Lleva y recoge mensajes entre planos. Nadie ha oído su voz, pero su silbido atraviesa el sueño.
+                </p>
+              </div>
+            </article>
+      
+            <article class="Members-card ">
+              <img src="assets/visitante_2.png" alt="Ilustración del Explorador Recién Llegado" class="Members-card-img">
+              <div class="Members-card-text">
+                <h3 class="Members-card-h3 Members-card-h3--explorer">Tú (El Explorador Recién Llegado)</h3>
+                <p class="Members-card-p">
+                  Has sido invitado a este archivo porque algo en ti ha resonado con lo perdido. Bienvenido.
+                </p>
+              </div>
+            </article>
+          </div>
+      
+          <blockquote class="About-quote">
+            Donde otros miran, nosotros observamos.<br>
+            Donde otros olvidan, nosotros recordamos.<br>
+            Donde nadie ha estado… nosotros hemos escuchado el eco.<br>
+            <cite>Memoria Perdita Restituere</cite>
+          </blockquote>
+        </section>
+
+        <audio class="Sound-audio" src="assets/audio_codigo.mp3" loop preload="auto"></audio>
+
+        <button class="Sound-btn Sound-btn--ON isHidden" title="Desactivar sonido ambiente">🔊</button>
+        <button class="Sound-btn Sound-btn--OFF " title="Activar sonido ambiente">🔈</button>
+        
+
+
+      </main>
+
+    <footer class="Footer">
+
+        <div class="Footer-column Footer-column--logo">
+            <a href="#" title="Ir arriba">
+                <picture>
+                    <source srcset="assets/flecha.png" type="image/svg+xml">
+                    <img class="Footer-up" src="assets/flecha.png" alt="Logo de la Sociedad del Viento" width="160"
+                        height="160" loading="lazy">
+                </picture>
+            </a>
+        </div>
+
+        <div class="Footer-column Footer-column--info">
+            <div class="Footer-coordinates ">
+                LAT.93-13-13 / LON.-42-404 <span id="Popup-trigger" class="Footer-coordinates--trigger">X-973A</span>
+            </div>
+            <p class="Footer-quote">Aquí termina lo que puedes ver. Lo demás... permanece entre las sombras. </p>
+
+            <div class="Footer-copy">2025 © La Sociedad del Viento. Fragmentado por Irene Molina.
+            </div>
+        </div>
+        <div class="Footer-column Footer-column--links">
+            <h4 class="Footer-h4">Otros archivos de interés:</h4>
+            <ul class="Footer-links">
+                <li><a href="preguntas-no-autorizadas.html">Preguntas no autorizadas</a></li>
+                <li><a href="politica-confidencialidad.html">Política de confidencialidad</a></li>
+            </ul>
+        </div>
+
+    </footer>
+    <!-- POPUP -->
+    <div class="Popup">
+        <div class="Popup-wrapper">
+            <button class="Popup-btn">✕</button>
+            <div class="Popup-typewriter"></div>
+        </div>
+    </div>
+    <!-- Cursor  -->
+    <div class="Cursor"></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <script src="js/index.js" defer></script>
+    <title>Explorador de Escenarios Olvidados</title>
+</head>
+
+<body>
+
+    <div class="Herowrapper" id="Inicio">
+        <header class="Header">
+            <picture>
+                <source srcset="assets/Logo.svg" type="image/svg+xml" >
+                <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100" height="100" fetchpriority="high">
+              </picture>
+    
+            <!-- Importante: el boton antes que el nav!!! -->
+            <button class="Header-btn" title="Menú">
+                <svg class="Header-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+            </button>
+
+            <nav class="Header-nav">
+                <ul class="Header-ul">
+                    <li class="Header-li"><a class="Header-a Header-a--selected" href="index.html" title="Inicio">Explorador</a>
+                    </li>
+                    <li class="Header-li"><a class="Header-a" href="sobre-nosotros.html" title="Quienes somos">La Sociedad del Viento</a>
+                    </li>
+                    <li class="Header-li"><a class="Header-a" href="archivo.html" title="Archivo de Escenarios">Archivo de Escenarios</a>
+                    </li>
+                    <li class="Header-li"><a class="Header-a" href="contacto.html" title="Contacto">Hallazgos</a></li>
+                </ul>
+            </nav>
+
+
+        </header>
+
+        <section class="Hero" id="Hero">
+            <h1 class="Hero-title">Explorador de
+                <span class="Hero-title--span">Escenarios Olvidados</span>
+            </h1>
+            <div class="Hero-subtitle">
+                <p class="Hero-p">Dicen que hay lugares que no pueden encontrarse en los mapas. Fragmentos de mundos que
+                    existieron... o quizás nunca lo hicieron. Tú has sido elegido para acceder al archivo prohibido.</p>
+                <a href="#Intro" class="Hero-ancla">Comenzar exploración</a>
+            </div>
+        </section>
+
+    </div>
+
+    <main class="Main">
+
+        <section class="Intro" id="Intro">
+            <h2 class="Intro-h2">La Sociedad del Viento</h2>
+            <p class="Intro-p">Durante más de un siglo, un grupo de observadores silenciosos ha rastreado los lugares
+                que el mundo ha olvidado. Lugares que no aparecen en mapas, que no existen en fotografías... pero que
+                persisten en los sueños de quienes los vieron.</p>
+            <p class="Intro-p">Has cruzado el umbral.</p>
+            <p class="Intro-p">El aire es distinto aquí.</p>
+            <p class="Intro-p">La luz cae de forma extraña.</p>
+            <p class="Intro-p">No hay caminos. Solo huellas que nadie recuerda haber dejado.</p>
+            <p class="Intro-p">Los escenarios no se muestran.</p>
+            <p class="Intro-p">Se revelan.</p>
+            <p class="Intro-p">Uno a uno.</p>
+            <p class="Intro-p">Estas imágenes, clasificadas por la Sociedad del Viento, contienen fragmentos de
+                realidades que no deberían existir.</p>
+            <p class="Intro-p"><em>¿Quiénes somos, te preguntarás?</em></p>
+            <div class="Intro-btns">
+                <a href="sobre-nosotros.html" class="Intro-btn">Descubre más sobre la Sociedad</a>
+                <a href="#Scenario" class="Intro-ancla">Continúa explorando</a>
+            </div>
+
+            <div class="Intro-svg-magnet">
+                <svg class="Intro-svg Intro-svg--hex1">
+                    <use href="#icon-hex1"></use>
+                </svg>
+            </div>
+
+            <svg class="Intro-svg Intro-svg--hex2">
+                <use href="#icon-hex2"></use>
+            </svg>
+            <svg class="Intro-svg Intro-svg--cir1">
+                <use href="#icon-cir1"></use>
+            </svg>
+            <svg class="Intro-svg Intro-svg--cir2">
+                <use href="#icon-cir2"></use>
+            </svg>
+            <svg class="Intro-svg Intro-svg--tri1">
+                <use href="#icon-tri1"></use>
+            </svg>
+            <svg class="Intro-svg Intro-svg--tri2">
+                <use href="#icon-tri2"></use>
+            </svg>
+
+
+
+        </section>
+
+        <section class="Scenario" id="Scenario">
+            <h2 class="Scenario-h2">Archivo de Escenarios Olvidados</h2>
+            <p class="Scenario-p">Cada lugar aquí registrado es un susurro de otro tiempo. Algunos se desvanecieron sin
+                dejar rastro. Otros fueron enterrados por la historia, por la memoria… o por voluntad de alguien. Cada
+                imagen que verás ha sido recuperada, clasificada y archivada por miembros de la Sociedad del
+                Viento. Ahora, como nuevo explorador, puedes acceder a estos fragmentos.</p>
+            <p class="Scenario-p">Estúdialos. Recorre sus huellas.
+                si encuentras algo que no debería existir… puedes añadirlo al archivo.</p>
+            <div class="Scenario-list">
+                <div class="Scenario-card-wrapper">
+                    <article class="Scenario-card">
+
+                        <img src="assets/Escenario1.png" alt="Ciudad Suspendida" class="Scenario-card-img">
+                        <div class="Scenario-card-text">
+                            <h3 class="Scenario-card-h3">La Ciudad Suspendida</h3>
+                            <p class="Scenario-card-p">Entre dos acantilados sin nombre, los puentes flotan. Los
+                                habitantes desaparecieron hace siglos, pero las luces siguen encendiéndose al anochecer.
+                            </p>
+                            <a href="escenario_ciudad.html" class="Scenario-card-btn">Explorar escenario</a>
+                        </div>
+
+                    </article>
+                </div>
+                <div class="Scenario-card-wrapper">
+                    <article class="Scenario-card">
+                        <img src="assets/Escenario2.png" alt="La Biblioteca Infinita" class="Scenario-card-img">
+                        <div class="Scenario-card-text">
+                            <h3 class="Scenario-card-h3">La Biblioteca Infinita</h3>
+                            <p class="Scenario-card-p">Las estanterías crecen con los pensamientos olvidados de la
+                                humanidad. Algunos aseguran haber leído libros que narraban su propio futuro.</p>
+                            <a href="escenario_biblioteca.html" class="Scenario-card-btn">Explorar escenario</a>
+                        </div>
+
+                    </article>
+                </div>
+                <div class="Scenario-card-wrapper">
+                    <article class="Scenario-card">
+                        <img src="assets/Escenario3_1.png" alt="El Templo del Olvido" class="Scenario-card-img">
+                        <div class="Scenario-card-text">
+                            <h3 class="Scenario-card-h3">El Templo del Olvido</h3>
+                            <p class="Scenario-card-p">Quien cruza sus puertas pierde un recuerdo al azar. Nadie
+                                recuerda cómo llegó hasta allí ni por qué vuelve con lágrimas en los ojos.</p>
+                            <a href="escenario_templo.html" class="Scenario-card-btn">Explorar escenario</a>
+                        </div>
+
+                    </article>
+                </div>
+                <div class="Scenario-card-wrapper">
+                    <article class="Scenario-card">
+                        <img src="assets/Escenario4.png" alt="El Faro de los Días que No Fueron"
+                            class="Scenario-card-img">
+                        <div class="Scenario-card-text">
+                            <h3 class="Scenario-card-h3">El Faro del Silencio</h3>
+                            <p class="Scenario-card-p">Encendido solo una vez cada siglo. Dicen que guía a los viajeros
+                                perdidos... en sus propias vidas, atrapados entre lo que fue y lo que jamás sucedió.</p>
+                            <a href="escenario_faro.html" class="Scenario-card-btn">Explorar escenario</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="Scenario-btns">
+                <a href="archivo.html" class="Scenario-btn-scenarios">Descubre más escenarios</a>
+                <a href="contacto.html" class="Scenario-btn-contact">Enviar hallazgo</a>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <footer class="Footer">
+
+        <div class="Footer-column Footer-column--logo">
+            <a href="#" title="Ir arriba">
+                <picture>
+                    <source srcset="assets/flecha.png" type="image/svg+xml">
+                    <img class="Footer-up" src="assets/flecha.png" alt="Logo de la Sociedad del Viento"  width="160" height="160" loading="lazy">
+                </picture>
+            </a>
+        </div>
+
+        <div class="Footer-column Footer-column--info">
+            <div class="Footer-coordinates ">
+                LAT.93-13-13 / LON.-42-404 <span id="Popup-trigger" class="Footer-coordinates--trigger">X-973A</span>
+            </div>
+            <p class="Footer-quote">Aquí termina lo que puedes ver. Lo demás... permanece entre las sombras. </p>
+
+            <div class="Footer-copy">2025 © La Sociedad del Viento. Fragmentado por Irene Molina.
+            </div>
+        </div>
+        <div class="Footer-column Footer-column--links">
+            <h4 class="Footer-h4">Otros archivos de interés:</h4>
+            <ul class="Footer-links">
+                <li><a href="preguntas-no-autorizadas.html">Preguntas no autorizadas</a></li>
+                <li><a href="politica-confidencialidad.html">Política de confidencialidad</a></li>
+            </ul>
+        </div>
+
+    </footer>
+    <!-- POPUP -->
+    <div class="Popup">
+        <div class="Popup-wrapper">
+            <button class="Popup-btn">✕</button>
+            <div class="Popup-typewriter"></div>
+        </div>
+    </div>
+    <!-- Cursor  -->
+    <div class="Cursor"></div>
+
+    <!-- Definicion de SVGs  -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-definition" width="78" height="67" viewBox="0 0 78 67"
+        fill="none">
+        <symbol id="icon-hex1" viewBox="0 0 78 67" fill="none">
+            <path
+                d="M57.9515 66.9169H19.3166L19.0836 66.5136L0 33.459L19.3166 0H57.9515L58.1833 0.403877L77.268 33.4584L57.9515 66.9169ZM20.2475 65.3047H57.0206L75.4057 33.4595L57.0206 1.61436H20.2475L1.86121 33.4595L20.2475 65.3047Z"
+                fill="white" />
+            <path
+                d="M54.9017 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9017L71.1716 33.459L54.9017 61.6367ZM23.2967 60.0245H53.972L69.3087 33.459L53.972 6.89337H23.2967L7.95885 33.459L23.2967 60.0245Z"
+                fill="currentcolor" />
+            <path
+                d="M23.4323 48.3053C15.2452 48.3053 8.58594 41.6449 8.58594 33.4578C8.58594 25.2718 15.2452 18.6125 23.4323 18.6125C31.6194 18.6125 38.2798 25.2718 38.2798 33.4578C38.2798 41.6449 31.6194 48.3053 23.4323 48.3053ZM23.4323 20.2252C16.135 20.2252 10.1986 26.1617 10.1986 33.4584C10.1986 40.7567 16.135 46.6932 23.4323 46.6932C30.7296 46.6932 36.6671 40.7567 36.6671 33.4584C36.6677 26.1617 30.7301 20.2252 23.4323 20.2252Z"
+                fill="currentcolor" />
+            <path
+                d="M31.5291 61.6367C23.342 61.6367 16.6816 54.9763 16.6816 46.7893C16.6816 38.6033 23.342 31.9429 31.5291 31.9429C39.7162 31.9429 46.3766 38.6033 46.3766 46.7893C46.3766 54.9763 39.7162 61.6367 31.5291 61.6367ZM31.5291 33.5555C24.2308 33.5555 18.2943 39.4931 18.2943 46.7898C18.2943 54.0882 24.2308 60.0246 31.5291 60.0246C38.8264 60.0246 44.7639 54.0882 44.7639 46.7898C44.7639 39.4931 38.8264 33.5555 31.5291 33.5555Z"
+                fill="currentcolor" />
+            <path
+                d="M46.3796 61.6367C38.1936 61.6367 31.5332 54.9763 31.5332 46.7893C31.5332 38.6033 38.1936 31.9429 46.3796 31.9429C54.5667 31.9429 61.2282 38.6033 61.2282 46.7893C61.2276 54.9763 54.5661 61.6367 46.3796 61.6367ZM46.3796 33.5555C39.0823 33.5555 33.1459 39.4931 33.1459 46.7898C33.1459 54.0882 39.0823 60.0246 46.3796 60.0246C53.6779 60.0246 59.6149 54.0882 59.6149 46.7898C59.6144 39.4931 53.6779 33.5555 46.3796 33.5555Z"
+                fill="white" />
+            <path
+                d="M53.5135 48.3053C45.3264 48.3053 38.666 41.6449 38.666 33.4578C38.666 25.2718 45.3264 18.6125 53.5135 18.6125C61.7006 18.6125 68.361 25.2718 68.361 33.4578C68.361 41.6449 61.7006 48.3053 53.5135 48.3053ZM53.5135 20.2252C46.2163 20.2252 40.2793 26.1617 40.2793 33.4584C40.2793 40.7567 46.2157 46.6932 53.5135 46.6932C60.8108 46.6932 66.7483 40.7567 66.7483 33.4584C66.7483 26.1617 60.8108 20.2252 53.5135 20.2252Z"
+                fill="white" />
+            <path
+                d="M45.5701 34.9751C37.3831 34.9751 30.7227 28.3147 30.7227 20.1276C30.7227 11.9417 37.3831 5.28125 45.5701 5.28125C53.7561 5.28125 60.4176 11.9417 60.4176 20.1276C60.4176 28.3147 53.7561 34.9751 45.5701 34.9751ZM45.5701 6.89337C38.2718 6.89337 32.3353 12.8298 32.3353 20.1276C32.3353 27.426 38.2718 33.3613 45.5701 33.3613C52.8663 33.3613 58.8044 27.426 58.8044 20.1276C58.8044 12.8304 52.8668 6.89337 45.5701 6.89337Z"
+                fill="white" />
+            <path
+                d="M31.5291 34.9751C23.342 34.9751 16.6816 28.3147 16.6816 20.1276C16.6816 11.9417 23.342 5.28125 31.5291 5.28125C39.7162 5.28125 46.3766 11.9417 46.3766 20.1276C46.3766 28.3147 39.7162 34.9751 31.5291 34.9751ZM31.5291 6.89337C24.2308 6.89337 18.2943 12.8298 18.2943 20.1276C18.2943 27.426 24.2308 33.3613 31.5291 33.3613C38.8264 33.3613 44.7639 27.426 44.7639 20.1276C44.7639 12.8304 38.8264 6.89337 31.5291 6.89337Z"
+                fill="white" />
+            <path
+                d="M38.6346 48.3053C30.4475 48.3053 23.7871 41.6449 23.7871 33.4578C23.7871 25.2718 30.4475 18.6125 38.6346 18.6125C46.8206 18.6125 53.4821 25.2718 53.4821 33.4578C53.4815 41.6449 46.8206 48.3053 38.6346 48.3053ZM38.6346 20.2252C31.3373 20.2252 25.3998 26.1617 25.3998 33.4584C25.3998 40.7567 31.3373 46.6932 38.6346 46.6932C45.9319 46.6932 51.87 40.7567 51.87 33.4584C51.8694 26.1617 45.9319 20.2252 38.6346 20.2252Z"
+                fill="white" />
+            <path d="M24.7013 7.89869L23.3047 8.7041L30.8403 21.7707L32.2368 20.9653L24.7013 7.89869Z" fill="white" />
+            <path d="M52.3995 7.88163L45.3672 21.1504L46.7926 21.9059L53.825 8.63711L52.3995 7.88163Z" fill="white" />
+            <path d="M67.5546 32.6519H52.6738V34.2651H67.5546V32.6519Z" fill="white" />
+            <path d="M24.592 32.6519H9.39062V34.2651H24.592V32.6519Z" fill="white" />
+            <path d="M30.8403 45.1686L23.2988 58.2346L24.6951 59.0405L32.2366 45.9745L30.8403 45.1686Z" fill="white" />
+            <path d="M47.0655 45.6089L45.6543 46.3904L52.7876 59.2727L54.1988 58.4912L47.0655 45.6089Z" fill="white" />
+        </symbol>
+    </svg>
+
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="78" height="67" viewBox="0 0 78 67"
+        fill="none">
+        <symbol id="icon-hex2" viewBox="0 0 78 67" fill="none">
+            <path
+                d="M57.9504 66.9169H19.3166L19.0836 66.5135L0 33.4584L19.3166 0H57.9504L58.1834 0.40331L77.268 33.4584L57.9504 66.9169ZM20.2475 65.3042H57.0206L75.4057 33.4584L57.0206 1.61268H20.2475L1.86123 33.4584L20.2475 65.3042Z"
+                fill="white" />
+            <path
+                d="M54.9028 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9028L71.1705 33.459L54.9028 61.6367ZM23.2967 60.024H53.9719L69.3088 33.459L53.9719 6.89337H23.2967L7.95997 33.459L23.2967 60.024Z"
+                fill="white" />
+            <path
+                d="M54.9028 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9028L71.1705 33.459L54.9028 61.6367ZM23.2967 60.024H53.9719L69.3088 33.459L53.9719 6.89337H23.2967L7.95997 33.459L23.2967 60.024Z"
+                fill="white" />
+            <path d="M23.5297 5.68408L22.1328 6.49014L31.1121 22.0433L32.2932 20.8628L23.5297 5.68408Z" fill="white" />
+            <path d="M55.1355 60.4272L46.296 45.116L44.8281 45.7989L53.7386 61.2333L55.1355 60.4272Z" fill="white" />
+            <path d="M22.1328 60.4273L23.5297 61.2334L32.3431 45.9687L30.888 45.2642L22.1328 60.4273Z" fill="white" />
+            <path d="M53.7389 5.68408L44.6875 21.3615L46.2009 21.9662L55.1358 6.49014L53.7389 5.68408Z" fill="white" />
+            <path d="M25.1457 32.6523H7.02734V34.265H25.1457V32.6523Z" fill="white" />
+            <path d="M70.2401 32.6523H52.4336V34.265H70.2401V32.6523Z" fill="white" />
+            <path
+                d="M46.302 46.741H30.9647L23.2969 33.459L30.9647 20.1765H46.3015L53.9693 33.459L46.302 46.741ZM31.8956 45.1278H45.3712L52.1087 33.4585L45.3712 21.7886H31.8956L25.1586 33.4585L31.8956 45.1278Z"
+                fill="white" />
+            <path d="M23.4126 33.4158L22.0176 60.7874L23.6276 60.8694L25.0226 33.4979L23.4126 33.4158Z" fill="white" />
+            <path d="M54.1432 33.4017L52.5332 33.4839L53.931 60.8554L55.541 60.7732L54.1432 33.4017Z" fill="white" />
+            <path d="M53.7817 6.57966L52.3867 33.9512L53.9967 34.0332L55.3918 6.66171L53.7817 6.57966Z" fill="white" />
+            <path d="M23.4914 6.56326L21.8809 6.64551L23.2786 34.017L24.8892 33.9348L23.4914 6.56326Z" fill="white" />
+            <path d="M23.9688 5.92898L23.0957 7.28491L45.4036 21.6492L46.2767 20.2933L23.9688 5.92898Z" fill="white" />
+            <path d="M45.4341 46.4656L22.9785 60.1536L23.8179 61.5306L46.2735 47.8427L45.4341 46.4656Z" fill="white" />
+            <path d="M62.4064 20.4672L52.6504 32.9441L53.9204 33.9372L63.6764 21.4602L62.4064 20.4672Z" fill="white" />
+            <path d="M14.8626 20.494L13.6074 21.5056L22.9044 33.0412L24.1595 32.0297L14.8626 20.494Z" fill="white" />
+            <path d="M23.3626 33.0671L14.8359 47.8306L16.2324 48.6371L24.759 33.8736L23.3626 33.0671Z" fill="white" />
+            <path d="M53.8147 33.4523L52.5996 34.512L62.4493 45.8062L63.6643 44.7466L53.8147 33.4523Z" fill="white" />
+            <path d="M40.6403 5.78144L39.1523 6.40161L45.0778 20.6184L46.5658 19.9982L40.6403 5.78144Z" fill="white" />
+            <path d="M45.0896 47.2325L40.3086 60.563L41.8276 61.1078L46.6087 47.7773L45.0896 47.2325Z" fill="white" />
+        </symbol>
+    </svg>
+
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 77 77"
+        fill="none">
+        <symbol id="icon-cir1" viewBox="0 0 78 67" fill="none">
+            <path
+                d="M54.5454 66.4545H22.0084L5.74023 38.2768L22.0084 10.0991H54.5454L70.8136 38.2768L54.5454 66.4545ZM22.9393 64.8419H53.614L68.9513 38.2763L53.614 11.7107H22.9393L7.602 38.2768L22.9393 64.8419Z"
+                fill="white" />
+            <path
+                d="M38.2769 70.7702C20.36 70.7702 5.7832 56.1934 5.7832 38.2765C5.7832 20.359 20.36 5.78223 38.2769 5.78223C56.1944 5.78223 70.7712 20.359 70.7712 38.2765C70.7712 56.1934 56.1944 70.7702 38.2769 70.7702ZM38.2769 7.39489C21.2492 7.39489 7.39588 21.2483 7.39588 38.277C7.39588 55.3047 21.2492 69.1586 38.2769 69.1586C55.3051 69.1586 69.1585 55.3047 69.1585 38.277C69.1585 21.2483 55.3051 7.39489 38.2769 7.39489Z"
+                fill="white" />
+            <path
+                d="M38.2759 76.5524C17.1708 76.5524 0 59.3822 0 38.2765C0 17.1708 17.1708 0 38.2759 0C59.3822 0 76.5524 17.1702 76.5524 38.2765C76.5524 59.3822 59.3822 76.5524 38.2759 76.5524ZM38.2759 1.61268C18.0601 1.61268 1.61267 18.0595 1.61267 38.2765C1.61267 58.4929 18.0601 74.9403 38.2759 74.9403C58.4929 74.9403 74.9397 58.4929 74.9397 38.2765C74.9397 18.0601 58.4929 1.61268 38.2759 1.61268Z"
+                fill="white" />
+            <path d="M52.9901 10.4053L43.9043 26.6003L45.2873 27.4302L54.3958 11.1941L52.9901 10.4053Z" fill="white" />
+            <path d="M25.0183 37.47H6.58984V39.0821H25.0183V37.47Z" fill="white" />
+            <path d="M69.9665 37.47H51.2695V39.0821H69.9665V37.47Z" fill="white" />
+            <path d="M21.6094 65.2419L23.0024 66.0546L32.294 50.1303L30.8028 49.4868L21.6094 65.2419Z" fill="white" />
+            <path d="M54.7802 65.245L45.5263 49.2175L44.0762 49.9304L53.3833 66.0516L54.7802 65.245Z" fill="white" />
+            <path d="M23.8127 10.2153L22.9707 11.5901L45.2308 25.2233L46.0728 23.8485L23.8127 10.2153Z" fill="white" />
+            <path d="M53.976 11.7339H52.3633V38.2767H53.976V11.7339Z" fill="white" />
+            <path d="M68.3579 38.3916L45.7852 51.271L46.5844 52.6718L69.1572 39.7923L68.3579 38.3916Z" fill="white" />
+            <path d="M30.6931 51.2583L29.8848 52.6531L52.7623 65.911L53.5706 64.5162L30.6931 51.2583Z" fill="white" />
+            <path d="M22.5749 38.251L21.498 64.0527L23.1087 64.12L24.1856 38.3182L22.5749 38.251Z" fill="white" />
+            <path d="M30.4176 24.6916L7.14453 37.5676L7.92522 38.9787L31.1983 26.1027L30.4176 24.6916Z" fill="white" />
+            <path
+                d="M38.2769 53.9741C29.6216 53.9741 22.5801 46.932 22.5801 38.2767C22.5801 29.6209 29.6216 22.5793 38.2769 22.5793C46.9327 22.5793 53.9748 29.6214 53.9748 38.2767C53.9748 46.932 46.9327 53.9741 38.2769 53.9741ZM38.2769 24.1915C30.5109 24.1915 24.1922 30.5101 24.1922 38.2767C24.1922 46.0427 30.5109 52.362 38.2769 52.362C46.044 52.362 52.3621 46.0433 52.3621 38.2767C52.3621 30.5101 46.0435 24.1915 38.2769 24.1915Z"
+                fill="white" />
+            <path
+                d="M45.5861 50.9346H30.9699L23.6621 38.2767L30.9699 25.6189H45.5861L52.8939 38.2767L45.5861 50.9346ZM31.9013 49.3219H44.6546L51.0321 38.2767L44.6546 27.231H31.9013L25.5244 38.2767L31.9013 49.3219Z"
+                fill="white" />
+            <path
+                d="M42.6866 45.9112H33.871L29.4629 38.2766L33.871 30.6421H42.6866L47.0941 38.2766L42.6866 45.9112ZM34.8019 44.2985H41.7557L45.2324 38.2766L41.7557 32.2548H34.8019L31.3252 38.2766L34.8019 44.2985Z"
+                fill="white" />
+        </symbol>
+    </svg>
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 77 77"
+        fill="none">
+        <symbol id="icon-cir2" viewBox="0 0 78 67" fill="none">
+            <path
+                d="M38.2764 70.7702C20.3594 70.7702 5.7832 56.1934 5.7832 38.2759C5.7832 20.3584 20.3594 5.78223 38.2764 5.78223C56.1944 5.78223 70.7706 20.359 70.7706 38.2759C70.7706 56.1929 56.1939 70.7702 38.2764 70.7702ZM38.2764 7.39489C21.2493 7.39489 7.39533 21.2482 7.39533 38.2765C7.39533 55.3047 21.2493 69.1586 38.2764 69.1586C55.3046 69.1586 69.1585 55.3047 69.1585 38.2765C69.1585 21.2482 55.3046 7.39489 38.2764 7.39489Z"
+                fill="white" />
+            <path
+                d="M38.2759 76.5524C17.1703 76.5524 0 59.3816 0 38.2759C0 17.1703 17.1703 0 38.2759 0C59.3827 0 76.5518 17.1703 76.5518 38.2759C76.5518 59.3816 59.3822 76.5524 38.2759 76.5524ZM38.2759 1.61268C18.0601 1.61268 1.61212 18.0595 1.61212 38.2759C1.61212 58.4923 18.0595 74.9397 38.2759 74.9397C58.4929 74.9397 74.9397 58.4923 74.9397 38.2759C74.9397 18.0595 58.4929 1.61268 38.2759 1.61268Z"
+                fill="white" />
+            <path
+                d="M64.574 56.8814H12.437C12.1529 56.8814 11.8911 56.7327 11.7446 56.4892C11.5993 56.2462 11.5932 55.9444 11.7263 55.6942L37.7954 7.05269C37.9352 6.79085 38.2082 6.6272 38.505 6.6272C38.8029 6.6272 39.0758 6.79085 39.2156 7.05269L65.2847 55.6942C65.4178 55.9444 65.4117 56.2462 65.2653 56.4892C65.1199 56.7327 64.857 56.8814 64.574 56.8814ZM13.7834 55.2687H63.2271L38.5044 9.14024L13.7834 55.2687Z"
+                fill="white" />
+            <path
+                d="M56.0882 65.3748C55.9584 65.3748 55.8269 65.3431 55.7077 65.2793L7.06556 39.2108C6.80427 39.0705 6.64062 38.7975 6.64062 38.5002C6.64062 38.2034 6.80427 37.9299 7.06556 37.7895L55.7077 11.7216C55.9579 11.5868 56.2602 11.5945 56.5032 11.7404C56.7461 11.8858 56.8954 12.1482 56.8954 12.4322V64.5687C56.8954 64.8522 56.7456 65.1151 56.5032 65.2605C56.3756 65.3365 56.2324 65.3748 56.0882 65.3748ZM9.15365 38.5002L55.2816 63.2217V13.7786L9.15365 38.5002Z"
+                fill="white" />
+            <path
+                d="M20.4604 65.3748C20.3161 65.3748 20.173 65.3371 20.0454 65.2605C19.8024 65.1152 19.6543 64.8522 19.6543 64.5687V12.4323C19.6543 12.1488 19.803 11.8858 20.0454 11.7405C20.2895 11.5951 20.5913 11.5868 20.8409 11.7216L69.483 37.7896C69.7443 37.9299 69.9091 38.2034 69.9091 38.5002C69.9091 38.7976 69.7443 39.0705 69.483 39.2109L20.8409 65.2794C20.7228 65.3437 20.5918 65.3748 20.4604 65.3748ZM21.2664 13.7786V63.2218L67.3944 38.5002L21.2664 13.7786Z"
+                fill="white" />
+            <path
+                d="M38.505 69.9254C38.2082 69.9254 37.9352 69.7617 37.7954 69.4999L11.7263 20.8578C11.5932 20.6081 11.5993 20.3063 11.7446 20.0628C11.8911 19.8198 12.1529 19.6711 12.437 19.6711H64.574C64.857 19.6711 65.1199 19.8198 65.2653 20.0628C65.4117 20.3063 65.4178 20.6081 65.2847 20.8578L39.2156 69.4999C39.0758 69.7617 38.8029 69.9254 38.505 69.9254ZM13.7834 21.2838L38.505 67.4123L63.2277 21.2838H13.7834Z"
+                fill="white" />
+            <path d="M55.0346 37.47H45.3652L45.404 39.0821L55.0346 39.0826V37.47Z" fill="white" />
+            <path d="M50.0768 28.6084L48.9911 27.4167L43.291 32.6126L44.2868 33.8869L50.0768 28.6084Z" fill="white" />
+            <path d="M37.4688 55.0108L39.0825 55.033L39.2057 46.1042L37.5925 46.1758L37.4688 55.0108Z" fill="white" />
+            <path d="M49.7662 48.5978L44.4599 43.3032L43.1562 44.2807L48.6273 49.7395L49.7662 48.5978Z" fill="white" />
+            <path d="M27.4141 48.9574L28.5813 50.0702L33.979 44.4111L32.8923 43.2151L27.4141 48.9574Z" fill="white" />
+            <path d="M22.4824 37.6941V39.3068H30.9469L30.6107 37.6941H22.4824Z" fill="white" />
+            <path d="M28.2307 27.0967L27.0918 28.2378L32.099 33.24L33.294 32.1555L28.2307 27.0967Z" fill="white" />
+            <path d="M39.3113 22.1016H37.6992V30.7607L39.3113 30.6204V22.1016Z" fill="white" />
+            <path
+                d="M38.2758 46.8424C33.5526 46.8424 29.7109 42.9996 29.7109 38.2764C29.7109 33.5527 33.5532 29.7104 38.2758 29.7104C43.0001 29.7104 46.8429 33.5527 46.8429 38.2764C46.8429 42.9996 42.9996 46.8424 38.2758 46.8424ZM38.2758 31.322C34.4425 31.322 31.3219 34.4414 31.3219 38.2759C31.3219 42.1104 34.4425 45.2292 38.2758 45.2292C42.1103 45.2292 45.2297 42.1098 45.2297 38.2759C45.2297 34.442 42.1103 31.322 38.2758 31.322Z"
+                fill="white" />
+        </symbol>
+    </svg>
+
+
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="73" height="68" viewBox="0 0 73 68"
+        fill="none">
+        <symbol id="icon-tri1" viewBox="0 0 78 67" fill="none">
+            <path
+                d="M62.2311 62.1471H10.0951C9.81111 62.1471 9.54871 61.9984 9.40336 61.7549C9.25802 61.5119 9.2508 61.2101 9.3845 60.9605L35.453 12.3173C35.5934 12.0549 35.8663 11.8923 36.1631 11.8923C36.461 11.8923 36.7334 12.0549 36.8743 12.3173L62.9423 60.9605C63.0765 61.2095 63.0693 61.5119 62.9234 61.7549C62.777 61.999 62.514 62.1471 62.2311 62.1471ZM11.441 60.535H60.8836L36.162 14.4059L11.441 60.535Z"
+                fill="white" />
+            <path
+                d="M71.5225 67.5898H0.80608C0.5226 67.5898 0.259645 67.4411 0.114299 67.1976C-0.031047 66.9546 -0.0382569 66.6528 0.0954392 66.4032L35.4539 0.424955C35.5943 0.163665 35.8672 0 36.164 0C36.4619 0 36.7343 0.163665 36.8752 0.424955L72.2337 66.4032C72.3679 66.6522 72.3607 66.9546 72.2142 67.1976C72.0689 67.4411 71.8059 67.5898 71.5225 67.5898ZM2.15247 65.9771H70.1755L36.164 2.51306L2.15247 65.9771Z"
+                fill="white" />
+            <path d="M36.9715 12.699H35.3594V61.3411H36.9715V12.699Z" fill="white" />
+            <path d="M50.4977 39.4268L9.72461 60.6313L10.4687 62.0621L51.2418 40.8575L50.4977 39.4268Z" fill="white" />
+            <path d="M21.3648 39.4292L20.6211 40.8596L61.3988 62.0596L62.1425 60.6292L21.3648 39.4292Z" fill="white" />
+            <path
+                d="M36.4219 61.7444C27.7577 61.7444 20.709 54.6962 20.709 46.0315C20.709 37.3679 27.7577 30.3186 36.4219 30.3186C45.0861 30.3186 52.1348 37.3679 52.1348 46.0315C52.1348 54.6957 45.0861 61.7444 36.4219 61.7444ZM36.4219 31.9313C28.6464 31.9313 22.3217 38.2555 22.3217 46.0309C22.3217 53.8064 28.647 60.1317 36.4219 60.1317C44.1968 60.1317 50.5221 53.8064 50.5221 46.0309C50.5221 38.256 44.1968 31.9313 36.4219 31.9313Z"
+                fill="white" />
+            <path
+                d="M36.1644 48.5944C36.1611 48.5944 36.1572 48.5944 36.1539 48.5944C35.8648 48.59 35.6002 48.4318 35.4598 48.1794L27.6777 34.1868L29.0874 33.4024L36.186 46.1673L43.825 33.2532L45.213 34.0742L36.8589 48.1989C36.7136 48.4441 36.449 48.5944 36.1644 48.5944Z"
+                fill="white" />
+            <path d="M50.8705 47.3162H22.2168V48.9283H50.8705V47.3162Z" fill="white" />
+            <path
+                d="M42.9097 59.5497L36.1905 49.2956L29.9506 59.527L28.5742 58.6882L35.4776 47.3679C35.6218 47.1316 35.8765 46.9862 36.1527 46.9812C36.4473 46.9823 36.6886 47.1144 36.8401 47.3462L44.2594 58.6655L42.9097 59.5497Z"
+                fill="white" />
+        </symbol>
+    </svg>
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="75" height="71" viewBox="0 0 75 71"
+        fill="none">
+        <symbol id="icon-tri2" viewBox="0 0 78 67" fill="none">
+            <path
+                d="M37.5006 57.7554C37.1928 57.7554 36.9098 57.5857 36.7648 57.3125L9.73401 6.87491C9.5948 6.61547 9.60287 6.30312 9.75301 6.05001C9.90487 5.79748 10.1764 5.64331 10.4709 5.64331H64.5325C64.8259 5.64331 65.0986 5.79748 65.2493 6.05001C65.4 6.30254 65.4075 6.6149 65.2683 6.87491L38.2375 57.3125C38.0925 57.5857 37.8095 57.7554 37.5006 57.7554ZM11.8659 7.31612L37.5006 55.149L63.1358 7.31612H11.8659Z"
+                fill="white" />
+            <path
+                d="M37.4998 70.0862C37.1921 70.0862 36.909 69.9165 36.764 69.6444L0.0984779 1.23161C-0.0395811 0.972178 -0.0321184 0.658657 0.118596 0.406699C0.26931 0.154166 0.540845 0 0.835371 0H74.1648C74.4582 0 74.7297 0.154166 74.8816 0.406699C75.0323 0.658657 75.0398 0.971603 74.9005 1.23161L38.2367 69.6444C38.0917 69.9165 37.8087 70.0862 37.4998 70.0862ZM2.23206 1.67225L37.4998 67.4804L72.7687 1.67225H2.23206Z"
+                fill="white" />
+            <path d="M52.1784 27.9121H22.0781V29.5838H52.1784V27.9121Z" fill="white" />
+            <path d="M38.3338 28.1726H36.6621V32.667H38.3338V28.1726Z" fill="white" />
+            <path
+                d="M37.4998 29.0086C37.3123 29.0086 37.1258 28.9459 36.9705 28.8211L10.6484 7.33566L11.7057 6.04136L37.5021 27.0954L63.796 5.8291L64.8475 7.1303L38.0256 28.8234C37.8725 28.9471 37.6862 29.0086 37.4998 29.0086Z"
+                fill="white" />
+            <path
+                d="M48.9741 18.2387L37.1367 7.68751L25.6421 18.2306L24.5117 16.9979L36.5637 5.94336C36.8806 5.65459 37.3644 5.65114 37.6849 5.93646L50.0866 16.9898L48.9741 18.2387Z"
+                fill="white" />
+            <path
+                d="M37.4989 48.5831C37.1923 48.5831 36.9081 48.4145 36.7632 48.1413L28.8098 33.3005C28.6718 33.0422 28.6781 32.7299 28.8299 32.4768C28.9807 32.2242 29.2522 32.0701 29.5467 32.0701H45.4534C45.7479 32.0701 46.0194 32.2242 46.1713 32.4768C46.3232 32.7299 46.3295 33.0417 46.1914 33.3005L38.237 48.1413C38.0908 48.4145 37.8078 48.5831 37.4989 48.5831ZM30.9428 33.7423L37.4989 45.9778L44.0567 33.7423H30.9428Z"
+                fill="white" />
+            <path d="M38.3338 47.7471H36.6621V56.1445H38.3338V47.7471Z" fill="white" />
+            <path d="M51.7473 28.2987L45.0254 32.1653L45.8589 33.6143L52.5808 29.7477L51.7473 28.2987Z" fill="white" />
+            <path d="M23.4343 28.3295L22.5859 29.77L29.1454 33.6332L29.9938 32.1927L23.4343 28.3295Z" fill="white" />
+            <path d="M63.6725 5.74927L43.3516 11.4792L43.8054 13.0888L64.1263 7.35881L63.6725 5.74927Z" fill="white" />
+            <path d="M12.3498 6.06581L11.8867 7.67212L30.6439 13.0793L31.1069 11.473L12.3498 6.06581Z" fill="white" />
+            <path
+                d="M37.2252 25.5605C32.6997 25.5605 29.0176 21.8789 29.0176 17.3529C29.0176 12.8274 32.6991 9.14526 37.2252 9.14526C41.7512 9.14526 45.4328 12.8268 45.4328 17.3529C45.4328 21.8789 41.7506 25.5605 37.2252 25.5605ZM37.2252 10.8175C33.6218 10.8175 30.6898 13.749 30.6898 17.3529C30.6898 20.9562 33.6224 23.8882 37.2252 23.8882C40.8285 23.8882 43.7605 20.9556 43.7605 17.3529C43.7605 13.749 40.8285 10.8175 37.2252 10.8175Z"
+                fill="white" />
+        </symbol>
+    </svg>
+</body>
+
+</html>
