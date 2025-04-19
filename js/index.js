@@ -1,157 +1,155 @@
+/** index.js - Explorador de Escenarios Olvidados.
+ * ----------------------------------------------------------------------
+ * Script principal de la página de inicio.
+ * Este archivo gestiona la interactividad de la home, incluyendo:
+ * - Menú responsive: permite mostrar u ocultar la navegación principal en dispositivos móviles.
+ * - Animaciones con Intersection Observer: aplica efectos visuales cuando los elementos entran en el viewport al hacer scroll.
+ * - Popup interactivo con efecto máquina de escribir: muestra un mensaje narrativo al hacer clic en un disparador secreto.
+ * - Cursor personalizado: sustituye el cursor tradicional por uno visual animado que responde a clics y elementos interactivos.
+ */
 
+"use strict";
 
-'use strict';
+// IIFE → Encapsula todo el script en una función IIFE
+(() => {
+  // ==========================
+  // VARIABLES Y SELECTORES
+  // ==========================
 
+  // Constantes del  Menú responsive
+  const boton = document.querySelector(".Header-btn")         // Botón que abre/cierra el menú
+  const headerUL = document.querySelector(".Header-ul")       // Lista de enlaces de navegación
 
+  //Constantes del Intersection Observer
+  const elementosAnimados = document.querySelectorAll(".Intro-p, .Scenario-p, .Scenario-card-wrapper, .Intro-btns, .Scenario-btns")
 
+  //Constantes del Popup interactivo
+  const overlay = document.querySelector(".Popup")
+  const trigger = document.getElementById("Popup-trigger")    // Elemento que activa el popup
+  const closeBtn = overlay.querySelector(".Popup-btn")        // Botón de cierre
+  const output = overlay.querySelector(".Popup-typewriter")   // Botón de cierre
 
-// Menu
+  //Constantes del Cursor personalizado
+  const cursor = document.querySelector(".Cursor")
+  const botones = document.querySelectorAll(".Hero-ancla, .Header-a, .Intro-btn, .Intro-ancla, .Scenario-card-btn, .Scenario-btn-scenarios, .Scenario-btn-contact, .Footer-up, .Footer-links, .Footer-coordinates--trigger")
 
-const boton = document.querySelector(`.Header-btn`)
-const headerUL = document.querySelector(`.Header-ul`)
+  // ==========================
+  // FUNCIONES
+  // ==========================
 
-console.log({ boton, headerUL })
+  // MENÚ RESPONSIVE
+    //Función handler que se ejecuta para alternar la visibilidad en el menú responsive
+  const handleMenuToggle = () => {
+    boton.classList.toggle("isOpen")
+    headerUL.classList.toggle("isVisible")
+  }
 
+  //  INTERSECTION OBSERVER
+    //  Aplica animaciones al hacer scroll cuando los elementos entran en el viewport.
 
-    boton.addEventListener(`click`, () =>{
-        boton.classList.toggle(`isOpen`)
-        headerUL.classList.toggle(`isVisible`);   
-})
+   // Opciones del observer
+  const observerOptions = {
+    threshold: [0, 0.1], // Se activa cuando se ve al menos un 10% del elemento
+    rootMargin: "0px 0px -20px 0px", // Ajusta el área del viewport para activar antes
+  }
 
+    // Callback del observer (función que se ejecuta al observar un elemento)
+  const handleIntersection = (entries) => {
+    entries.forEach(
+      ({ isIntersecting, target }) =>
+        isIntersecting && target.classList.add("isVisible") // Añade la clase si entra en pantall
+    )
+  }
 
+  const observer = new IntersectionObserver(
+    handleIntersection,
+    observerOptions
+  )
+  elementosAnimados.forEach((el) => observer.observe(el))
 
+  // POPUP INTERACTIVO CON EFECTO MÁQUINA DE ESCRIBIR
+    // Muestra un mensaje secreto frase por frase simulando el efecto de una máquina de escribir.
+    // (Este bloque fue desarrollado con ayuda de ChatGPT para mejorar la experiencia inmersiva).
+    // Frases que se mostrarán dentro del popup
+  const frases = [
+    "Acceso no autorizado.",
+    "Validando clave X-973A...",
+    "Clave aceptada.",
+    "Has accedido al archivo confidencial.\n",
+    "Bienvenido, Explorador. Este registro no está validado por la Sociedad.",
+    "Coordenadas fragmentadas detectadas: 𝚪93⋄⏃↯42° ΔΞ9",
+    "Escenario: NO IDENTIFICADO. Requiere validación ocular.\n",
+    "Este informe fue ocultado por petición del Cartógrafo Ciego.",
+  ]
 
-//Intersection Observer
+    // Variables para controlar el progreso de la animación
+  let currentLine = 0
+  let currentChar = 0
 
-const elementosAnimados = document.querySelectorAll(`.Intro-p , .Scenario-p, .Scenario-card-wrapper, .Intro-btns, .Scenario-btns`)
+    // Función recursiva que escribe letra por letra la frase actual.
+    // cuando termina una frase, pasa a la siguiente tras una pausa.
+  const escribirLinea = () => {
+    const linea = frases[currentLine]
+    if (currentChar < linea.length) {
+      output.textContent += linea.charAt(currentChar++)
+      setTimeout(escribirLinea, 30) // Velocidad de escritura (ms)
+    } else {
+      output.textContent += "\n"
+      currentLine++
+      currentChar = 0
+      if (currentLine < frases.length) {
+        setTimeout(escribirLinea, 500) // Pausa entre frases
+      }
+    }
+  }
+    // Mostrar popup y comenzar animación
+  const abrirPopup = () => {
+    output.textContent = ""
+    overlay.style.display = "flex"
+    currentLine = 0
+    currentChar = 0
+    setTimeout(escribirLinea, 500)
+  }
+    // Cerrar popup
+  const cerrarPopup = () => {
+    overlay.style.display = "none"
+  }
 
-console.log( elementosAnimados )
-
-let callback = ( entries ) => {
-  entries.forEach( ( entry )=>{
-        let { isIntersecting , target } = entry
-
-        if( isIntersecting ){
-            target.classList.add(`isVisible`)
-        }
+  // CURSOR PERSONALIZADO INTERACTIVO
+    // Reemplaza el cursor estándar por un círculo blanco animado.
+    // Se desplaza suavemente y cambia de forma al pasar sobre elementos interactivos.
+  const handleMouseMove = ({ clientX, clientY }) => {
+    requestAnimationFrame(() => {
+      cursor.style.translate = `${clientX}px ${clientY}px`
     })
-}
-let options = {
-    threshold : [0, 0.1]
-}
+  }
 
-let observer = new IntersectionObserver( callback , options )
+  const handleMouseDown = () => cursor.classList.add("isClicked")
+  const handleMouseUp = () => cursor.classList.remove("isClicked")
+  const handleHoverIn = () => cursor.classList.add("isHover")
+  const handleHoverOut = () => cursor.classList.remove("isHover")
 
-elementosAnimados.forEach( ( eachElemento )=>observer.observe(eachElemento))
+  // ==========================
+  // EVENT LISTENERS
+  // ==========================
+  // MENÚ RESPONSIVE
+  boton.addEventListener("click", handleMenuToggle)
 
-// PopUp
-    const trigger = document.getElementById('Popup-trigger');
-    const overlay = document.querySelector('.Popup');
-    const closeBtn = document.querySelector('.Popup-btn');
-    const output = document.querySelector(`.Popup-typewriter`);
-      
-        const frases = [
-          'Acceso no autorizado.',
-          'Validando clave X-973A...',
-          'Clave aceptada.',
-          'Has accedido al archivo confidencial.\n',
-          'Bienvenido, Explorador. Este registro no está validado por la Sociedad.',
-          'Coordenadas fragmentadas detectadas: 𝚪93⋄⏃↯42° ΔΞ9',
-          'Escenario: NO IDENTIFICADO. Requiere validación ocular.\n',
-          'Este informe fue ocultado por petición del Cartógrafo Ciego.'
-        ];
-      
-        let currentLine = 0;
-        let currentChar = 0;
-      
-        const escribirLinea = () => {
-          if (currentLine >= frases.length) return;
-      
-          const linea = frases[currentLine];
-          if (currentChar < linea.length) {
-            output.textContent += linea.charAt(currentChar);
-            currentChar++;
-            setTimeout(escribirLinea, 30); // velocidad de escritura
-          } else {
-            output.textContent += '\n';
-            currentLine++;
-            currentChar = 0;
-            setTimeout(escribirLinea, 500); // pausa entre frases
-          }
-        };
-      
-        trigger.addEventListener('click', () => {
-          output.textContent = ''; // reiniciar contenido
-          overlay.style.display = 'flex';
-          currentLine = 0;
-          currentChar = 0;
-          setTimeout(escribirLinea, 500); // iniciar animación
-        });
-      
-        closeBtn.addEventListener('click', () => {
-          overlay.style.display = 'none';
-        });
-      
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) {
-            overlay.style.display = 'none';
-          }
-        });
-    
+  // POPUP
+    // Evento click en el disparador
+    trigger.addEventListener("click", abrirPopup)
+    // Evento click en botón de cerrar
+    closeBtn.addEventListener("click", cerrarPopup)
+   // Cerrar también si se hace clic fuera del contenido
+    overlay.addEventListener("click", (e) => e.target === overlay && cerrarPopup())
 
-  
-//Efecto cursor
+  // CURSOR PERSONALIZADO
+  window.addEventListener("mousemove", handleMouseMove)
+  window.addEventListener("mousedown", handleMouseDown)
+  window.addEventListener("mouseup", handleMouseUp)
 
-        const cursor = document.querySelector('.Cursor');
-        const botones = document.querySelectorAll('.Hero-ancla, .Header-a, .Intro-btn, .Intro-ancla, .Scenario-card-btn, .Scenario-btn-scenarios, .Scenario-btn-contact, .Footer-up, .Footer-links, .Footer-coordinates--trigger ');
-        
-        // Movimiento suave con requestAnimationFrame
-        window.addEventListener('mousemove', (e) => {
-          requestAnimationFrame(() => {
-            cursor.style.translate = `${e.clientX}px ${e.clientY}px`;
-          });
-        });
-        
-        // Click → animación
-        window.addEventListener('mousedown', () => cursor.classList.add('isClicked'));
-        window.addEventListener('mouseup', () => cursor.classList.remove('isClicked'));
-        
-        // Hover sobre botones → cambia forma
-        botones.forEach(btn => {
-          btn.addEventListener('mouseover', () => cursor.classList.add('isHover'));
-          btn.addEventListener('mouseout', () => cursor.classList.remove('isHover'));
-        });
-
-
-   
-// //Efecto repelente
-// const magnetics = document.querySelectorAll('.Intro-svg');
-
-// window.addEventListener('mousemove', (e) => {
-//   magnetics.forEach(el => {
-//     const rect = el.getBoundingClientRect();
-//     const elCenterX = rect.left + rect.width / 2;
-//     const elCenterY = rect.top + rect.height / 2;
-
-//     const deltaX = e.clientX - elCenterX;
-//     const deltaY = e.clientY - elCenterY;
-
-//     const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
-//     const maxDistance = 200;
-
-//     if (distance < maxDistance) {
-//       const moveX = deltaX * 0.2;
-//       const moveY = deltaY * 0.2;
-//       el.style.transform = `translate(${moveX}px, ${moveY}px)`;
-//     } else {
-//       el.style.transform = `translate(0, 0)`;
-//     }
-//   });
-// });
-
-
-
-
-
-
-
+  botones.forEach((btn) => {
+    btn.addEventListener("mouseover", handleHoverIn)
+    btn.addEventListener("mouseout", handleHoverOut)
+  })
+})();

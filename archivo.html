@@ -2,221 +2,267 @@
 <html lang="es">
 
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="css/archivo.css">
+    <!-- JavaScript con defer para ejecutar tras carga del DOM -->
     <script src="js/archivo.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
-        rel="stylesheet">
+    <!-- Hoja de estilos que define las fuentes @font-face alojadas localmente -->
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <!-- Título de la pestaña del navegador -->
     <title>Archivo de Escenarios</title>
+    <!-- archivo.html - Página del "Archivo de Escenarios" del sitio web Explorador de Escenarios Olvidados.
+
+    Este archivo HTML presenta el catálogo completo de escenarios documentados por la Sociedad del Viento. Incluye:
+    - Un Header global con logotipo, menú de navegación principal y botón responsive.
+    - Archive-hero: Introducción narrativa al archivo, con ilustración, mensaje de bienvenida y botón que invita a avanzar.
+    - Archive-scenarios: Sección que lista todos los escenarios recuperados, en tarjetas visuales (`.Archive-card`), cada una con:
+        - Imagen ilustrativa responsive.
+        - Nombre del escenario, breve descripción y enlace al detalle.
+    - Un footer con enlaces a las páginas de políticas y de preguntas frecuentes.
+    - Elementos interactivos adicionales:
+    · Cursor personalizado animado.
+    · Popup secreto activado desde el footer con animación tipo máquina de escribir.
+    · Definiciones SVG reutilizables -->
 </head>
 
 <body>
-    <header class="Header">
+
+
+    <!-- Cabecera con logotipo y menú de navegación -->
+    <header class="Header" id="Inicio">
+        <!-- Logotipo de la web -->
         <picture>
+            <source srcset="assets/Logo.webp" type="image/webp">
             <source srcset="assets/Logo.svg" type="image/svg+xml">
-            <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100"
-                height="100" fetchpriority="high">
+            <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100" height="100" fetchpriority="high">
         </picture>
 
-        <!-- Importante: el boton antes que el nav!!! -->
+        <!-- Botón para abrir/cerrar menú en móvil (JS) -->
         <button class="Header-btn" title="Menú">
-            <svg class="Header-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            <svg class="Header-svg" width="16" height="16">
+                <use href="#icon-menu"></use>
             </svg>
         </button>
 
+        <!-- Menú principal de navegación -->
         <nav class="Header-nav">
             <ul class="Header-ul">
-                <li class="Header-li"><a class="Header-a " href="index.html" title="Inicio">Explorador</a>
+                <li class="Header-li"><a class="Header-a" href="index.html" title="Inicio">Explorador</a>
                 </li>
-                <li class="Header-li"><a class="Header-a" href="sobre-nosotros.html" title="Quienes somos">La Sociedad
-                        del Viento</a>
+                <li class="Header-li"><a class="Header-a" href="sobre-nosotros.html" title="Quienes somos">La Sociedad del Viento</a>
                 </li>
-                <li class="Header-li"><a class="Header-a" href="archivo.html" title="Archivo de Escenarios">Archivo de Escenarios</a>
-                        
+                <li class="Header-li"><a class="Header-a  Header-a--selected" href="archivo.html" title="Escenarios">Archivo de Escenarios</a>
                 </li>
                 <li class="Header-li"><a class="Header-a" href="contacto.html" title="Contacto">Hallazgos</a></li>
             </ul>
         </nav>
-
-
     </header>
 
+
     <main class="Main">
-
+        <!-- Sección de bienvenida al archivo de escenarios -->
         <section class="Archive-hero">
+            <!-- Título principal -->
             <h1 class="Archive-h1">Archivo de Escenarios</h1>
-
+            <!-- Descripción introductoria con tono narrativo -->
             <p class="Archive-p">
-                Este archivo es solo accesible para aquellos que saben buscar entre las sombras. Aquí comienza tu exploración.
+                Este archivo es solo accesible para aquellos que saben buscar entre las sombras.
             </p>
-            
-
-
-            
-            <img src="assets/archivo5.png" alt="" class="Archive-img">
-
+            <!-- Imagen central que refuerza la estética de archivo secreto -->
+            <picture>
+                <source srcset="assets/archive.webp" type="image/webp">
+                <source srcset="assets/archive.png" type="image/png">
+                <img class="Archive-img" src="assets/archive.png" alt="Ilustración del Archivo" width="1024" height="1536" loading="lazy">
+            </picture>
+            <!-- Llamada a la acción visual (flecha animada) que invita a continuar -->
             <p class="Archive-p-intro">
                 ¿Estás preparado?
             </p>
-           
-            <a href="#escenarios" class="Archive-scroll-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="Archive-scroll-svg" viewBox="0 0 16 24">
-                  <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v14.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 16.293V1.5A.5.5 0 0 1 8 1z"/>
+
+            <a href="#arrow" class="Archive-scroll-btn" title="Ir a siguiente sección">
+
+                <svg class="Archive-scroll-svg" width="24" height="24" aria-hidden="true">
+                    <use href="#icon-arrow-down"></use>
                 </svg>
-              </a>
-              
+
+            </a>
+
         </section>
-        <section id="escenarios" class="Archive-scenarios">
+        <!-- Sección que muestra los escenarios descubiertos -->
+        <section id="arrow" class="Archive-scenarios">
+            <!-- Título y párrafos -->
             <h2 class="Archive-scenarios-h2">Escenarios disponibles</h2>
-             <p class="Archive-scenarios-p">
-                Cada uno de estos escenarios fue encontrado en condiciones inusuales: fragmentos de realidades alternativas, coordenadas desvanecidas, relatos inconexos escritos con manos temblorosas. Lo que estás a punto de consultar no ha sido verificado por ninguna autoridad… salvo por la Sociedad del Viento.
+            <p class="Archive-scenarios-p">
+                Cada uno de estos escenarios fue encontrado en condiciones inusuales: fragmentos de realidades alternativas, coordenadas desvanecidas, relatos inconexos escritos con manos temblorosas. Lo que estás a punto de consultar no ha sido verificado por ninguna autoridad… salvo por la
+                Sociedad del Viento.
             </p>
             <p class="Archive-scenarios-p">
                 Observa con atención. Y recuerda: algunos lugares solo existen mientras alguien los recuerda.
             </p>
-            
-            
+
+            <!-- Lista de tarjetas individuales que representan cada escenario disponible  -->
             <div class="Archive-list">
+                <!-- Cada tarjeta incluye imagen optimizada (WebP + PNG), título, descripción y botón de acceso -->
                 <div class="Archive-card-wrapper">
                     <article class="Archive-card">
-                        <img src="assets/Escenario1.png" alt="Ciudad Suspendida" class="Archive-card-img">
+                        <picture>
+                            <source srcset="assets/Escenario2.webp" type="image/webp">
+                            <source srcset="assets/Escenario2.png" type="image/png">
+                            <img class="Archive-card-img" src="assets/Escenario2.png" alt="La Biblioteca Infinita" width="1024" height="1536" loading="lazy">
+                        </picture>
+                        <div class="Archive-card-text">
+                            <h3 class="Archive-card-h3">La Biblioteca Infinita</h3>
+                            <p class="Archive-card-p">Las estanterías crecen con los pensamientos olvidados de la
+                                humanidad. Algunos aseguran haber leído libros que narraban su propio futuro.</p>
+                            <a href="escenario-biblioteca.html" class="Archive-card-btn" title="Ir al detalle del escenario">Explorar escenario</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="Archive-card-wrapper">
+                    <article class="Archive-card">
+                        <picture>
+                            <source srcset="assets/Escenario3.webp" type="image/webp">
+                            <source srcset="assets/Escenario3.png" type="image/png">
+                            <img class="Archive-card-img" src="assets/Escenario3.png" alt="El Templo del Olvido" width="1024" height="1536" loading="lazy">
+                        </picture>
+                        <div class="Archive-card-text">
+                            <h3 class="Archive-card-h3">El Templo del Olvido</h3>
+                            <p class="Archive-card-p">Quien cruza sus puertas pierde un recuerdo al azar. Nadie recuerda
+                                cómo llegó hasta allí ni por qué vuelve con lágrimas en los ojos.</p>
+                            <a href="escenario-templo.html" class="Archive-card-btn" title="Ir al detalle del escenario">Explorar escenario</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="Archive-card-wrapper">
+                    <article class="Archive-card">
+                        <picture>
+                            <source srcset="assets/Escenario4.webp" type="image/webp">
+                            <source srcset="assets/Escenario4.png" type="image/png">
+                            <img class="Archive-card-img" src="assets/Escenario4.png" alt="El Faro del Silencio" width="1024" height="1536" loading="lazy">
+                        </picture>
+                        <div class="Archive-card-text">
+                            <h3 class="Archive-card-h3">El Faro del Silencio</h3>
+                            <p class="Archive-card-p">Encendido solo una vez cada siglo. Dicen que guía a los viajeros
+                                perdidos... en sus propias vidas, atrapados entre lo que fue y lo que jamás sucedió.</p>
+                            <a href="escenario-faro.html" class="Archive-card-btn" title="Ir al detalle del escenario">Explorar escenario</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="Archive-card-wrapper">
+                    <article class="Archive-card">
+                        <picture>
+                            <source srcset="assets/Escenario5.webp" type="image/webp">
+                            <source srcset="assets/Escenario5.png" type="image/png">
+                            <img class="Archive-card-img" src="assets/Escenario5.png" alt="La Isla del Invierno" width="1024" height="1536" loading="lazy">
+                        </picture>
+                        <div class="Archive-card-text">
+                            <h3 class="Archive-card-h3">La Isla del Invierno</h3>
+                            <p class="Archive-card-p">Una isla atrapada en un instante congelado. La nieve nunca cae, pero cubre todo. El tiempo está suspendido en un suspiro blanco.</p>
+                            <a href="escenario-invierno.html" class="Archive-card-btn" title="Ir al detalle del escenario">Explorar escenario</a>
+
+                        </div>
+                    </article>
+                </div>
+                <div class="Archive-card-wrapper">
+                    <article class="Archive-card">
+                        <picture>
+                            <source srcset="assets/Escenario6.webp" type="image/webp">
+                            <source srcset="assets/Escenario6.png" type="image/png">
+                            <img class="Archive-card-img" src="assets/Escenario6.png" alt="El Teatro del Murmullo" width="1024" height="1536" loading="lazy">
+                        </picture>
+                        <div class="Archive-card-text">
+                            <h3 class="Archive-card-h3">El Teatro del Murmullo</h3>
+                            <p class="Archive-card-p">Un teatro abandonado donde las voces de antiguos actores siguen resonando. Si te sientas entre las butacas, oirás diálogos de obras nunca escritas.</p>
+                            <a href="escenario-teatro.html" class="Archive-card-btn" title="Ir al detalle del escenario">Explorar escenario</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="Archive-card-wrapper">
+                    <!-- Cada tarjeta incluye imagen optimizada (WebP + PNG), título, descripción y botón de acceso -->
+                    <article class="Archive-card">
+                        <picture>
+                            <source srcset="assets/Escenario1.webp" type="image/webp">
+                            <source srcset="assets/Escenario1.png" type="image/png">
+                            <img class="Archive-card-img" src="assets/Escenario1.png" alt="Ciudad Suspendida" width="1024" height="1536" loading="lazy">
+                        </picture>
                         <div class="Archive-card-text">
                             <h3 class="Archive-card-h3">La Ciudad Suspendida</h3>
                             <p class="Archive-card-p">Entre dos acantilados sin nombre, los puentes flotan. Los
                                 habitantes desaparecieron hace siglos, pero las luces siguen encendiéndose al anochecer.
                             </p>
-                            <a href="escenario_ciudad.html" class="Archive-card-btn">Explorar escenario</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="Archive-card-wrapper">
-                    <article class="Archive-card">
-                        <img src="assets/Escenario2.png" alt="La Biblioteca Infinita" class="Archive-card-img">
-                        <div class="Archive-card-text">
-                            <h3 class="Archive-card-h3">La Biblioteca Infinita</h3>
-                            <p class="Archive-card-p">Las estanterías crecen con los pensamientos olvidados de la
-                                humanidad. Algunos aseguran haber leído libros que narraban su propio futuro.</p>
-                            <a href="escenario_biblioteca.html" class="Archive-card-btn">Explorar escenario</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="Archive-card-wrapper">
-                    <article class="Archive-card">
-                        <img src="assets/Escenario3_1.png" alt="El Templo del Olvido" class="Archive-card-img">
-                        <div class="Archive-card-text">
-                            <h3 class="Archive-card-h3">El Templo del Olvido</h3>
-                            <p class="Archive-card-p">Quien cruza sus puertas pierde un recuerdo al azar. Nadie recuerda
-                                cómo llegó hasta allí ni por qué vuelve con lágrimas en los ojos.</p>
-                            <a href="escenario_templo.html" class="Archive-card-btn">Explorar escenario</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="Archive-card-wrapper">
-                    <article class="Archive-card">
-                        <img src="assets/Escenario4.png" alt="El Faro del Silencio" class="Archive-card-img">
-                        <div class="Archive-card-text">
-                            <h3 class="Archive-card-h3">El Faro del Silencio</h3>
-                            <p class="Archive-card-p">Encendido solo una vez cada siglo. Dicen que guía a los viajeros
-                                perdidos... en sus propias vidas, atrapados entre lo que fue y lo que jamás sucedió.</p>
-                            <a href="escenario_faro.html" class="Archive-card-btn">Explorar escenario</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="Archive-card-wrapper">
-                    <article class="Archive-card">
-                        <img src="assets/Escenario6.png" alt="El Teatro del Eco Eterno" class="Archive-card-img">
-                        <div class="Archive-card-text">
-                            <h3 class="Archive-card-h3">El Teatro del Eco Eterno</h3>
-                            <p class="Archive-card-p">Un teatro abandonado donde las voces de antiguos actores siguen resonando. Si te sientas entre las butacas, oirás diálogos de obras nunca escritas.</p>
-                            <a href="escenario_teatro.html" class="Archive-card-btn">Explorar escenario</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="Archive-card-wrapper">
-                    <!-- <article class="Archive-card">
-                        <img src="assets/Escenario7_2.png" alt="La Ciudad Sumergida" class="Archive-card-img">
-                        <div class="Archive-card-text">
-                            <h3 class="Archive-card-h3">La Ciudad Sumergida</h3>
-                            <p class="Archive-card-p">Visible solo cuando el mar se calma al atardecer. Sus cúpulas brillan bajo el agua, cubiertas de coral y misterio.</p>
-                            <a href="escenario_sumergida.html" class="Archive-card-btn">Explorar escenario</a>
-                            
-                        </div>
-                    </article> -->
-                    <article class="Archive-card">
-                        <img src="assets/Escenario5.png" alt="La Isla del Invierno" class="Archive-card-img">
-                        <div class="Archive-card-text">
-                            <h3 class="Archive-card-h3">La Isla del Invierno</h3>
-                            <p class="Archive-card-p">Una isla atrapada en un instante congelado. La nieve nunca cae, pero cubre todo. El tiempo está suspendido en un suspiro blanco.</p>
-                            <a href="invierno.html" class="Archive-card-btn">Explorar escenario</a>
-                            
+                            <a href="escenario-ciudad.html" class="Archive-card-btn" title="Ir al detalle del escenario">Explorar escenario</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-            <p class="Archive-scenarios-final">Este archivo no está completo... pero es todo lo que hemos podido rescatar. Por
-                ahora. 
-            </p>
-            <p class="Archive-scenarios-final">Y si entre estos lugares reconoces un eco familiar… es posible que ya hayas estado allí. O que aún estés por volver.
-            </p>
-  
-
-        
-        
-
+        <p class="Archive-scenarios-final">Este archivo no está completo... pero es todo lo que hemos podido rescatar. Por
+            ahora.
+        </p>
+        <p class="Archive-scenarios-final">Y si entre estos lugares reconoces un eco familiar… es posible que ya hayas estado allí. O que aún estés por volver.
+        </p>
 
     </main>
 
+    <!-- Pie de página con enlaces -->
     <footer class="Footer">
-
+        <!-- Enlace para volver arriba -->
         <div class="Footer-column Footer-column--logo">
-            <a href="#" title="Ir arriba">
+            <a href="#Inicio" title="Ir arriba">
                 <picture>
-                    <source srcset="assets/flecha.png" type="image/svg+xml">
-                    <img class="Footer-up" src="assets/flecha.png" alt="Logo de la Sociedad del Viento" width="160"
-                        height="160" loading="lazy">
+                    <source srcset="assets/flecha.webp" type="image/webp">
+                    <source srcset="assets/flecha.png" type="image/png">
+                    <img class="Footer-up" src="assets/flecha.png" alt="Volver arriba" width="160" height="160" loading="lazy">
                 </picture>
             </a>
         </div>
 
+        <!-- Información central del footer -->
         <div class="Footer-column Footer-column--info">
+            <!-- X-973A como trigger del Popup secreto -->
             <div class="Footer-coordinates ">
                 LAT.93-13-13 / LON.-42-404 <span id="Popup-trigger" class="Footer-coordinates--trigger">X-973A</span>
             </div>
             <p class="Footer-quote">Aquí termina lo que puedes ver. Lo demás... permanece entre las sombras. </p>
-
-            <div class="Footer-copy">2025 © La Sociedad del Viento. Fragmentado por Irene Molina.
-            </div>
         </div>
+        <!-- Enlaces secundarios a políticas y preguntas-->
         <div class="Footer-column Footer-column--links">
             <h4 class="Footer-h4">Otros archivos de interés:</h4>
             <ul class="Footer-links">
-                <li><a href="preguntas-no-autorizadas.html">Preguntas no autorizadas</a></li>
-                <li><a href="politica-confidencialidad.html">Política de confidencialidad</a></li>
+                <li><a href="preguntas-no-autorizadas.html" title="Preguntas no autorizadas">Preguntas no autorizadas</a></li>
+                <li><a href="politica-confidencialidad.html" title="Política de confidencialidad">Política de confidencialidad</a></li>
             </ul>
         </div>
-
     </footer>
-    <!-- POPUP -->
+
+    <!-- Popup secreto con animación -->
     <div class="Popup">
         <div class="Popup-wrapper">
-            <button class="Popup-btn">✕</button>
+            <button class="Popup-btn" title="Cerrar Popup">✕</button>
             <div class="Popup-typewriter"></div>
         </div>
     </div>
-    <!-- Cursor  -->
+    <!-- Cursor personalizado animado -->
     <div class="Cursor"></div>
+
+    <!-- Definiciones de iconos SVG reutilizables -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-definition">
+        <symbol id="icon-menu" viewBox="0 0 16 16" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        </symbol>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="svg-definition">
+        <symbol id="icon-arrow-down" viewBox="0 0 16 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v14.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 16.293V1.5A.5.5 0 0 1 8 1z" />
+        </symbol>
+    </svg>
+
 </body>
 
 </html>

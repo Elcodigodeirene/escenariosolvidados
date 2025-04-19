@@ -2,68 +2,121 @@
 <html lang="es">
 
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
-        rel="stylesheet">
+    <!-- Hoja de estilos que define las fuentes @font-face alojadas localmente -->
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <!-- JavaScript con defer para ejecutar tras carga del DOM -->
     <script src="js/index.js" defer></script>
+    <!-- Título de la pestaña del navegador -->
     <title>Explorador de Escenarios Olvidados</title>
+    <!--index.html - Página principal del sitio web Explorador de Escenarios Olvidados.
+
+    Este archivo HTML estructura la home del proyecto, presentando:
+    - Herowrapper: Contenedor del Hero de bienvenida con imagen de fondo fija, responsive y optimizada por tipo y tamaño. Incluye:
+        · Un header fijo reutilizable con logo y navegación principal.
+        · La sección Hero, con un título animado y un subtítulo con botón ancla que invita a comenzar la exploración.
+    - Intro: sección de introducción narrativa sobre "La Sociedad del Viento", con SVGs decorativos animados.
+    - Scenario: Sección con tarjetas animadas que presentan los primeros 4 escenarios disponibles. Cada card contiene imagen, nombre, descripción y un enlace a su propia subpágina. Incluye además botones finales que llevan a descubrir más escenarios o reportar un nuevo hallazgo.
+    - Un footer con enlaces a las páginas de políticas y de preguntas frecuentes.
+    - Elementos interactivos adicionales:
+    · Cursor personalizado animado.
+    · Popup secreto activado desde el footer con animación tipo máquina de escribir.
+    · Definiciones SVG reutilizables -->
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Explorador de Escenarios Olvidados">
+    <meta name="description" content="Accede al archivo secreto de la Sociedad del Viento. Explora escenarios olvidados, fragmentos de mundos que no deberían existir, y sumérgete en una experiencia visual y narrativa única.">
+    <meta name="robots" content="index">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elcodigodeirene.com/escenariosolvidados/">
+    <meta property="og:title" content="Explorador de Escenarios Olvidados">
+    <meta property="og:description" content="Accede al archivo secreto de la Sociedad del Viento. Explora escenarios olvidados, fragmentos de mundos que no deberían existir, y sumérgete en una experiencia visual y narrativa única.">
+    <meta property="og:image" content="https://elcodigodeirene.com/escenariosolvidados/assets/Hero.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://elcodigodeirene.com/escenariosolvidados/">
+    <meta property="twitter:title" content="Explorador de Escenarios Olvidados">
+    <meta property="twitter:description" content="Accede al archivo secreto de la Sociedad del Viento. Explora escenarios olvidados, fragmentos de mundos que no deberían existir, y sumérgete en una experiencia visual y narrativa única.">
+    <meta property="twitter:image" content="https://elcodigodeirene.com/escenariosolvidados/assets/Hero.webp">
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/escenariosolvidados/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/escenariosolvidados/favicon.svg">
+    <link rel="shortcut icon" href="/escenariosolvidados/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/escenariosolvidados/apple-touch-icon.png">
+    <link rel="manifest" href="/escenariosolvidados/site.webmanifest">
 </head>
 
 <body>
-
-    <div class="Herowrapper" id="Inicio">
-        <header class="Header">
+    <!-- Hero con imagen de fondo fija y encabezado principal -->
+    <div class="Herowrapper">
+        <!-- Imagen responsive con distintos formatos y tamaños -->
+        <picture>
+            <!-- Versiones WebP y PNG para mobile y desktop -->
+            <source media="(max-width: 875px)" srcset="assets/Hero-movil.webp" type="image/webp">
+            <source media="(max-width: 875px)" srcset="assets/Hero-movil.png" type="image/png">
+            <source media="(min-width: 876px)" srcset="assets/Hero.webp" type="image/webp">
+            <source media="(min-width: 876px)" srcset="assets/Hero.png" type="image/png">
+            <img src="assets/Hero.png" alt="Explorador de Escenarios Olvidados" class="Herowrapper-bg-img" width="1536" height="1024" fetchpriority="high">
+        </picture>
+        <!-- Cabecera con logotipo y menú de navegación -->
+        <header class="Header" id="Inicio">
+            <!-- Logotipo de la web -->
             <picture>
-                <source srcset="assets/Logo.svg" type="image/svg+xml" >
+                <source srcset="assets/Logo.webp" type="image/webp">
+                <source srcset="assets/Logo.svg" type="image/svg+xml">
                 <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100" height="100" fetchpriority="high">
-              </picture>
-    
-            <!-- Importante: el boton antes que el nav!!! -->
+            </picture>
+
+            <!-- Botón para abrir/cerrar menú en móvil (JS) -->
             <button class="Header-btn" title="Menú">
-                <svg class="Header-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                <svg class="Header-svg" width="16" height="16">
+                    <use href="#icon-menu"></use>
                 </svg>
             </button>
 
+            <!-- Menú principal de navegación -->
             <nav class="Header-nav">
                 <ul class="Header-ul">
                     <li class="Header-li"><a class="Header-a Header-a--selected" href="index.html" title="Inicio">Explorador</a>
                     </li>
                     <li class="Header-li"><a class="Header-a" href="sobre-nosotros.html" title="Quienes somos">La Sociedad del Viento</a>
                     </li>
-                    <li class="Header-li"><a class="Header-a" href="archivo.html" title="Archivo de Escenarios">Archivo de Escenarios</a>
+                    <li class="Header-li"><a class="Header-a" href="archivo.html" title="Escenarios">Archivo de Escenarios</a>
                     </li>
                     <li class="Header-li"><a class="Header-a" href="contacto.html" title="Contacto">Hallazgos</a></li>
                 </ul>
             </nav>
-
-
         </header>
-
+        <!--  Sección de bienvenida con título y mensaje -->
         <section class="Hero" id="Hero">
-            <h1 class="Hero-title">Explorador de
-                <span class="Hero-title--span">Escenarios Olvidados</span>
+            <h1 class="Hero-title">Explorador de<span class="Hero-title--span">Escenarios Olvidados</span>
             </h1>
             <div class="Hero-subtitle">
                 <p class="Hero-p">Dicen que hay lugares que no pueden encontrarse en los mapas. Fragmentos de mundos que
                     existieron... o quizás nunca lo hicieron. Tú has sido elegido para acceder al archivo prohibido.</p>
-                <a href="#Intro" class="Hero-ancla">Comenzar exploración</a>
+                <a href="#Intro" class="Hero-ancla" title="Comenzar exploracion">Comenzar exploración</a>
             </div>
         </section>
 
     </div>
-
+    <!-- Contenido principal de la web-->
     <main class="Main">
 
+        <!-- Sección narrativa de introducción a la Sociedad del Viento-->
         <section class="Intro" id="Intro">
             <h2 class="Intro-h2">La Sociedad del Viento</h2>
+
+            <!-- Serie de párrafos con animaciones secuenciales JS -->
             <p class="Intro-p">Durante más de un siglo, un grupo de observadores silenciosos ha rastreado los lugares
                 que el mundo ha olvidado. Lugares que no aparecen en mapas, que no existen en fotografías... pero que
                 persisten en los sueños de quienes los vieron.</p>
@@ -74,20 +127,21 @@
             <p class="Intro-p">Los escenarios no se muestran.</p>
             <p class="Intro-p">Se revelan.</p>
             <p class="Intro-p">Uno a uno.</p>
-            <p class="Intro-p">Estas imágenes, clasificadas por la Sociedad del Viento, contienen fragmentos de
-                realidades que no deberían existir.</p>
+            <!-- <p class="Intro-p">Estas imágenes, clasificadas por la Sociedad del Viento, contienen fragmentos de realidades que no deberían existir.</p> -->
             <p class="Intro-p"><em>¿Quiénes somos, te preguntarás?</em></p>
+
+            <!-- Botones de llamada a la acción -->
             <div class="Intro-btns">
-                <a href="sobre-nosotros.html" class="Intro-btn">Descubre más sobre la Sociedad</a>
-                <a href="#Scenario" class="Intro-ancla">Continúa explorando</a>
+                <a href="sobre-nosotros.html" class="Intro-btn" title="Ir a la página de la Sociedad">Descubre más sobre la Sociedad</a>
+                <a href="#Scenario-ancla" class="Intro-ancla" title="Siguiente sección">Continúa explorando</a>
             </div>
 
+            <!-- SVGs animados como decoración flotante -->
             <div class="Intro-svg-magnet">
                 <svg class="Intro-svg Intro-svg--hex1">
                     <use href="#icon-hex1"></use>
                 </svg>
             </div>
-
             <svg class="Intro-svg Intro-svg--hex2">
                 <use href="#icon-hex2"></use>
             </svg>
@@ -103,131 +157,149 @@
             <svg class="Intro-svg Intro-svg--tri2">
                 <use href="#icon-tri2"></use>
             </svg>
-
-
-
         </section>
 
-        <section class="Scenario" id="Scenario">
+        <!-- Sección de tarjetas de escenarios -->
+        <section id="Scenario-ancla" class="Scenario">
             <h2 class="Scenario-h2">Archivo de Escenarios Olvidados</h2>
             <p class="Scenario-p">Cada lugar aquí registrado es un susurro de otro tiempo. Algunos se desvanecieron sin
                 dejar rastro. Otros fueron enterrados por la historia, por la memoria… o por voluntad de alguien. Cada
                 imagen que verás ha sido recuperada, clasificada y archivada por miembros de la Sociedad del
-                Viento. Ahora, como nuevo explorador, puedes acceder a estos fragmentos.</p>
-            <p class="Scenario-p">Estúdialos. Recorre sus huellas.
+                Viento.</p>
+            <p class="Scenario-p"> Ahora, como nuevo explorador, puedes acceder a estos fragmentos. Estúdialos. Recorre
+                sus huellas.
                 si encuentras algo que no debería existir… puedes añadirlo al archivo.</p>
+
+            <!-- Tarjetas visuales con imagen y descripción -->
             <div class="Scenario-list">
+                <!-- Escenario 1 -->
                 <div class="Scenario-card-wrapper">
                     <article class="Scenario-card">
-
-                        <img src="assets/Escenario1.png" alt="Ciudad Suspendida" class="Scenario-card-img">
-                        <div class="Scenario-card-text">
-                            <h3 class="Scenario-card-h3">La Ciudad Suspendida</h3>
-                            <p class="Scenario-card-p">Entre dos acantilados sin nombre, los puentes flotan. Los
-                                habitantes desaparecieron hace siglos, pero las luces siguen encendiéndose al anochecer.
-                            </p>
-                            <a href="escenario_ciudad.html" class="Scenario-card-btn">Explorar escenario</a>
-                        </div>
-
-                    </article>
-                </div>
-                <div class="Scenario-card-wrapper">
-                    <article class="Scenario-card">
-                        <img src="assets/Escenario2.png" alt="La Biblioteca Infinita" class="Scenario-card-img">
+                        <!-- Imagen del escenario -->
+                        <picture>
+                            <source srcset="assets/Escenario2.webp" type="image/webp">
+                            <source srcset="assets/Escenario2.png" type="image/png">
+                            <img src="assets/Escenario2.png" alt="La Biblioteca Infinita" class="Scenario-card-img" width="1536" height="1024" loading="lazy">
+                        </picture>
+                        <!-- Texto del escenario -->
                         <div class="Scenario-card-text">
                             <h3 class="Scenario-card-h3">La Biblioteca Infinita</h3>
-                            <p class="Scenario-card-p">Las estanterías crecen con los pensamientos olvidados de la
-                                humanidad. Algunos aseguran haber leído libros que narraban su propio futuro.</p>
-                            <a href="escenario_biblioteca.html" class="Scenario-card-btn">Explorar escenario</a>
+                            <p class="Scenario-card-p">Las estanterías crecen con los pensamientos olvidados de la humanidad. Algunos aseguran haber leído libros que narraban su propio futuro.</p>
+                             <!-- Enlace al escenario -->
+                            <a href="escenario-biblioteca.html" class="Scenario-card-btn" title="Explora escenario">Explorar escenario</a>
                         </div>
 
                     </article>
                 </div>
+                <!-- Escenario 2 -->
                 <div class="Scenario-card-wrapper">
                     <article class="Scenario-card">
-                        <img src="assets/Escenario3_1.png" alt="El Templo del Olvido" class="Scenario-card-img">
+                        <picture>
+                            <source srcset="assets/Escenario3.webp" type="image/webp">
+                            <source srcset="assets/Escenario3.png" type="image/png">
+                            <img src="assets/Escenario3.png" alt="El Templo del Olvido" class="Scenario-card-img" width="953" height="956" loading="lazy">
+                        </picture>
                         <div class="Scenario-card-text">
                             <h3 class="Scenario-card-h3">El Templo del Olvido</h3>
-                            <p class="Scenario-card-p">Quien cruza sus puertas pierde un recuerdo al azar. Nadie
-                                recuerda cómo llegó hasta allí ni por qué vuelve con lágrimas en los ojos.</p>
-                            <a href="escenario_templo.html" class="Scenario-card-btn">Explorar escenario</a>
+                            <p class="Scenario-card-p">Quien cruza sus puertas pierde un recuerdo al azar. Nadie recuerda cómo llegó hasta allí ni por qué vuelve con lágrimas en los ojos.</p>
+                            <a href="escenario-templo.html" class="Scenario-card-btn" title="Explora escenario">Explorar escenario</a>
                         </div>
-
                     </article>
                 </div>
+                <!-- Escenario 3 -->
                 <div class="Scenario-card-wrapper">
                     <article class="Scenario-card">
-                        <img src="assets/Escenario4.png" alt="El Faro de los Días que No Fueron"
-                            class="Scenario-card-img">
+                        <picture>
+                            <source srcset="assets/Escenario4.webp" type="image/webp">
+                            <source srcset="assets/Escenario4.png" type="image/png">
+                            <img src="assets/Escenario4.png" alt="El Faro de los Días que No Fueron" class="Scenario-card-img" width="650" height="652" loading="lazy">
+                        </picture>
                         <div class="Scenario-card-text">
                             <h3 class="Scenario-card-h3">El Faro del Silencio</h3>
-                            <p class="Scenario-card-p">Encendido solo una vez cada siglo. Dicen que guía a los viajeros
-                                perdidos... en sus propias vidas, atrapados entre lo que fue y lo que jamás sucedió.</p>
-                            <a href="escenario_faro.html" class="Scenario-card-btn">Explorar escenario</a>
+                            <p class="Scenario-card-p">Encendido solo una vez cada siglo. Dicen que guía a los viajeros perdidos... en sus propias vidas, atrapados entre lo que fue y lo que jamás sucedió.</p>
+                            <a href="escenario-faro.html" class="Scenario-card-btn" title="Explora escenario">Explorar escenario</a>
+                        </div>
+                    </article>
+                </div>
+                <!-- Escenario 4 -->
+                <div class="Scenario-card-wrapper">
+                    <article class="Scenario-card">
+                        <picture>
+                            <source srcset="assets/Escenario5.webp" type="image/webp">
+                            <source srcset="assets/Escenario5.png" type="image/png">
+                            <img class="Scenario-card-img" src="assets/Escenario5.png" alt="La Isla del Invierno" width="1024" height="1536" loading="lazy">
+                        </picture>
+                        <div class="Scenario-card-text">
+                            <h3 class="Scenario-card-h3">La Isla del Invierno</h3>
+                            <p class="Scenario-card-p">Una isla atrapada en un instante congelado. La nieve nunca cae, pero lo cubre todo. El tiempo está suspendido en un suspiro blanco.</p>
+                            <a href="escenario-invierno.html" class="Scenario-card-btn" title="Explora escenario">Explorar escenario</a>
+
                         </div>
                     </article>
                 </div>
             </div>
+            <!-- Botones de acción final -->
             <div class="Scenario-btns">
-                <a href="archivo.html" class="Scenario-btn-scenarios">Descubre más escenarios</a>
-                <a href="contacto.html" class="Scenario-btn-contact">Enviar hallazgo</a>
+                <a href="archivo.html" class="Scenario-btn-scenarios" title="Descubre más escenarios">Descubre más escenarios</a>
+                <a href="contacto.html" class="Scenario-btn-contact" title="Enviar hallazgo">Enviar hallazgo</a>
             </div>
-
         </section>
 
     </main>
 
-
-
+    <!-- Pie de página con enlaces -->
     <footer class="Footer">
-
+        <!-- Enlace para volver arriba -->
         <div class="Footer-column Footer-column--logo">
-            <a href="#" title="Ir arriba">
+            <a href="#Inicio" title="Ir arriba">
                 <picture>
-                    <source srcset="assets/flecha.png" type="image/svg+xml">
-                    <img class="Footer-up" src="assets/flecha.png" alt="Logo de la Sociedad del Viento"  width="160" height="160" loading="lazy">
+                    <source srcset="assets/flecha.webp" type="image/webp">
+                    <source srcset="assets/flecha.png" type="image/png">
+                    <img class="Footer-up" src="assets/flecha.png" alt="Volver arriba" width="160" height="160" loading="lazy">
                 </picture>
             </a>
         </div>
 
+        <!-- Información central del footer -->
         <div class="Footer-column Footer-column--info">
+            <!-- X-973A como trigger del Popup secreto -->
             <div class="Footer-coordinates ">
                 LAT.93-13-13 / LON.-42-404 <span id="Popup-trigger" class="Footer-coordinates--trigger">X-973A</span>
             </div>
             <p class="Footer-quote">Aquí termina lo que puedes ver. Lo demás... permanece entre las sombras. </p>
-
-            <div class="Footer-copy">2025 © La Sociedad del Viento. Fragmentado por Irene Molina.
-            </div>
         </div>
+        <!-- Enlaces secundarios a políticas y preguntas-->
         <div class="Footer-column Footer-column--links">
             <h4 class="Footer-h4">Otros archivos de interés:</h4>
             <ul class="Footer-links">
-                <li><a href="preguntas-no-autorizadas.html">Preguntas no autorizadas</a></li>
-                <li><a href="politica-confidencialidad.html">Política de confidencialidad</a></li>
+                <li><a href="preguntas-no-autorizadas.html" title="Preguntas no autorizadas">Preguntas no autorizadas</a></li>
+                <li><a href="politica-confidencialidad.html" title="Política de confidencialidad">Política de confidencialidad</a></li>
             </ul>
         </div>
-
     </footer>
-    <!-- POPUP -->
+
+    <!-- Popup secreto con animación -->
     <div class="Popup">
         <div class="Popup-wrapper">
-            <button class="Popup-btn">✕</button>
+            <button class="Popup-btn" title="Cerrar Popup">✕</button>
             <div class="Popup-typewriter"></div>
         </div>
     </div>
-    <!-- Cursor  -->
+    <!-- Cursor personalizado animado -->
     <div class="Cursor"></div>
 
-    <!-- Definicion de SVGs  -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="svg-definition" width="78" height="67" viewBox="0 0 78 67"
-        fill="none">
+    <!-- Definiciones de iconos SVG reutilizables -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-definition">
+        <symbol id="icon-menu" viewBox="0 0 16 16" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        </symbol>
+    </svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-definition" width="78" height="67" viewBox="0 0 78 67" fill="none">
         <symbol id="icon-hex1" viewBox="0 0 78 67" fill="none">
-            <path
-                d="M57.9515 66.9169H19.3166L19.0836 66.5136L0 33.459L19.3166 0H57.9515L58.1833 0.403877L77.268 33.4584L57.9515 66.9169ZM20.2475 65.3047H57.0206L75.4057 33.4595L57.0206 1.61436H20.2475L1.86121 33.4595L20.2475 65.3047Z"
-                fill="white" />
-            <path
-                d="M54.9017 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9017L71.1716 33.459L54.9017 61.6367ZM23.2967 60.0245H53.972L69.3087 33.459L53.972 6.89337H23.2967L7.95885 33.459L23.2967 60.0245Z"
-                fill="currentcolor" />
+            <path d="M57.9515 66.9169H19.3166L19.0836 66.5136L0 33.459L19.3166 0H57.9515L58.1833 0.403877L77.268 33.4584L57.9515 66.9169ZM20.2475 65.3047H57.0206L75.4057 33.4595L57.0206 1.61436H20.2475L1.86121 33.4595L20.2475 65.3047Z" fill="white" />
+            <path d="M54.9017 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9017L71.1716 33.459L54.9017 61.6367ZM23.2967 60.0245H53.972L69.3087 33.459L53.972 6.89337H23.2967L7.95885 33.459L23.2967 60.0245Z" fill="currentcolor" />
             <path
                 d="M23.4323 48.3053C15.2452 48.3053 8.58594 41.6449 8.58594 33.4578C8.58594 25.2718 15.2452 18.6125 23.4323 18.6125C31.6194 18.6125 38.2798 25.2718 38.2798 33.4578C38.2798 41.6449 31.6194 48.3053 23.4323 48.3053ZM23.4323 20.2252C16.135 20.2252 10.1986 26.1617 10.1986 33.4584C10.1986 40.7567 16.135 46.6932 23.4323 46.6932C30.7296 46.6932 36.6671 40.7567 36.6671 33.4584C36.6677 26.1617 30.7301 20.2252 23.4323 20.2252Z"
                 fill="currentcolor" />
@@ -258,27 +330,18 @@
         </symbol>
     </svg>
 
-    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="78" height="67" viewBox="0 0 78 67"
-        fill="none">
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="78" height="67" viewBox="0 0 78 67" fill="none">
         <symbol id="icon-hex2" viewBox="0 0 78 67" fill="none">
-            <path
-                d="M57.9504 66.9169H19.3166L19.0836 66.5135L0 33.4584L19.3166 0H57.9504L58.1834 0.40331L77.268 33.4584L57.9504 66.9169ZM20.2475 65.3042H57.0206L75.4057 33.4584L57.0206 1.61268H20.2475L1.86123 33.4584L20.2475 65.3042Z"
-                fill="white" />
-            <path
-                d="M54.9028 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9028L71.1705 33.459L54.9028 61.6367ZM23.2967 60.024H53.9719L69.3088 33.459L53.9719 6.89337H23.2967L7.95997 33.459L23.2967 60.024Z"
-                fill="white" />
-            <path
-                d="M54.9028 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9028L71.1705 33.459L54.9028 61.6367ZM23.2967 60.024H53.9719L69.3088 33.459L53.9719 6.89337H23.2967L7.95997 33.459L23.2967 60.024Z"
-                fill="white" />
+            <path d="M57.9504 66.9169H19.3166L19.0836 66.5135L0 33.4584L19.3166 0H57.9504L58.1834 0.40331L77.268 33.4584L57.9504 66.9169ZM20.2475 65.3042H57.0206L75.4057 33.4584L57.0206 1.61268H20.2475L1.86123 33.4584L20.2475 65.3042Z" fill="white" />
+            <path d="M54.9028 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9028L71.1705 33.459L54.9028 61.6367ZM23.2967 60.024H53.9719L69.3088 33.459L53.9719 6.89337H23.2967L7.95997 33.459L23.2967 60.024Z" fill="white" />
+            <path d="M54.9028 61.6367H22.3664L6.09766 33.459L22.3664 5.28125H54.9028L71.1705 33.459L54.9028 61.6367ZM23.2967 60.024H53.9719L69.3088 33.459L53.9719 6.89337H23.2967L7.95997 33.459L23.2967 60.024Z" fill="white" />
             <path d="M23.5297 5.68408L22.1328 6.49014L31.1121 22.0433L32.2932 20.8628L23.5297 5.68408Z" fill="white" />
             <path d="M55.1355 60.4272L46.296 45.116L44.8281 45.7989L53.7386 61.2333L55.1355 60.4272Z" fill="white" />
             <path d="M22.1328 60.4273L23.5297 61.2334L32.3431 45.9687L30.888 45.2642L22.1328 60.4273Z" fill="white" />
             <path d="M53.7389 5.68408L44.6875 21.3615L46.2009 21.9662L55.1358 6.49014L53.7389 5.68408Z" fill="white" />
             <path d="M25.1457 32.6523H7.02734V34.265H25.1457V32.6523Z" fill="white" />
             <path d="M70.2401 32.6523H52.4336V34.265H70.2401V32.6523Z" fill="white" />
-            <path
-                d="M46.302 46.741H30.9647L23.2969 33.459L30.9647 20.1765H46.3015L53.9693 33.459L46.302 46.741ZM31.8956 45.1278H45.3712L52.1087 33.4585L45.3712 21.7886H31.8956L25.1586 33.4585L31.8956 45.1278Z"
-                fill="white" />
+            <path d="M46.302 46.741H30.9647L23.2969 33.459L30.9647 20.1765H46.3015L53.9693 33.459L46.302 46.741ZM31.8956 45.1278H45.3712L52.1087 33.4585L45.3712 21.7886H31.8956L25.1586 33.4585L31.8956 45.1278Z" fill="white" />
             <path d="M23.4126 33.4158L22.0176 60.7874L23.6276 60.8694L25.0226 33.4979L23.4126 33.4158Z" fill="white" />
             <path d="M54.1432 33.4017L52.5332 33.4839L53.931 60.8554L55.541 60.7732L54.1432 33.4017Z" fill="white" />
             <path d="M53.7817 6.57966L52.3867 33.9512L53.9967 34.0332L55.3918 6.66171L53.7817 6.57966Z" fill="white" />
@@ -294,12 +357,9 @@
         </symbol>
     </svg>
 
-    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 77 77"
-        fill="none">
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 77 77" fill="none">
         <symbol id="icon-cir1" viewBox="0 0 78 67" fill="none">
-            <path
-                d="M54.5454 66.4545H22.0084L5.74023 38.2768L22.0084 10.0991H54.5454L70.8136 38.2768L54.5454 66.4545ZM22.9393 64.8419H53.614L68.9513 38.2763L53.614 11.7107H22.9393L7.602 38.2768L22.9393 64.8419Z"
-                fill="white" />
+            <path d="M54.5454 66.4545H22.0084L5.74023 38.2768L22.0084 10.0991H54.5454L70.8136 38.2768L54.5454 66.4545ZM22.9393 64.8419H53.614L68.9513 38.2763L53.614 11.7107H22.9393L7.602 38.2768L22.9393 64.8419Z" fill="white" />
             <path
                 d="M38.2769 70.7702C20.36 70.7702 5.7832 56.1934 5.7832 38.2765C5.7832 20.359 20.36 5.78223 38.2769 5.78223C56.1944 5.78223 70.7712 20.359 70.7712 38.2765C70.7712 56.1934 56.1944 70.7702 38.2769 70.7702ZM38.2769 7.39489C21.2492 7.39489 7.39588 21.2483 7.39588 38.277C7.39588 55.3047 21.2492 69.1586 38.2769 69.1586C55.3051 69.1586 69.1585 55.3047 69.1585 38.277C69.1585 21.2483 55.3051 7.39489 38.2769 7.39489Z"
                 fill="white" />
@@ -320,16 +380,11 @@
             <path
                 d="M38.2769 53.9741C29.6216 53.9741 22.5801 46.932 22.5801 38.2767C22.5801 29.6209 29.6216 22.5793 38.2769 22.5793C46.9327 22.5793 53.9748 29.6214 53.9748 38.2767C53.9748 46.932 46.9327 53.9741 38.2769 53.9741ZM38.2769 24.1915C30.5109 24.1915 24.1922 30.5101 24.1922 38.2767C24.1922 46.0427 30.5109 52.362 38.2769 52.362C46.044 52.362 52.3621 46.0433 52.3621 38.2767C52.3621 30.5101 46.0435 24.1915 38.2769 24.1915Z"
                 fill="white" />
-            <path
-                d="M45.5861 50.9346H30.9699L23.6621 38.2767L30.9699 25.6189H45.5861L52.8939 38.2767L45.5861 50.9346ZM31.9013 49.3219H44.6546L51.0321 38.2767L44.6546 27.231H31.9013L25.5244 38.2767L31.9013 49.3219Z"
-                fill="white" />
-            <path
-                d="M42.6866 45.9112H33.871L29.4629 38.2766L33.871 30.6421H42.6866L47.0941 38.2766L42.6866 45.9112ZM34.8019 44.2985H41.7557L45.2324 38.2766L41.7557 32.2548H34.8019L31.3252 38.2766L34.8019 44.2985Z"
-                fill="white" />
+            <path d="M45.5861 50.9346H30.9699L23.6621 38.2767L30.9699 25.6189H45.5861L52.8939 38.2767L45.5861 50.9346ZM31.9013 49.3219H44.6546L51.0321 38.2767L44.6546 27.231H31.9013L25.5244 38.2767L31.9013 49.3219Z" fill="white" />
+            <path d="M42.6866 45.9112H33.871L29.4629 38.2766L33.871 30.6421H42.6866L47.0941 38.2766L42.6866 45.9112ZM34.8019 44.2985H41.7557L45.2324 38.2766L41.7557 32.2548H34.8019L31.3252 38.2766L34.8019 44.2985Z" fill="white" />
         </symbol>
     </svg>
-    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 77 77"
-        fill="none">
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="77" height="77" viewBox="0 0 77 77" fill="none">
         <symbol id="icon-cir2" viewBox="0 0 78 67" fill="none">
             <path
                 d="M38.2764 70.7702C20.3594 70.7702 5.7832 56.1934 5.7832 38.2759C5.7832 20.3584 20.3594 5.78223 38.2764 5.78223C56.1944 5.78223 70.7706 20.359 70.7706 38.2759C70.7706 56.1929 56.1939 70.7702 38.2764 70.7702ZM38.2764 7.39489C21.2493 7.39489 7.39533 21.2482 7.39533 38.2765C7.39533 55.3047 21.2493 69.1586 38.2764 69.1586C55.3046 69.1586 69.1585 55.3047 69.1585 38.2765C69.1585 21.2482 55.3046 7.39489 38.2764 7.39489Z"
@@ -364,8 +419,7 @@
     </svg>
 
 
-    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="73" height="68" viewBox="0 0 73 68"
-        fill="none">
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="73" height="68" viewBox="0 0 73 68" fill="none">
         <symbol id="icon-tri1" viewBox="0 0 78 67" fill="none">
             <path
                 d="M62.2311 62.1471H10.0951C9.81111 62.1471 9.54871 61.9984 9.40336 61.7549C9.25802 61.5119 9.2508 61.2101 9.3845 60.9605L35.453 12.3173C35.5934 12.0549 35.8663 11.8923 36.1631 11.8923C36.461 11.8923 36.7334 12.0549 36.8743 12.3173L62.9423 60.9605C63.0765 61.2095 63.0693 61.5119 62.9234 61.7549C62.777 61.999 62.514 62.1471 62.2311 62.1471ZM11.441 60.535H60.8836L36.162 14.4059L11.441 60.535Z"
@@ -379,17 +433,12 @@
             <path
                 d="M36.4219 61.7444C27.7577 61.7444 20.709 54.6962 20.709 46.0315C20.709 37.3679 27.7577 30.3186 36.4219 30.3186C45.0861 30.3186 52.1348 37.3679 52.1348 46.0315C52.1348 54.6957 45.0861 61.7444 36.4219 61.7444ZM36.4219 31.9313C28.6464 31.9313 22.3217 38.2555 22.3217 46.0309C22.3217 53.8064 28.647 60.1317 36.4219 60.1317C44.1968 60.1317 50.5221 53.8064 50.5221 46.0309C50.5221 38.256 44.1968 31.9313 36.4219 31.9313Z"
                 fill="white" />
-            <path
-                d="M36.1644 48.5944C36.1611 48.5944 36.1572 48.5944 36.1539 48.5944C35.8648 48.59 35.6002 48.4318 35.4598 48.1794L27.6777 34.1868L29.0874 33.4024L36.186 46.1673L43.825 33.2532L45.213 34.0742L36.8589 48.1989C36.7136 48.4441 36.449 48.5944 36.1644 48.5944Z"
-                fill="white" />
+            <path d="M36.1644 48.5944C36.1611 48.5944 36.1572 48.5944 36.1539 48.5944C35.8648 48.59 35.6002 48.4318 35.4598 48.1794L27.6777 34.1868L29.0874 33.4024L36.186 46.1673L43.825 33.2532L45.213 34.0742L36.8589 48.1989C36.7136 48.4441 36.449 48.5944 36.1644 48.5944Z" fill="white" />
             <path d="M50.8705 47.3162H22.2168V48.9283H50.8705V47.3162Z" fill="white" />
-            <path
-                d="M42.9097 59.5497L36.1905 49.2956L29.9506 59.527L28.5742 58.6882L35.4776 47.3679C35.6218 47.1316 35.8765 46.9862 36.1527 46.9812C36.4473 46.9823 36.6886 47.1144 36.8401 47.3462L44.2594 58.6655L42.9097 59.5497Z"
-                fill="white" />
+            <path d="M42.9097 59.5497L36.1905 49.2956L29.9506 59.527L28.5742 58.6882L35.4776 47.3679C35.6218 47.1316 35.8765 46.9862 36.1527 46.9812C36.4473 46.9823 36.6886 47.1144 36.8401 47.3462L44.2594 58.6655L42.9097 59.5497Z" fill="white" />
         </symbol>
     </svg>
-    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="75" height="71" viewBox="0 0 75 71"
-        fill="none">
+    <svg class="svg-definition" xmlns="http://www.w3.org/2000/svg" width="75" height="71" viewBox="0 0 75 71" fill="none">
         <symbol id="icon-tri2" viewBox="0 0 78 67" fill="none">
             <path
                 d="M37.5006 57.7554C37.1928 57.7554 36.9098 57.5857 36.7648 57.3125L9.73401 6.87491C9.5948 6.61547 9.60287 6.30312 9.75301 6.05001C9.90487 5.79748 10.1764 5.64331 10.4709 5.64331H64.5325C64.8259 5.64331 65.0986 5.79748 65.2493 6.05001C65.4 6.30254 65.4075 6.6149 65.2683 6.87491L38.2375 57.3125C38.0925 57.5857 37.8095 57.7554 37.5006 57.7554ZM11.8659 7.31612L37.5006 55.149L63.1358 7.31612H11.8659Z"
@@ -399,12 +448,8 @@
                 fill="white" />
             <path d="M52.1784 27.9121H22.0781V29.5838H52.1784V27.9121Z" fill="white" />
             <path d="M38.3338 28.1726H36.6621V32.667H38.3338V28.1726Z" fill="white" />
-            <path
-                d="M37.4998 29.0086C37.3123 29.0086 37.1258 28.9459 36.9705 28.8211L10.6484 7.33566L11.7057 6.04136L37.5021 27.0954L63.796 5.8291L64.8475 7.1303L38.0256 28.8234C37.8725 28.9471 37.6862 29.0086 37.4998 29.0086Z"
-                fill="white" />
-            <path
-                d="M48.9741 18.2387L37.1367 7.68751L25.6421 18.2306L24.5117 16.9979L36.5637 5.94336C36.8806 5.65459 37.3644 5.65114 37.6849 5.93646L50.0866 16.9898L48.9741 18.2387Z"
-                fill="white" />
+            <path d="M37.4998 29.0086C37.3123 29.0086 37.1258 28.9459 36.9705 28.8211L10.6484 7.33566L11.7057 6.04136L37.5021 27.0954L63.796 5.8291L64.8475 7.1303L38.0256 28.8234C37.8725 28.9471 37.6862 29.0086 37.4998 29.0086Z" fill="white" />
+            <path d="M48.9741 18.2387L37.1367 7.68751L25.6421 18.2306L24.5117 16.9979L36.5637 5.94336C36.8806 5.65459 37.3644 5.65114 37.6849 5.93646L50.0866 16.9898L48.9741 18.2387Z" fill="white" />
             <path
                 d="M37.4989 48.5831C37.1923 48.5831 36.9081 48.4145 36.7632 48.1413L28.8098 33.3005C28.6718 33.0422 28.6781 32.7299 28.8299 32.4768C28.9807 32.2242 29.2522 32.0701 29.5467 32.0701H45.4534C45.7479 32.0701 46.0194 32.2242 46.1713 32.4768C46.3232 32.7299 46.3295 33.0417 46.1914 33.3005L38.237 48.1413C38.0908 48.4145 37.8078 48.5831 37.4989 48.5831ZM30.9428 33.7423L37.4989 45.9778L44.0567 33.7423H30.9428Z"
                 fill="white" />

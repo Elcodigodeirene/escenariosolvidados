@@ -1,58 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="css/contacto.css">
+    <!-- JavaScript con defer para ejecutar tras carga del DOM -->
     <script src="js/contacto.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
-        rel="stylesheet">
+    <!-- Hoja de estilos que define las fuentes @font-face alojadas localmente -->
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <!-- Título de la pestaña del navegador -->
     <title>Hallazgos</title>
-</head>
-<body>
-    <header class="Header">
-        <picture>
-            <source srcset="assets/Logo.svg" type="image/svg+xml" >
-            <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100" height="100" fetchpriority="high">
-          </picture>
+     <!--contacto.html - Página de contacto del sitio web "Explorador de Escenarios Olvidados".
 
-        <!-- Importante: el boton antes que el nav!!! -->
+    Este archivo HTML permite a los usuarios enviar informes sobre hallazgos extraños o escenarios no registrados.
+    Contiene:
+    - Un header fijo reutilizable con logo y navegación principal.
+    - Una sección principal con un formulario narrativo e inmersivo, que simula un informe enviado a la Sociedad del Viento.
+    - Un footer con enlaces a las páginas de políticas y de preguntas frecuentes.
+    - Elementos interactivos adicionales:
+    · Cursor personalizado animado.
+    · Popup secreto activado desde el footer con animación tipo máquina de escribir.
+    · Definiciones SVG reutilizables -->
+    
+</head>
+
+<body>
+    <!-- Cabecera con logotipo y menú de navegación -->
+    <header class="Header" id="Inicio">
+        <!-- Logotipo de la web -->
+        <picture>
+            <source srcset="assets/Logo.webp" type="image/webp">
+            <source srcset="assets/Logo.svg" type="image/svg+xml">
+            <img class="Header-logo" src="assets/Logo.svg" alt="Logotipo de La Sociedad del Viento" width="100" height="100" fetchpriority="high">
+        </picture>
+
+        <!-- Botón para abrir/cerrar menú en móvil (JS) -->
         <button class="Header-btn" title="Menú">
-            <svg class="Header-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            <svg class="Header-svg" width="16" height="16">
+                <use href="#icon-menu"></use>
             </svg>
         </button>
 
+        <!-- Menú principal de navegación -->
         <nav class="Header-nav">
             <ul class="Header-ul">
-                <li class="Header-li"><a class="Header-a " href="index.html" title="Inicio">Explorador</a>
+                <li class="Header-li"><a class="Header-a" href="index.html" title="Inicio">Explorador</a>
                 </li>
                 <li class="Header-li"><a class="Header-a" href="sobre-nosotros.html" title="Quienes somos">La Sociedad del Viento</a>
                 </li>
-                <li class="Header-li"><a class="Header-a" href="archivo.html" title="Archivo de Escenarios">Archivo de Escenarios</a>
+                <li class="Header-li"><a class="Header-a" href="archivo.html" title="Escenarios">Archivo de Escenarios</a>
                 </li>
                 <li class="Header-li"><a class="Header-a Header-a--selected" href="contacto.html" title="Contacto">Hallazgos</a></li>
             </ul>
         </nav>
-
-
     </header>
 
+
     <main class="Main">
+        <!--
+Bloque principal de contenido que permite al visitante enviar un informe.
+
+Contiene:
+- Título llamativo "Envía tu hallazgo".
+- Párrafo descriptivo con un tono narrativo y misterioso que introduce el propósito del formulario.
+- Formulario accesible, con validación HTML y campos personalizados que evocan una misión secreta.-->
         <section class="Contact">
             <h2 class="Contact-h1">Envía tu hallazgo</h2>
             <p class="Contact-p">¿Has visto algo fuera de lugar? ¿Un reflejo, una estructura imposible, un lugar que no debería existir? Redacta aquí tu informe. Nuestro equipo de archivistas lo analizará con la discreción que merece.
             </p>
 
-            <form class="Contact-form" action="#" method="post">
+            <form class="Contact-form" action="#" method="post" name="formulario-contacto" title="Formulario de contacto de la Sociedad del Viento">
+                <!-- Formulario:
+- Campo "Nombre en clave": input de texto obligatorio, simula una identidad secreta.
+- Campo "Canal de contacto": input tipo email requerido.
+- Campo "Mensaje": textarea para detallar el hallazgo.
+- Checkbox de consentimiento: usa un mensaje narrativo en lugar de uno legal tradicional.
+- Enlace embebido a la política de confidencialidad (abre en la misma pestaña).
+- Botón de envío con texto personalizado "Enviar informe" -->
                 <label for="form-name">Nombre en clave*</label>
                 <input class="Contact-input" type="text" id="form-name" name="name" placeholder="Introduce tu nombre en clave" required>
-               
+
                 <label for="form-email">Canal de contacto*</label>
                 <input class="Contact-input" type="email" id="form-email" name="email" placeholder="Introduce el canal de contacto" required>
 
@@ -61,9 +91,9 @@
                 <div class="Contact-privacy">
                     <input class="Contact-checkbox" type="checkbox" name="privacidad" id="acepto" required>
                     <label class="Contact-label--privacy" for="acepto">
-                        Autorizo a la Sociedad del Viento a custodiar este hallazgo. El archivo lo guardará en silencio. He leído y acepto la <a class="Contact-link" href="politica-confidencialidad.html">política de confidencialidad</a>.*
-                      </label>
-                    </div>
+                        Autorizo a la Sociedad del Viento a custodiar este hallazgo. El archivo lo guardará en silencio. He leído y acepto la <a class="Contact-link" href="politica-confidencialidad.html" title="Ir a la politica de confidencialidad">política de confidencialidad</a>.*
+                    </label>
+                </div>
                 <button type="submit" class="Contact-btn" title="Eviar informe">Enviar informe</button>
             </form>
         </section>
@@ -71,43 +101,53 @@
 
     </main>
 
+    <!-- Pie de página con enlaces -->
     <footer class="Footer">
-
+        <!-- Enlace para volver arriba -->
         <div class="Footer-column Footer-column--logo">
-            <a href="#" title="Ir arriba">
+            <a href="#Inicio" title="Ir arriba">
                 <picture>
-                    <source srcset="assets/flecha.png" type="image/svg+xml">
-                    <img class="Footer-up" src="assets/flecha.png" alt="Logo de la Sociedad del Viento"  width="160" height="160" loading="lazy">
+                    <source srcset="assets/flecha.webp" type="image/webp">
+                    <source srcset="assets/flecha.png" type="image/png">
+                    <img class="Footer-up" src="assets/flecha.png" alt="Volver arriba" width="160" height="160" loading="lazy">
                 </picture>
             </a>
         </div>
-        
+
+        <!-- Información central del footer -->
         <div class="Footer-column Footer-column--info">
+            <!-- X-973A como trigger del Popup secreto -->
             <div class="Footer-coordinates ">
                 LAT.93-13-13 / LON.-42-404 <span id="Popup-trigger" class="Footer-coordinates--trigger">X-973A</span>
             </div>
             <p class="Footer-quote">Aquí termina lo que puedes ver. Lo demás... permanece entre las sombras. </p>
-
-            <div class="Footer-copy">2025 © La Sociedad del Viento. Fragmentado por Irene Molina.
-            </div>
         </div>
+        <!-- Enlaces secundarios a políticas y preguntas-->
         <div class="Footer-column Footer-column--links">
             <h4 class="Footer-h4">Otros archivos de interés:</h4>
             <ul class="Footer-links">
-                <li><a href="preguntas-no-autorizadas.html">Preguntas no autorizadas</a></li>
-                <li><a href="politica-confidencialidad.html">Política de confidencialidad</a></li>
+                <li><a href="preguntas-no-autorizadas.html" title="Preguntas no autorizadas">Preguntas no autorizadas</a></li>
+                <li><a href="politica-confidencialidad.html" title="Política de confidencialidad">Política de confidencialidad</a></li>
             </ul>
         </div>
-
     </footer>
-    <!-- POPUP -->
+
+    <!-- Popup secreto con animación -->
     <div class="Popup">
         <div class="Popup-wrapper">
-            <button class="Popup-btn">✕</button>
+            <button class="Popup-btn" title="Cerrar Popup">✕</button>
             <div class="Popup-typewriter"></div>
         </div>
     </div>
-    <!-- Cursor  -->
- <div class="Cursor"></div> 
+    <!-- Cursor personalizado animado -->
+    <div class="Cursor"></div>
+    <!-- Definiciones de iconos SVG reutilizables -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-definition">
+        <symbol id="icon-menu" viewBox="0 0 16 16" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        </symbol>
+    </svg>
+
 </body>
+
 </html>

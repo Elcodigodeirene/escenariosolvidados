@@ -1,28 +1,77 @@
-/* Recuerda definir las Custom properties */
+/*
+escenario.css - Estilos específicos para páginas individuales de escenarios del sitio "Explorador de Escenarios Olvidados"
+----------------------------------------------------------------------
+Define estilos visuales, narrativos e interactivos para representar un escenario único.
+- Variables personalizadas en :root
+- Reset de estilos y mejoras de accesibilidad
+- Tipografía base, colores y layout
+- Estilos para secciones principales:
+  · Hero con Header integrado e imagen fija de fondo
+  · Relato (Story)
+  · Galería (Gallery) de imagenes
+  · Carrousel de reseñas (Fragment-wrapper)
+  · Footer con coordenadas secretas y enlaces secundarios
+  · Animaciones, responsividad y estados interactivos
+  · Interacciones avanzadas: Lightbox, carrousel y sonido ambiental.
+  · Cursor personalizado, popup secreto y comportamiento responsivo
+*/
+
+/* Variables globales (Custom Properties) */
 :root {
-    /* Tipografía definida por el usuario */
-    font-size: 100%;
-    /* Tipografía por defecto */
-    font-family: system-ui, sans-serif;
-    /* Anclas suaves */
-    scroll-behavior: smooth;
+  /* Tipografía base */
+  font-size: 100%;
+  font-family: system-ui, sans-serif;
+  /* Anclas suaves */
+  scroll-behavior: smooth;
+
+  /* Tipografías personalizadas */
+  --font-body: "Crimson Text", serif;
+  --font-heading: "Bodoni Moda", serif;
+  --font-popup: 'Fragment Mono', monospace;
+
+  /* Tamaños de fuente responsivos */
+  --font-s-h1: clamp(2.2rem, 4vw, 3.5rem);
+  --font-s-h2: clamp(1.2rem, 4vw, 2rem);
+  --font-s-h3: clamp(1rem, 4vw, 1.4rem);
+  --font-s-p: clamp(1rem, 4vw, 1.25rem);
+  --font-s-16: 1rem;
+  --font-s-20: 1.25rem;
+
+  /* Sombras para textos */
+  --text-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.3),
+    0 0 1.25rem rgba(234, 227, 210, 0.2),
+    0 0 2.5rem rgba(234, 227, 210, 0.1);
+
+
+  /* Paleta cromática */
+  --color-dark: #1b1b1b;
+  --color-light: #eae3d2;
+  --color-accent: #132841;
+  --color-header: rgba(10, 18, 25, 1);
+  --color-background: rgb(23, 49, 82);
+  --color-white: white;
+  --color-carrousel: #142A45;
+
+  /* Ancho máximo para centrar el contenido en pantallas grandes */
+  --max-width-zoom: 2000px;
+
 }
 
-/* (Reset clásico) Reseteamos los margin, paddings y bordes de todas las etiquetas */
+/* Reset y normalización inspirado en Meyer & Andy Bell*/
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
 }
 
 /* Reseteamos los before y after */
 *::before,
 *::after {
-    display: block;
+  display: block;
 }
 
 /* Evitamos problemas con las imagenes y vídeos */
@@ -32,37 +81,37 @@ video,
 iframe,
 figure,
 canvas {
-    max-width: 100%;
-    display: block;
-    /* width : 100%; */
-    height: initial;
-    /* Ajustamos el tamaño del objeto imagen dentro de img y video */
-    object-fit: cover;
-    /* Ponemos la posicion del objeto imagen dentro de img y video */
-    object-position: center center;
+  max-width: 100%;
+  display: block;
+  /* width : 100%; */
+  height: initial;
+  /* Ajustamos el tamaño del objeto imagen dentro de img y video */
+  object-fit: cover;
+  /* Ponemos la posicion del objeto imagen dentro de img y video */
+  object-position: center center;
 }
 
 /* Reseteamos los enlaces para funcionar como cajas... */
 a {
-    display: block;
-    /* text-decoration: none; */
-    color: inherit;
-    font: inherit;
+  display: block;
+  /* text-decoration: none; */
+  color: inherit;
+  font: inherit;
 }
 
 p a {
-    display: inline;
+  display: inline;
 }
 
 /* Quitamos los puntos de los <li> */
 li,
 menu,
 summary {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 ol {
-    counter-reset: revert;
+  counter-reset: revert;
 }
 
 /* Desactivamos estilos por defecto de las principales etiquetas de texto */
@@ -84,16 +133,16 @@ pre,
 code,
 mark,
 del {
-    font: inherit;
-    text-decoration: none;
-    color: inherit;
-    overflow-wrap: break-word;
-    text-wrap: pretty;
+  font: inherit;
+  text-decoration: none;
+  color: inherit;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 
 mark {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 /* Evitamos problemas con los pseudoelementos de quotes */
@@ -101,7 +150,7 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-    content: none;
+  content: none;
 }
 
 /* Nivelamos problemas de tipografías y colocación de formularios */
@@ -111,26 +160,26 @@ textarea,
 select,
 button,
 label {
-    font: inherit;
-    hyphens: auto;
-    background-color: transparent;
-    color: inherit;
-    display: block;
-    /* Desactivamos los estilos base */
+  font: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* Desactivamos los estilos base */
 
 }
 
 fieldset {
-    border: none;
+  border: none;
 }
 
 ::placeholder {
-    color: unset;
+  color: unset;
 }
 
 button,
 label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Reseteamos las tablas */
@@ -141,703 +190,1200 @@ th,
 tbody,
 thead,
 tfoot {
-    border-collapse: collapse;
-    border-spacing: 0;
-    font: inherit;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font: inherit;
 }
 
 /* Evitamos problemas con los SVG */
 svg {
-    width: 100%;
-    display: block;
-    fill: currentColor;
+  width: 100%;
+  display: block;
+  fill: currentColor;
 }
 
+/* Ocultamos los svgs definidos para luego llamarlos con symbol */
 .svg-definition {
-    display: none;
+  display: none;
 }
 
 /* Configuramos la tipografía para toda la web */
 body {
-    min-height: 100vh;
-    line-height: 1.5em;
-    color: inherit;
-    /* Evitamos que el texto se desborde */
-    hyphens: auto;
+  min-height: 100vh;
+  line-height: 1.5;
 
-    /* La tipografía es más limpia en macOS */
-    -webkit-font-smoothing: antialiased;
-    /* La tipografía es más limpia en macOS */
-    -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-s-20);
+  color: var(--color-light);
+  scroll-behavior: smooth;
+  /* Configuración para que no se rompan las palabras */
+  hyphens: none;
+  overflow-wrap: break-word;
+  word-break: normal;
 
-    font-family: "Crimson Text", serif;
-    /* font-weight: 400;
-  font-style: normal; */
-    font-size: 20px;
-    cursor: none;
-    hyphens: manual;
-    overflow-wrap: break-word;
-    word-break: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Ocultamos el cursor para usar el cursor personalizado. Desactivamos luego para el responsive */
+  cursor: none;
 }
 
-:root {
-
-    --font-s-2: 1.8rem;
-    --font-s-3: 3.5rem;
+/* Títulos y botones con tipografía especial */
+h1,
+h2,
+h3,
+.Sound-btn {
+  font-family: var(--font-heading);
 }
 
+/*-------------------------HEADER----------------------------*/
+/* Cabecera con logo, botón de menú y navegación. */
 .Header {
-    width: 100%;
-    max-width: 2000px;
-    margin: auto;
-    padding: 1rem 5rem;
+  width: 100%;
+  max-width: var(--max-width-zoom);
+  margin: auto;
+  padding: 1rem 5rem;
 
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-
-    font-family: "Crimson Text", serif;
-
-    /* background: rgba(10, 18, 25, 1); */
-
-
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Header-logo {
-    width: 6.25rem;
-    height: 6.25rem;
+  width: 6.25rem;
+  height: 6.25rem;
 }
 
 .Header-btn {
-    display: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  display: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .Header-btn:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-
+.Header-btn:active {
+  transform: scale(0.95);
+}
 
 
 .Header-nav {
-    width: 70%;
+  width: 70%;
 }
 
 .Header-ul {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: start;
-    align-items: center;
-    gap: 3rem;
-
-
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: start;
+  align-items: center;
+  gap: 3rem;
 }
 
 .Header-a {
-    position: relative;
-    padding: 0.2rem 0;
-    transition: color 0.3s ease;
-    color: #EAE3D2;
-
-
+  position: relative;
+  padding: 0.2rem 0;
+  transition: color 0.3s ease;
+  color: var(--color-light);
 }
 
 .Header-a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: currentColor;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0.125rem;
+  background-color: currentColor;
+  transition: width 0.3s ease;
 
 }
 
 .Header-a:hover::before,
 .Header-a--selected::before {
-    width: 100%;
+  width: 100%;
 }
 
+/* -------------------------- HERO VISUAL: CONTENEDOR --------------------------
+Contenedor principal del Hero.
+- Ocupa toda la ventana visible (100vh).
+- Usa `overflow: hidden` para recortar cualquier exceso visual.
+- Centrado y limitado a 2000px de ancho máximo. */
 
 .Herowrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  max-width: var(--max-width-zoom);
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    max-width: 2000px;
-    margin: 0 auto;
-    /* overflow: hidden; */
-    /* background-image: url('../assets/Escenario6.png'); */
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/Escenario2.png');
-    background-size: cover;
-    /* background-position: center; */
-    background-position: center 32%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+/*Contenedor de fondo fijado (fixed) que permanece inmóvil al hacer scroll.
+- Ocupa todo el viewport.
+- `pointer-events: none` asegura que no interfiere con el resto del contenido.
+- Z-index negativo para que quede detrás de todo. */
 
+.Herowrapper-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  /* evita que bloquee clics */
+}
+
+/* Imagen de fondo principal.
+- Se escala y posiciona con `object-fit` y `object-position` para centrar el foco visual.
+- Filtro de brillo para oscurecer ligeramente la imagen de fondo. */
+
+.Herowrapper-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  filter: brightness(0.8);
+}
+
+/* Asegura que el <picture> del Hero ocupe toda la ventana. 
+   Necesario para que la imagen de fondo se ajuste correctamente. */
+.Herowrapper-bg picture {
+  display: block;
+  width: 100vw;
+  height: 100vh;
 }
 
 
-
-
+/*Sección que presenta el título y subtítulo del escenario actual.
+  - Alineado al centro.
+  - Espaciado vertical con `gap`. */
+.Scenario {
+  position: relative;
+  z-index: 1;
+}
 
 .Scenario {
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    color: #eae3d2;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: var(--color-light);
 }
 
+/*Contenedor del título y subtítulo.
+- Alineación centrada y vertical. */
 .Scenario-title {
-    /* display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem; */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
 }
 
+/*Título principal del escenario.
+- Animado con `opacity` en combinación con JS (`isVisible`).
+- Estilizado en mayúsculas, espaciado y con sombra de texto. */
 .Scenario-h1 {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px rgba(234, 227, 210, 0.3);
-    line-height: 1.5;
-    text-align: center;
-    color: #eae3d2;
+  font-size: var(--font-s-h1);
+  text-transform: uppercase;
+  letter-spacing: 0.1875rem;
+  text-shadow: var(--text-shadow);
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-light);
+  padding: 1rem 2rem;
 
-    /* opacity: 0;
-        transition: opacity 3s ease; */
+  opacity: 0;
+  transition: opacity 3s ease;
 }
 
 
-/* .About-h1.isVisible {
-        opacity: 1;
- } */
+.Scenario-h1.isVisible {
+  opacity: 1;
+}
 
+/*Subtítulo poético o narrativo que acompaña al título principal.
+- Aparece con efecto fadeIn + desplazamiento.
+- Ligero tono más claro (rgba).
+- Activado mediante `.isVisible`. */
 .Scenario-subtitle {
-    font-family: "Crimson Text", serif;
-    font-size: clamp(1rem, 4vw, 1.25rem);
-    font-style: italic;
-    color: #eae3d2cc;
+  font-size: var(--font-s-p);
+  font-style: italic;
+  color: #eae3d2cc;
+  text-align: center;
+  padding: 1rem 4rem;
+  opacity: 0;
+  transform: translateY(1.875rem);
+  transition: opacity 4s ease, transform 4s ease;
 }
 
 
-/* .Scenario-ancla {
-    padding: 0.8rem 1.5rem;
-
-    color: #EAE3D2;
-    font-family: "Bodoni Moda", serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin: 1rem 0 0;
+.Scenario-subtitle.isVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.Scenario-ancla:hover {
-    transform: scale(1.5);
-    letter-spacing: 5px;
-} */
-
-
-
+/*-------------------------MAIN----------------------------*/
+/* Contenedor principal del contenido. Define el ancho máximo del área de lectura,
+   establece la paleta de colores de fondo y aplica una fuente base para todo el cuerpo del escenario. */
 
 .Main {
-    width: 100%;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 2rem 4rem;
+  width: 100%;
+  max-width: var(--max-width-zoom);
+  margin: 0 auto;
+  padding: 2rem 4rem;
 
-    background: rgb(23, 49, 82);
-    background: linear-gradient(0deg, rgba(23, 49, 82, 1) 0%, rgba(10, 18, 25, 1) 100%);
-    color: #EAE3D2;
+  background: var(--color-background);
+  background: linear-gradient(0deg, rgba(23, 49, 82, 1) 0%, rgba(10, 18, 25, 1) 100%);
+  color: var(--color-light);
 
-    font-family: "Crimson Text", serif;
-
-    font-size: 1.1rem;
-
+  font-size: var(--font-s-p);
 }
 
+/*-------------------------STORY----------------------------*/
+/* Bloque narrativo principal del escenario. Incluye título, texto secuencial
+   y un "Informe de Estado" con detalles técnicos del hallazgo. */
 .Story {
-
-    width: 90%;
-    margin: 2rem auto;
-    color: #eae3d2;
+  width: 90%;
+  margin: 2rem auto;
+  color: var(--color-light);
 
 }
 
+/* Título de la sección narrativa */
 .Story-h2 {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(1.6rem, 4vw, 2rem);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: #EAE3D2;
+  font-size: var(--font-s-h2);
+  text-transform: uppercase;
+  margin: 3rem 0.5rem;
+  text-align: center;
+  text-shadow: var(--text-shadow);
+  color: var(--color-light);
 
-
+  opacity: 0;
+  transition: opacity 3s ease;
 }
 
+
+.Story-h2.isVisible {
+  opacity: 1;
+}
+
+/* Contenedor de los párrafos narrativos */
 .Story-text {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: start;
-    gap: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
 }
 
+/* Párrafo con efecto de aparición progresiva */
+.Story-p {
+  font-size: var(--font-s-p);
 
+  color: #eae3d2cc;
+  line-height: 4rem;
+  opacity: 0;
+  transition: opacity 1s ease, line-height 2.5s ease;
+}
 
+.Story-p.isVisible {
+  line-height: 1.5rem;
+  opacity: 1;
+}
+
+/* Pie de relato con fecha y símbolo */
 .Story-date {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
 
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: end;
-    align-items: center;
-    gap: 0.5rem;
-
-    font-family: "Crimson Text", serif;
-    font-style: italic;
-    font-size: 1.25rem;
-    color: #ccc;
-    text-align: right;
-    border-top: 1px solid rgba(234, 227, 210, 0.2);
-    padding: 1rem 0;
-    margin: 3rem 0;
-    opacity: 0.8;
+  font-style: italic;
+  font-size: var(--font-s-p);
+  color: #eae3d2cc;
+  text-align: right;
+  border-top: 1px solid rgba(234, 227, 210, 0.2);
+  padding: 1rem 0;
+  margin: 3rem 0;
+  opacity: 0.8;
 }
 
 .Story-icon {
-    width: 4rem;
-    height: 4rem;
-    opacity: 0.8;
-    flex-shrink: 0;
-    fill: currentColor;
-
-
+  width: 4rem;
+  height: 4rem;
+  opacity: 0.8;
+  flex-shrink: 0;
+  fill: currentColor;
 }
 
+/* Sub-bloque con información técnica del escenario: accesibilidad, recomendaciones y estado del archivo. */
 .Status-h3 {
-    font-family: "Crimson Text", serif;
-    font-size: 1rem;
-    color: #88c0d0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 2rem 0 0;
+  font-size: var(--font-s-h3);
+  color: #88c0d0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 2rem 0 0;
 }
 
 .Status-ul {
-    list-style: none;
-    padding-left: 1rem;
-    border-left: 3px solid #5c88a7;
+  list-style: none;
+  padding: 0 0 0 1rem;
+  border-left: 0.1875rem solid #5c88a7;
 }
 
 .Status-li {
-    margin:  0 0 1rem;
-    font-style: italic;
-    line-height: 1.6;
+  margin: 0 0 1rem;
+  font-style: italic;
+  line-height: 1.6;
 }
 
-.Galery {
-    width: 100%;
-    min-height: 100vh;
+/* ---------------------- GALERÍA VISUAL (Registro Visual) ---------------------- */
+/* Sección que muestra una galería de imágenes del escenario.
+   Las imágenes se presentan en cuadrícula responsive con efecto de aparición animada.
+   Cada imagen se puede ampliar mediante Lightbox al hacer clic.
+*/
 
-    margin: 0 auto;
-  
-    text-align: center;
-    color: #eae3d2;
+.Galery-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  text-align: center;
+  color: var(--color-light);
+
+  background-color: transparent;
 }
 
 .Galery-h2 {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin: 4rem 0 2rem;
-    text-align: center;
-    text-transform: uppercase;
+  font-size: var(--font-s-h2);
+  margin: 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow);
+
+  opacity: 0;
+  transition: opacity 3s ease;
 }
 
-.Fragment-wrapper {
-    min-height: 60vh;
-    width: 100%;
-    margin: 5rem 0;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-  
-    text-align: center;
-    color: #eae3d2;
 
+.Galery-h2.isVisible {
+  opacity: 1;
+}
+
+.Galery-p {
+  font-size: var(--font-s-p);
+  max-width: 1050px;
+  margin: 2rem auto;
+
+  line-height: 4rem;
+  opacity: 0;
+  transition: opacity 1s ease, line-height 2.5s ease;
+
+
+}
+
+.Galery-p.isVisible {
+  line-height: 1.5rem;
+  opacity: 1;
+}
+
+/* Lista de imágenes en cuadrícula responsive con animación de entrada por scroll */
+.Galery-ul {
+  width: 90%;
+  max-width: 80rem;
+  margin: 2rem auto;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+
+}
+
+/* Cada tarjeta de imagen: bordes redondeados, sombra sutil, y animación progresiva */
+.Galery-li {
+  border: 1px solid rgba(234, 227, 210, 0.1);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.75rem rgba(234, 227, 210, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(3.125rem);
+  transition: opacity 2s ease, transform 2s ease;
+
+}
+
+.Galery-li.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efecto delay escalonado para animaciones */
+.Galery-li:nth-child(1) {
+  transition-delay: 0.5s;
+  transition-duration: 3s;
+}
+
+.Galery-li:nth-child(2) {
+  transition-delay: 1s;
+  transition-duration: 2s;
+}
+
+.Galery-li:nth-child(3) {
+  transition-delay: 1s;
+  transition-duration: 2s;
+
+}
+
+.Galery-li:nth-child(4) {
+  transition-delay: 1.5s;
+  transition-duration: 1.5s;
+}
+
+/* Hover de las tarjetas de imagen */
+.Galery-li:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.15), 0 0 1.875rem rgba(92, 136, 167, 0.1);
+}
+
+/* Imagen dentro de cada tarjeta. Se aplica un pequeño zoom de entrada que se revierte al hacer hover */
+.Galery-img {
+  width: 100%;
+  height: 28rem;
+  object-fit: cover;
+  object-position: bottom;
+
+  border-radius: 1.25rem;
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+.Galery-img:hover {
+  transform: scale(1);
+}
+
+.Galery-img:active {
+  transform: scale(1.1);
+}
+
+/* ---------------------- LIGHTBOX (Galería interactiva) ---------------------- */
+/* Contenedor fijo que cubre toda la pantalla. Se activa al hacer clic en una imagen de la galería.
+   Muestra una versión ampliada de la imagen en el centro, con botón para cerrar.
+*/
+.Lightbox {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  backdrop-filter: blur(2rem);
+  cursor: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Estado activo del Lightbox: visible y clicable */
+.Lightbox.isActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Botón de cierre del Lightbox con hover animado */
+.Lightbox-boton {
+  width: 3rem;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+.Lightbox-boton:hover {
+  transform: scale(.95);
+}
+
+.Lightbox-boton:active {
+  transform: scale(1.1);
+}
+
+/* Imagen ampliada dentro del Lightbox */
+.Lightbox-img {
+  width: 100%;
+  max-width: 70rem;
+  height: 80vh;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, .4);
+
+  margin: 1rem auto;
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: 1.6rem;
+}
+
+/* ---------------------- FRAGMENTOS RECUPERADOS ---------------------- */
+/* Sección que presenta frases misteriosas aportadas por exploradores anteriores.
+   Funciona como una transición narrativa hacia el carrusel.
+*/
+.Fragment-wrapper {
+  min-height: 70vh;
+  width: 100%;
+  margin: 2rem 0;
+
+  text-align: center;
+  color: var(--color-light);
 }
 
 .Fragment-h2 {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin: 4rem 0 2rem;
-    text-align: center;
-    text-transform: uppercase;
-    color: #d1d5db;
+  font-size: var(--font-s-h2);
+  margin: 4rem 0 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-light);
+  text-shadow: var(--text-shadow);
+
+  opacity: 0;
+  transition: opacity 3s ease;
 }
 
-.Fragment-p{
-    font-family: "Crimson Text", serif;
-    font-size: clamp(1rem, 4vw, 1.1rem);
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 2rem auto;
+.Fragment-h2.isVisible {
+  opacity: 1;
+}
 
-    /* opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 3s ease, transform 3s ease; */
-  }
+.Fragment-p {
+  font-size: var(--font-s-p);
+  max-width: 800px;
+  margin: 2rem auto;
 
-  
+  line-height: 4rem;
+  opacity: 0;
+  transition: opacity 1s ease, line-height 2.5s ease;
+}
 
-/* .Fragment-p.isVisible {
+.Fragment-p.isVisible {
+  line-height: 1.8rem;
+  opacity: 1;
+}
+
+/* ---------------------- CARRUSEL DE TESTIMONIOS ---------------------- */
+/* Carrusel funcional que muestra fragmentos de texto de forma cíclica.
+   Incluye navegación por flechas, transiciones suaves y sistema de paginación visual.
+*/
+
+.Carrousel {
+  width: 90%;
+  max-width: 1000px;
+  margin: 8vh auto;
+  padding: 2rem 1rem;
+
+  border-radius: 1rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  background-color: var(--color-carrousel);
+  box-shadow: 0 0 2rem rgba(234, 227, 210, 0.08);
+  color: var(--color-light);
+
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(3.125rem);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.Carrousel.isVisible {
   opacity: 1;
   transform: translateY(0);
-} */
-
-.Fragment {
-    max-width: 700px;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 2rem;
-    border-left: 3px solid #5c88a7;
-    padding-left: 1rem;
-
 }
 
+.Carrousel-wrapper {
+  display: grid;
+}
+
+.hasTransition {
+  transition: all .5s ease;
+}
+
+/* Fragmento individual con texto y autor */
+.Carrousel-fragment {
+  width: 100%;
+  height: 16rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
 
 .Fragment-text {
-    font-style: italic;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+  font-style: italic;
+  font-size: var(--font-s-p);
+  margin-bottom: 0.5rem;
+  color: var(--color-light);
 }
 
 .Fragment-author {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    color: #aaa;
-    font-style: normal;
+  font-size: clamp(0.8rem, 4vw, 1.1rem);
+  opacity: 0.7;
+  color: #eae3d2aa;
+  font-style: normal;
+}
+
+/* Flechas de navegación izquierda/derecha */
+.Carrousel-arrow {
+  position: absolute;
+  top: calc(50% - 2rem);
+  border-radius: 1rem;
+  padding: 1rem;
+
+  cursor: pointer;
+  transition: transform .5s ease;
+}
+
+.Carrousel-arrow:hover {
+  transform: scale(.9);
+}
+
+.Carrousel-arrow:active {
+  transform: scale(1.1);
+}
+
+.Carrousel-arrow--prev {
+  left: 1rem;
+}
+
+.Carrousel-arrow--next {
+  right: 1rem;
+}
+
+.Carrousel-arrow-svg {
+  width: clamp(1.5rem, 5vw, 2.5rem);
+  height: clamp(1.5rem, 5vw, 2.5rem);
+  color: var(--color-white);
+}
+
+/* Sistema de paginación por puntos circulares */
+.Carrousel-ul {
+  padding: 1rem 0 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.Carrousel-btn {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: rgba(234, 227, 210, 0.2);
+
+  border-radius: 50%;
+  border: 0.063rem solid rgba(234, 227, 210, 0.1);
+
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.Carrousel-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(234, 227, 210, 0.4);
+}
+
+.Carrousel-btn:active {
+  transform: scale(.9);
+  background-color: rgba(234, 227, 210, 0.4);
+}
+
+.Carrousel-btn.isActive {
+  background-color: var(--color-light);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  border: 0.063rem solid var(--color-white);
+}
+
+/* ---------------------- BOTÓN DE SONIDO AMBIENTAL ---------------------- */
+/* Botón flotante fijo en la esquina inferior derecha. Permite activar o desactivar 
+   el sonido de ambiente de la escena. Se muestran dos versiones (ON/OFF) en función del estado.
+   El diseño es coherente con el resto del sitio: bordes redondeados, sombra sutil y transición suave.
+*/
+.Sound-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+
+  background-color: var(--color-header);
+  color: var(--color-light);
+  border: 0.1rem solid var(--color-light);
+  padding: 1rem 1.2rem;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
+  transition: all 0.3s ease;
+
+  z-index: 2;  /* Siempre visible por encima del resto (por problemas con la imagen fija del Hero) */
+  pointer-events: auto;  /* Asegura que el botón sea interactivo */
+
+}
+
+/* Icono SVG interno (altavoz encendido/apagado) */
+.Sound-btn-svg {
+  width: 1.25rem;
+  height: 1.25rem;
+
+}
+
+/* Oculta uno de los dos botones según el estado del sonido */
+.Sound-btn.isHidden {
+  display: none;
+}
+
+/* Hover con cambio de fondo, inversión de color y efecto de sombra más fuerte */
+.Sound-btn:hover {
+  transform: scale(1.05);
+  background-color: var(--color-light);
+  color: var(--color-header);
+  border: 0.1rem solid var(--color-header);
+  box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
 }
 
 
-
+/*-------------------------FOOTER----------------------------*/
+/* Pie de página con tres columnas: logo, info y enlaces. */
 .Footer {
 
-    width: 100%;
-    min-height: 20vh;
-    max-width: 2000px;
-    background-color: #EAE3D2;
-    margin: 0 auto;
-    padding: 2rem;
+  width: 100%;
+  min-height: 20vh;
+  max-width: var(--max-width-zoom);
+  background-color: var(--color-light);
+  margin: 0 auto;
+  padding: 2rem;
 
-    /* display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center; */
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  color: var(--color-dark);
 
-    font-family: "Crimson Text", serif;
 
-    /* background-image: url('../assets/Fondo-pergamino.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;  */
 }
 
+/* Columna izquierda con el botón para volver arriba */
 .Footer-column--logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* width: 20%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Columna central con coordenadas, frase final y copyright */
 .Footer-column--info {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
 
+/* Columna derecha con enlaces */
 .Footer-column--links {
-    text-align: left;
+  text-align: left;
 }
 
+/* Frase final en cursiva */
 .Footer-quote {
-    font-style: italic;
-    text-align: center;
-    font-size: clamp(1rem, 4vw, 1.2rem);
+  font-style: italic;
+  text-align: center;
+  font-size: var(--font-s-p);
 }
 
+/* Título de la sección de enlaces */
 .Footer-h4 {
-    font-weight: 600;
-    font-size: 1em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0 0 1rem 0;
+  font-weight: 600;
+  font-size: var(--font-s-h3);
+  text-transform: uppercase;
+  letter-spacing: 0.063rem;
+  margin: 0 0 1rem 0;
 }
 
-.Footer-copy {
-    font-size: 1em;
-    text-align: center;
-}
-
+/* Coordenadas con efecto especial */
 .Footer-coordinates {
-    font-weight: 600;
-
+  font-weight: 600;
 }
 
+/* Coordenadas clicables (disparan el popup) */
 .Footer-coordinates--trigger {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
+  transition: box-shadow 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
 }
 
 .Footer-coordinates--trigger:hover {
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-    color: #132841;
+  box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
+  color: var(--color-accent);
 }
 
+/* Flecha "volver arriba" */
 .Footer-up {
-    width: 8rem;
-    height: auto;
+  width: 8rem;
+  height: auto;
 
 }
 
+/* Enlaces en el footer */
 .Footer-links a {
-    transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .Footer-links a:hover {
-    color: #132841;
+  color: var(--color-accent);
 }
 
-
-
+/*-------------------------Cursor personalizado----------------------------*/
+/* Círculo blanco que sigue al puntero y reacciona al hacer click o pasar sobre botones. */
 .Cursor {
-    width: 1.8rem;
-    height: 1.8rem;
-    border-radius: 50%;
-    position: fixed;
-    top: -20px;
-    left: -20px;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  position: fixed;
+  top: -1.25rem;
+  left: -1.25rem;
 
-    /* background-color: white; */
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
-    transition: transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
 
-    mix-blend-mode: difference;
-    pointer-events: none;
+  mix-blend-mode: difference;
+  /* Para contraste dinámico sobre fondos */
+  pointer-events: none;
+  /* No interfiere con clics del usuario */
 }
 
-/* Cuando haces click */
+/* Estado: cuando haces click */
 .Cursor.isClicked {
-    transform: scale(0.3);
-    box-shadow: 0 0 1.6rem rgba(255, 255, 255, 0.7);
+  transform: scale(0.3);
+  box-shadow: 0 0 1.6rem rgba(255, 255, 255, 0.7);
 }
 
-/* Cuando pasa sobre un botón */
+/* Estado: cuando pasa sobre un botón */
 .Cursor.isHover {
-    transform: scale(2);
+  transform: scale(2);
 
 }
 
-
-
-
+/*-------------------------POP UP----------------------------*/
+/* Ventana modal superpuesta que se muestra al hacer clic en coordenadas especiales.
+   Incluye fondo difuminado, animación, y mensaje tipo máquina de escribir. */
 .Popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    backdrop-filter: blur(4px);
-    padding: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  backdrop-filter: blur(0.25rem);  /* Efecto de desenfoque del fondo */
+  cursor: auto;                   /*Por el efecto de desenfoque del fondo, vuelvo a activar el ratón */
 }
-
-/* .Popup.isActive {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
 
 .Popup-wrapper {
+  background: #0e0e0e;
+  color: var(--color-light);
 
-    background: #0e0e0e;
-    /* background-image: url('../assets/Fondo-pergamino.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;  */
-    color: #eae3d2;
-    /* color:#0e0e0e; */
-    padding: 2rem;
-    border-radius: 1rem;
-    max-width: 650px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-    animation: popupFade 0.5s ease-out;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
+  animation: popupFade 0.5s ease-out;
 }
 
+/* Botón de cierre del popup */
 .Popup-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #eae3d2;
-    /* color:#0e0e0e; */
-    cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: var(--font-s-20);
+  color: var(--color-light);
+  cursor: pointer;
 }
 
+/* Texto del popup con efecto "máquina de escribir" */
 .Popup-typewriter {
-    font-family: 'Courier New', monospace;
-    color: #eae3d2;
-    /* color:#0e0e0e; */
-    white-space: pre-line;
-    font-size: 1rem;
-    padding: 1rem;
-    line-height: 1.5;
+  font-family: var(--font-popup);
+  color: var(--color-light);
+
+  white-space: pre-line;
+  font-size: var(--font-s-16);
+  padding: 1rem;
+  line-height: 1.5;
 }
 
-.Popup-typewriter::after {
-    content: '|';
-    animation: blink 1s step-start infinite;
-    color: #eae3d2;
+/*-------------------------MEDIAS QUERIES----------------------------*/
+
+@media (max-width:1120px) {   
+  /* Ajustes para pantallas tipo tablet y móviles grandes.
+    Modifica el layout del header (menú responsive) */
+  /* Cambia la dirección del header para que el botón hamburguesa quede a la izquierda */
+  .Header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  /* Reordena el logo en móviles */
+  .Header-logo-wrapper {
+    width: auto;
+    order: 1;
+  }
+
+  /* Icono SVG del menú más grande para accesibilidad */
+  .Header-svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-light);
+  }
+
+  /* Muestra el botón hamburguesa en móviles */
+  .Header-btn {
+    display: block;
+    cursor: pointer;
+    transition: all 0.6s ease;
+  }
+
+  /* El nav ocupa todo el ancho en responsive */
+  .Header-nav {
+    width: 100%;
+  }
+
+  /* Menú en columna oculto inicialmente */
+  .Header-ul {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    opacity: 0;
+    gap: 0.5rem;
+    height: 0;
+  }
+
+  /* Estilo de enlaces en modo responsive */
+  .Header-a {
+    width: 100%;
+    color: var(--color-white);
+  }
+
+  /* Cuando se activa el menú: se muestra */
+  .Header-ul.isVisible {
+    height: 10rem;
+    opacity: 1;
+  }
 }
 
+@media (max-width:900px) {
+  /* Reestructura el footer en una sola columna para pantallas medianas.
+    - Centra el contenido de cada columna.
+    - Ajusta espaciados y tamaños visuales. */
 
-
-
-@media (max-width:1120px) {
-
-    .Header {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-
-    }
-
-    .Header-logo-wrapper {
-        width: auto;
-        order: 1;
-    }
-
-    .Header-svg {
-        width: 2rem;
-        height: 2rem;
-        color: #eae3d2;
-
-    }
-
-    .Header-btn {
-        /*Aqui es display: BLOCK!!*/
-
-        display: block;
-        cursor: pointer;
-        transition: all 0.6s ease;
-    }
-
-    .Header-nav {
-        width: 100%;
-
-
-    }
-
-    .Header-ul {
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        overflow: hidden;
-        transition: all 0.5s ease;
-        opacity: 0;
-        gap: 0.5rem;
-        height: 0;
-
-
-
-
-    }
-
-    .Header-a {
-        width: 100%;
-        color: #fff;
-    }
-
-
-    .Header-ul.isVisible {
-        height: 10rem;
-        opacity: 1;
-    }
-
+          /* Reestructura el footer a una sola columna en móviles */
+          .Footer {
+            grid-template-columns: 1fr;    /* Cambia a una sola columna */
+            text-align: center;
+        }
+    
+      /* Centra todos los bloques del footer */
+        .Footer-column--logo,
+        .Footer-column--info,
+        .Footer-column--links {
+            justify-content: center;
+            align-items: center;
+        }
+    
+      /* Centra el texto de los enlaces */
+        .Footer-column--links {
+            text-align: center;
+        }
+    
+      /* Elimina padding lateral de los enlaces */
+        .Footer-links {
+            padding: 0;
+        }
+      /* Menor separación vertical entre enlaces */
+        .Footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+      /* Reduce tamaño del icono de volver arriba */
+        .Footer-up {
+            width: 6rem;
+        }
 }
 
-@media (max-width:1120px) {
-    .Footer {
-        grid-template-columns: 1fr;
-        /* Cambia a una sola columna */
-        text-align: center;
-        gap: 2rem;
-    }
+@media (max-width:875px) {
 
-    .Footer-column--logo,
-    .Footer-column--info,
-    .Footer-column--links {
-        justify-content: center;
-        align-items: center;
-    }
+  /* Responsive para telefónos grandes o pequñas tablets: 
+    - Reduce el padding lateral del `<main>` para que no haya desbordamientos.
+    - La galería de imágenes pasa a una columna (mobile friendly).
+    - Desactiva el cursor personalizado y activa el cursor nativo. */
+  .Main {
+    padding: 1rem 2rem;
+  }
 
-    .Footer-column--links {
-        text-align: center;
-    }
+  .Galery-ul {
+    width: 100%;
+    padding: 0.5rem;
+    grid-template-columns: 1fr;
+  }
 
-    .Footer-links {
-        padding: 0;
-    }
+  .Cursor {
+    display: none;
+  }
 
-    .Footer-links li {
-        margin-bottom: 0.5rem;
-    }
-
-    .Footer-up {
-        width: 6rem;
-    }
+  body {
+    cursor: auto;
+  }
 }
 
-@media (max-width:875px) {}
+@media (max-width:600px) {
+  /* Responsive para moviles:  
+   - Oculta el Lightbox completo (por accesibilidad y usabilidad en móviles).
+   - Cambia el cursor para que no parezca que las imágenes son clicables. */
 
-@media (max-width:600px) {}
+  .Lightbox {
+    display: none;
+    pointer-events: none;
+  }
 
+  .Galery-img {
+    cursor: default;
+    /* Evita que parezca clicable */
+  }
+    /* Deactiva la aparación de las cards desde abajo */
+  .Galery-li {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+  }
+}
 
 
 @media (max-width:510px) {
+  /* Responsive para moviles pequeños:  
+    - Reduce el padding del header para optimizar el espacio.
+    - Oculta las flechas del carrusel (por falta de espacio horizontal).
+    - Reduce la altura del Lightbox en caso de que esté visible. */
+
+  .Header {
+    padding: 1rem 3rem;
+
+  }
+
+  .Carrousel {
+    width: 100%;
+  }
+
+  .Lightbox-img {
+    height: 60vh;
+  }
+
+  /* Pasamos las flechas del carrusel abajo */
+  .Carrousel-arrow {
+    top:auto;
+  }
+} 
+
+@media (max-width:380px) {
+  /* Desactivamos las flechas del carrusel */
+  .Carrousel-arrow {
+   display:none;
+  }
+}
+
+@media (hover: hover) {
+  /*Aplica efectos de hover solo en dispositivos que lo soportan.
+- Mejora el rendimiento en táctiles y evita confusión visual.
+- Todos los efectos visuales están separados aquí para mantener control. */
+
+  .Header-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .Header-a:hover::before,
+  .Header-a--selected::before {
+    width: 100%;
+  }
+
+  .Galery-li:hover {
+    transform: scale(0.95);
+    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.15), 0 0 1.875rem rgba(92, 136, 167, 0.1);
+  }
+
+  .Galery-img:hover {
+    transform: scale(1);
+  }
+
+  .Footer-coordinates--trigger:hover {
+    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
+    color: var(--color-accent);
+  }
+
+  .Footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .Carrousel-arrow:hover {
+    transform: scale(.9);
+  }
+
+  .Carrousel-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(234, 227, 210, 0.4);
+  }
+
+  .Sound-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--color-light);
+    color: var(--color-header);
+    border: 0.1rem solid var(--color-header);
+    box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
+  }
+
+  .Lightbox-boton:hover {
+    transform: scale(.95);
+  }
 
 
-    /* .Intro-p, .Scenario-p,.Footer-quote,
-    .Footer-copy {
-        font-size: 1rem
-    } */
+
 }

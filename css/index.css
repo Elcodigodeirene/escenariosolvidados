@@ -1,14 +1,59 @@
-/* Recuerda definir las Custom properties */
+/*
+index.css - Estilos generales para la home de la web Explorador de Escenarios Olvidados
+----------------------------------------------------------------------
+Estructura base del CSS con:
+- Variables personalizadas en :root
+- Reset de estilos y mejoras de accesibilidad
+- Tipografía base, colores y layout
+- Estilos para secciones principales:
+  · Hero con Header integrado e imagen fija de fondo
+  · Sección de Intro narrativa
+  · Sección de escenarios (grid de tarjetas con animaciones progresivas)
+  · Footer con coordenadas secretas y enlaces secundarios
+  · Animaciones, responsividad y estados interactivos
+  · Cursor personalizado, popup secreto y comportamiento responsivo
+*/
+
+/* Variables globales (Custom Properties) */
 :root {
-    /* Tipografía definida por el usuario */
+      /* Tipografía base */
     font-size: 100%;
-    /* Tipografía por defecto */
     font-family: system-ui, sans-serif;
     /* Anclas suaves */
     scroll-behavior: smooth;
+
+  /* Tipografías personalizadas */
+ --font-body: 'Crimson Text', serif;
+ --font-heading: 'Bodoni Moda', serif;
+ --font-popup:'Fragment Mono', monospace;
+
+   /* Tamaños de fuente responsivos */
+  --font-s-h1: clamp(2.2rem, 4vw, 3.5rem);    
+  --font-s-h2: clamp(1.1rem, 4vw, 2rem);   
+  --font-s-h3: clamp(1rem, 4vw, 1.3rem);  
+  --font-s-p: clamp(1rem, 4vw, 1.2rem);  
+  --font-s-16: 1rem;
+  --font-s-20: 1.25rem;
+
+  /* Sombras para textos */
+  --text-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.3),
+  0 0 1.25rem rgba(234, 227, 210, 0.2),
+  0 0 2.5rem rgba(234, 227, 210, 0.1);
+
+
+  /* Paleta cromática */
+ --color-dark: #1b1b1b;
+ --color-light: #eae3d2;
+ --color-accent: #132841;
+ --color-background:rgb(23, 49, 82);
+ --color-white:white;
+
+ /* Ancho máximo para centrar el contenido en pantallas grandes */
+  --max-width-zoom: 2000px;
+
 }
 
-/* (Reset clásico) Reseteamos los margin, paddings y bordes de todas las etiquetas */
+/* Reset y normalización inspirado en Meyer & Andy Bell*/
 *,
 *::before,
 *::after {
@@ -153,39 +198,45 @@ svg {
     fill: currentColor;
 }
 
+/* Ocultamos los svgs definidos para luego llamarlos con symbol */
 .svg-definition {
     display: none;
-  }
+}
 
 /* Configuramos la tipografía para toda la web */
 body {
-    min-height: 100vh;
-    line-height: 1.5em;
-    color: inherit;
-    /* Evitamos que el texto se desborde */
-    hyphens: auto;
-
-    /* La tipografía es más limpia en macOS */
-    -webkit-font-smoothing: antialiased;
-    /* La tipografía es más limpia en macOS */
-    -moz-osx-font-smoothing: grayscale;
-
-    font-family: "Crimson Text", serif;
-    /* font-weight: 400;
-  font-style: normal; */
-    font-size: 20px;
-    cursor: none;
+        min-height: 100vh;
+        line-height: 1.5;
+           
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-style: normal;
+        font-size:var(--font-s-20);
+        color: var(--color-light);
+        scroll-behavior: smooth;
+     /* Configuración para que no se rompan las palabras */
+        hyphens: none;
+        overflow-wrap: break-word;
+        word-break: normal;
+    
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    
+        /* Ocultamos el cursor para usar el cursor personalizado. Desactivamos luego para el responsive */
+        cursor: none;
+    }
+    
+/* Títulos y botones con tipografía especial */
+h1, h2, h3,
+.Hero-title, .Hero-ancla, .Intro-btn, .Intro-ancla, .Scenario-card-btn, .Scenario-btn-scenarios,.Scenario-btn-contact   {
+  font-family: var(--font-heading);
 }
 
-:root{
-
-    --font-s-2: 1.8rem;
-    --font-s-3: 3.5rem;
-}
-
+/*-------------------------HEADER----------------------------*/
+/* Cabecera con logo, botón de menú y navegación. */
 .Header {
     width: 100%;
-    max-width: 2000px;
+    max-width: var(--max-width-zoom);
     margin: auto;
     padding: 1rem 5rem;
 
@@ -194,9 +245,6 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    font-family: "Crimson Text", serif;
-
-
 }
 
 .Header-logo {
@@ -204,18 +252,18 @@ body {
     height: 6.25rem;
 }
 
+/* Botón del menú responsive */
 .Header-btn {
     display: none;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-
 .Header-btn:hover {
     transform: scale(1.05);
 }
-
-
-
+.Header-btn:active {
+    transform: scale(0.95);
+  }
 
 .Header-nav {
     width: 70%;
@@ -232,13 +280,12 @@ body {
 }
 
 .Header-a {
+    font-size: var(--font-s-20);
     position: relative;
     padding: 0.2rem 0;
-    transition: color 0.3s ease;
- 
-
 }
 
+/* Línea decorativa al hacer hover sobre enlaces */
 .Header-a::before {
     content: "";
     position: absolute;
@@ -248,37 +295,41 @@ body {
     height: 2px;
     background-color: currentColor;
     transition: width 0.3s ease;
-
 }
 
 .Header-a:hover::before,
 .Header-a--selected::before {
     width: 100%;
 }
-
-
-
-
+/*-------------------------Herowrapper----------------------------*/
+/* Contenedor principal del hero, con imagen de fondo fija. */
 .Herowrapper {
-    background-image: url('../assets/Hero-1.png');
-    background-size: cover;
-    /* background-position: center; */
-    background-position: center 32%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    color: white;
-
+    position: relative;
     width: 100%;
-    height: auto;
     min-height: 100vh;
-    max-width: 2000px;
+    max-width:var(--max-width-zoom);
     margin: 0 auto;
     overflow: hidden;
+    color: var(--color-white);
+}
+
+/* Imagen de fondo en posición fija */
+.Herowrapper-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 32%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(0.8);
+    pointer-events: none;
 }
 
 
-
+/*-------------------------Hero------------------------------*/
+/* Contenido central del hero con título, subtítulo y ancla. */
 .Hero {
     width: 100%;
     min-height: 80vh;
@@ -288,38 +339,31 @@ body {
     align-items: center;
     gap: 2rem;
 }
-
+/* Título principal animado */
 .Hero-title {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(1.2rem , 4vw , 1.8rem);
-    /* font-size: 1.8em; */
-    color: #eae3d2;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color:var(--color-light);
     line-height: 1.5;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 0.1875rem;
     /* margin: auto; */
-    margin: 8rem 0 0 0;
+    margin: 6rem 0 0;
+    padding: 1rem;
     opacity: 0;
 
     animation: fadeInDown 3s ease-out both;
     animation-delay: 0.5s;
-    text-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.3),
-        0 0 1.25rem rgba(234, 227, 210, 0.2),
-        0 0 2.5rem rgba(234, 227, 210, 0.1);
-
+    text-shadow: var(--text-shadow);
 }
-
-
-
+/* Parte destacada del título con tamaño mayor */
 .Hero-title--span {
     display: block;
     /* Forzar salto de línea */
-    font-size: clamp(2.2rem , 4vw , 3.5rem);
+    font-size:var(--font-s-h1);
     /* más grande */
     font-weight: normal;
 }
-
 
 .Hero-subtitle {
     width: 60%;
@@ -329,61 +373,64 @@ body {
     align-items: center;
     gap: 3.5rem;
     margin: 0 auto;
-    font-family: "Crimson Text", serif;
-    font-size:clamp(1rem , 4vw , 1.25rem);;
+
+    font-size: var(--font-s-base);
+    
     text-align: center;
-    color: #eae3d2;
+
 }
 
-
-
+/* Animación de entrada desde abajo */
 .Hero-p {
     animation: fadeInUp 3s ease both;
     animation-delay: 1.5s;
-   
+    font-size: var(--font-s-p);
 }
 
-
-
+/* Enlace que hace scroll hacia Intro. Incluye animación + parpadeo */
 .Hero-ancla {
-
-    color: #eae3d2;
     padding: 0.75rem 2.5rem;
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(1rem , 4vw , 1.2rem);
+    font-size:var(--font-s-h3);
     letter-spacing: 0.625rem;
     text-transform: uppercase;
-    transition: all 0.4s ease;
+    transition: letter-spacing 0.4s ease, transform 0.4s ease;
     cursor: pointer;
     animation: fadeInUp 3s ease both, textBlink 10s ease-in-out infinite;
     animation-delay: 2.5s;
 }
-
+/* Animación hover en tamaño y espaciado */
 .Hero-ancla:hover {
-    font-size: clamp(1rem , 4vw , 1.5rem);
-    letter-spacing: 0.75rem;
-    /* box-shadow: 0 0 15px rgba(234, 227, 210, 0.4);
-    border-radius: 20px; */
+    letter-spacing: 0.8rem;
+    transform: scale(1.05) 
 }
 
+.Hero-ancla:active {
+    letter-spacing: 0.625rem;
+    transform: scale(0.98);
+}
 
+/*-------------------------Main----------------------------*/
+/* Contenedor general del contenido principal (Intro + Scenario) */
 .Main {
     width: 100%;
-    max-width: 2000px;
+    max-width: var(--max-width-zoom);
     margin: 0 auto;
-    background: rgb(23, 49, 82);
+ /* Fondo con degradado vertical oscuro */
+    background:var(--color-background);
     background: linear-gradient(0deg, rgba(23, 49, 82, 1) 0%, rgba(10, 18, 25, 1) 100%);
-    color: #EAE3D2
+   
 }
-
+/*-------------------------Intro----------------------------*/
+/* Sección narrativa inicial, con párrafos animados y botones. */
 .Intro {
     width: 100%;
     min-height: 100vh;
-    max-width: 2000px;
-    margin: auto;
+    max-width: var(--max-width-zoom);
+    margin: 0 auto;
+    padding: 2rem;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 1.5rem;
 
@@ -391,120 +438,145 @@ body {
     position: relative;
 
 }
+/* Título de sección, también usado en Scenario */
+.Intro-h2,
+.Scenario-h2 {
+    font-size: var(--font-s-h2);
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1875rem;
+    margin: 1rem 0.5rem;
+    padding: 1rem;
+    text-shadow: var(--text-shadow);
 
-.Intro-p {
-    width: 50%;
-
-    transform: translateY(30px);
-    opacity: 0;
-    transition: opacity 2s ease, transform 2s ease;
-
-    
 }
 
-.Intro-p.isVisible{
+/* Párrafos animados que aparecen uno con Intersection Observer */
+.Intro-p {
+    width: 50%;
+    font-size:var(--font-s-p);
+    transform: translateY(1.875rem);
+    opacity: 0;
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.Intro-p.isVisible {
     transform: translateY(0);
     opacity: 1;
 }
 
 
-
-.Intro-p:nth-of-type(1){
+/* Apareción con efecto cascada */
+.Intro-p:nth-of-type(1) {
     transition-delay: .5s;
 }
-.Intro-p:nth-of-type(2){
-    transition-delay: 1.5s; 
+
+.Intro-p:nth-of-type(2) {
+    transition-delay: 1.5s;
 }
-.Intro-p:nth-of-type(3){
+
+.Intro-p:nth-of-type(3) {
+    transition-delay: 2s;
+}
+
+.Intro-p:nth-of-type(4) {
     transition-delay: 2.5s;
 }
-.Intro-p:nth-of-type(4){
+
+.Intro-p:nth-of-type(5) {
+    transition-delay: 3s;
+}
+
+.Intro-p:nth-of-type(6) {
     transition-delay: 3.5s;
 }
-.Intro-p:nth-of-type(5){
+
+.Intro-p:nth-of-type(7) {
+    transition-delay: 4s;
+}
+
+.Intro-p:nth-of-type(8) {
     transition-delay: 4.5s;
 }
-.Intro-p:nth-of-type(6){
+
+.Intro-p:nth-of-type(9) {
+    transition-delay: 5s;
+}
+
+.Intro-p:nth-of-type(10) {
     transition-delay: 5.5s;
 }
-.Intro-p:nth-of-type(7){
-    transition-delay: 6.5s;
-}
-.Intro-p:nth-of-type(8){
-    transition-delay: 7.5s;
-}
-.Intro-p:nth-of-type(9){
-    transition-delay: 8.5s;
-}
-.Intro-p:nth-of-type(10){
-    transition-delay: 9.5s;
-}
 
-
-.Intro-btns{
-
+/* Botones agrupados que aparecen al final */
+.Intro-btns {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     opacity: 0;
-    transform: translateY(30px) scale(0.9);
-    filter: blur(3px);
+    transform: translateY(1.875rem) scale(0.9);
+    filter: blur(0.063rem);
     transition: opacity 1s ease, transform 1s ease, filter 1s ease;
 }
 
-.Intro-btns.isVisible{
+.Intro-btns.isVisible {
     opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
-    transition-delay: 10.5s;
+    transition-delay: 6s;
 }
 
-.Intro-btn{
+/* Botón claro con sombra */
+.Intro-btn {
     margin: 1rem 0 0;
-    background-color: #eae3d2;
-    color: #1b1b1b;
+    background-color:var(--color-light);
+    color: var(--color-dark);
     border-radius: 1.25rem;
-    border: 1.5px solid #eae3d2;
+    border: 0.1rem solid var(--color-light);
     padding: 0.5rem 1rem;
 
-    font-family: "Bodoni Moda", serif;
-    font-size: 1rem;
+    font-size: var(--font-s-16);
     box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
 
     transition: transform 1s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
+/* Hover animado del botón */
 .Intro-btn:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-
-
 }
 
+.Intro-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 0.3rem rgba(234, 227, 210, 0.3);
+  }
+
+/* Ancla estilo botón */
 .Intro-ancla {
     border-radius: 1.25rem;
-    border: 1.5px solid #eae3d2;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    font-family: "Bodoni Moda", serif;
-    font-size: 1rem;
-    color: #eae3d2;
-    border: 1px solid #eae3d2;
+    font-size:var(--font-s-16);
+    border: 0.063rem solid var(--color-light);
     transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease, transform 1s ease, box-shadow 0.3s ease;
-
 }
 
 .Intro-ancla:hover {
     background-color: #eae3d21a;
-    color: #fff;
+    color:var(--color-white);
     letter-spacing: 0.25rem;
 }
 
+.Intro-ancla:active {
+    transform: scale(0.95);
+    background-color: rgba(234, 227, 210, 0.15);
+  }
 
-
+/* SVGs decorativos animados flotando */
 .Intro-svg {
     width: 3.75rem;
     height: auto;
@@ -550,166 +622,136 @@ body {
     animation: float 8s ease-in-out infinite;
 }
 
-.Intro-h2,
-.Scenario-h2 {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(1rem , 4vw , 1.5rem);
-    color: #eae3d2;
-    line-height: 1.5;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.1875rem;
-    margin: 3rem 0.5rem 2rem 0.5rem;
-
-    text-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.3),
-        0 0 1.25rem rgba(234, 227, 210, 0.2),
-        0 0 2.5rem rgba(234, 227, 210, 0.1);
-
-}
-
-
+/*-------------------------Scenario----------------------------*/
+/* Sección donde se listan los escenarios con cards animadas. */
 .Scenario {
     width: 100%;
-    min-height: 100vh;
-    max-width: 2000px;
-    margin: auto;
-    padding: 0 0 5rem 0;
-
+    max-width:var(--max-width-zoom);
+    margin:0 auto;
+    padding: 0 0 2rem 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: start;
     align-items: center;
     gap: 1.5rem;
     text-align: center;
-
 }
 
-.Scenario-p{
-    width: 51%;
-
-    
+/* Párrafos descriptivos animados */
+.Scenario-p {
+    width: 55%;
+    font-size:var(--font-s-p);
+    line-height: 4rem;
     opacity: 0;
     transition: opacity 1s ease, line-height 2.5s ease;
     transition-delay: 0.2s;
-    
 }
 
-.Scenario-p.isVisible{
-
+.Scenario-p.isVisible {
     line-height: 2rem;
     opacity: 1;
 }
 
-
+/* Grid responsive para las tarjetas de escenarios */
 .Scenario-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
-    /* mola como quedan 3 cards pero a ver si me da tiempo
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    /* grid-template-columns: repeat(2, 1fr); */
     gap: 2rem;
     width: 50%;
     margin: 1.5rem auto;
     max-width: 1200px;
-  }
-
-  .Scenario-card{
-
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(234, 227, 210, 0.3);
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 0 1rem rgba(234, 227, 210, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-
-  }
-
-
-  .Scenario-card:hover {
-    transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-  }
-
-  .Scenario-card-wrapper{
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 2s ease, transform 2s ease;
-
-  }
-  
-.Scenario-card-wrapper.isVisible{
-    opacity: 1;
-    transform: translateY(0);
-    /* transition-delay: 0.5s; */
 }
 
+/* Cada tarjeta individual del escenario */
+.Scenario-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 0.063rem solid rgba(234, 227, 210, 0.3);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 1rem rgba(234, 227, 210, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.Scenario-card:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
+}
 
-  .Scenario-card-wrapper:nth-child(1) {
-    transition-delay: 1s;
-  }
-  .Scenario-card-wrapper:nth-child(2) {
-    transition-delay: 2s;
-  }
-  .Scenario-card-wrapper:nth-child(3){
-    transition-delay: 2.5s;
-  }
-  .Scenario-card-wrapper:nth-child(4) {
-    transition-delay: 3s;
-  }
-  
-  .Scenario-card-img {
+/* Animación de entrada con JS */
+.Scenario-card-wrapper {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.Scenario-card-wrapper.isVisible {
+    opacity: 1;
+    transform: translateY(0);
+} 
+
+/* Delay escalonado de aparición */
+.Scenario-card-wrapper:nth-child(1),
+.Scenario-card-wrapper:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.Scenario-card-wrapper:nth-child(3),
+.Scenario-card-wrapper:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+/* Imagen de cada escenario */
+.Scenario-card-img {
     width: 100%;
-    height: 15.625rem;
+    height: 18rem;
     object-fit: cover;
     object-position: center;
-    background-color: blue
-  }
-  
-  .Scenario-card-text {
+}
+
+/* Contenido textual de la tarjeta */
+.Scenario-card-text {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-  }
-  
-  .Scenario-card-h3 {
-    font-family: "Bodoni Moda", serif;
-    font-size:clamp(1rem , 4vw , 1.3rem);
-    color: #eae3d2;
+}
+
+/* Título del escenario */
+.Scenario-card-h3 {
+    font-size: var(--font-s-h3);
     text-transform: uppercase;
     letter-spacing: 0.125rem;
-  }
-  
-  .Scenario-card-p {
-    font-family: "Crimson Text", serif;
-    font-size: 1rem;
+}
+
+/* Descripción del escenario */
+.Scenario-card-p {
+    font-size: var(--font-s-16);
     color: #eae3d2cc;
     line-height: 1.5;
-  }
-  
-  .Scenario-card-btn {
+}
+
+/* Botón de exploración dentro de cada card */
+.Scenario-card-btn {
     margin: 1rem 0 0 0;
-    background-color: #eae3d2;
-    color: #1b1b1b;
-    border-radius: 1.25rem;
-    border: 1.5px solid #eae3d2;
     padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-family: "Bodoni Moda", serif;
-    font-size: 1rem;
+    background-color:  var(--color-light);
+    color: var(--color-dark);
+    border-radius: 1.25rem;
+    border: 0.1rem solid var(--color-light);
     box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
+    font-size:var(--font-s-16);
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .Scenario-card-btn:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
 }
-  
-  
-.Scenario-btns{
+
+/* Botones inferiores (más escenarios / enviar hallazgo) */
+.Scenario-btns {
     width: 80%;
     display: flex;
     flex-flow: column nowrap;
@@ -717,85 +759,81 @@ body {
     align-items: center;
     gap: 1rem;
 
-    transform: translateY(30px);
-    opacity: 0; 
+    transform: translateY(1.875rem);
+    opacity: 0;
     transition: opacity 2s ease, transform 2s ease;
 }
 
-
-
-.Scenario-btns.isVisible{
-   transform: translateY(0);
+.Scenario-btns.isVisible {
+    transform: translateY(0);
     opacity: 1;
-    
 }
 
-
- .Scenario-btn-scenarios, .Scenario-btn-contact{
+/* Estilos botones compartidos */
+.Scenario-btn-scenarios,
+.Scenario-btn-contact {
     margin: 0;
     border-radius: 1.25rem;
-    border: 1.5px solid #eae3d2;
-    
-    cursor: pointer;
-    font-family: "Bodoni Moda", serif;
-    font-size: 1rem;
+    border: 0.1rem solid  var(--color-light);
+    font-size: var(--font-s-16);
     box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
 
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.Scenario-btn-scenarios{
-    background-color: #eae3d2;
-    color: #1b1b1b;
+.Scenario-btn-scenarios {
+    background-color:  var(--color-light);
+    color:var(--color-dark);
     padding: 0.5rem 2rem;
 }
 
-.Scenario-btn-contact{
-
-    color: #eae3d2;
+.Scenario-btn-contact {
     padding: 0.5rem 4rem;
 }
 
 
- .Scenario-btn-scenarios:hover, .Scenario-btn-contact:hover{
+.Scenario-btn-scenarios:hover,
+.Scenario-btn-contact:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
- }
+}
 
+.Scenario-card-btn:active,
+.Scenario-btn-scenarios:active,
+.Scenario-btn-contact:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 0.3rem rgba(234, 227, 210, 0.3);
+}
 
+/*-------------------------FOOTER----------------------------*/
+/* Pie de página con tres columnas: logo, info y enlaces. */
 .Footer {
 
     width: 100%;
     min-height: 20vh;
-    max-width: 2000px;
-    background-color: #EAE3D2;
+    max-width: var(--max-width-zoom);
+    background-color:  var(--color-light);
     margin: 0 auto;
     padding: 2rem;
 
-    /* display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center; */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 2rem;
+    color: var(--color-dark);
 
-    font-family: "Crimson Text", serif;
 
-    /* background-image: url('../assets/Fondo-pergamino.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;  */
 }
-
-.Footer-column--logo{
+/* Columna izquierda con el botón para volver arriba */
+.Footer-column--logo {
     /* width: 20%; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.Footer-column--info{
+/* Columna central con coordenadas, frase final y copyright */
+.Footer-column--info {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -804,120 +842,113 @@ body {
     text-align: center;
 }
 
-.Footer-column--links{
+/* Columna derecha con enlaces */
+.Footer-column--links {
     text-align: left;
 }
-  .Footer-quote{
+
+/* Frase final en cursiva */
+.Footer-quote {
     font-style: italic;
     text-align: center;
-    font-size: clamp(1rem , 4vw , 1.2rem);
-  }
+    font-size:var(--font-s-p);
+}
 
-  .Footer-h4 {
+/* Título de la sección de enlaces */
+.Footer-h4 {
     font-weight: 600;
-    font-size: 1em;
+    font-size: var(--font-s-h3);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.063rem;
     margin: 0 0 1rem 0;
-  }
+}
 
-  .Footer-copy {
-    font-size: 1em;
-    text-align: center;
-  }
-
-  .Footer-coordinates {
+/* Coordenadas con efecto especial */
+.Footer-coordinates {
     font-weight: 600;
+}
 
-  }
-.Footer-coordinates--trigger{
-    transition: all 0.3s ease;
+/* Coordenadas clicables (disparan el popup) */
+.Footer-coordinates--trigger {
+    transition: box-shadow 0.3s ease, color 0.3s ease;
     cursor: pointer;
     box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
 }
-.Footer-coordinates--trigger:hover{
+
+.Footer-coordinates--trigger:hover {
     box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-    color: #132841;
+    color: var(--color-accent);
 }
 
-.Footer-up{
+/* Flecha "volver arriba" */
+.Footer-up {
     width: 8rem;
-    height:auto;
+    height: auto;
 
 }
 
-.Footer-links a{
+/* Enlaces en el footer */
+.Footer-links a {
     transition: color 0.3s ease;
-  }
-
-.Footer-links a:hover{
-color: #132841;
 }
 
+.Footer-links a:hover {
+    color: var(--color-accent);
+}
 
-
- .Cursor {
+/*-------------------------Cursor personalizado----------------------------*/
+/* Círculo blanco que sigue al puntero y reacciona al hacer click o pasar sobre botones. */
+.Cursor {
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 50%;
     position: fixed;
-    top: -20px;
-    left: -20px;
+    top: -1.25rem;
+    left: -1.25rem;
 
-    /* background-color: white; */
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
     transition: transform 0.3s ease;
 
-    mix-blend-mode: difference;
-    pointer-events: none;
-  }
-  
-  /* Cuando haces click */
-  .Cursor.isClicked {
+    mix-blend-mode: difference; /* Para contraste dinámico sobre fondos */
+    pointer-events: none;       /* No interfiere con clics del usuario */
+}
+
+/* Estado: cuando haces click */
+.Cursor.isClicked {
     transform: scale(0.3);
     box-shadow: 0 0 1.6rem rgba(255, 255, 255, 0.7);
-  }
-  
-  /* Cuando pasa sobre un botón */
-   .Cursor.isHover{
+}
+
+/* Estado: cuando pasa sobre un botón */
+.Cursor.isHover {
     transform: scale(2);
-    
-  } 
 
+}
 
-
-
+/*-------------------------POP UP----------------------------*/
+/* Ventana modal superpuesta que se muestra al hacer clic en coordenadas especiales.
+   Incluye fondo difuminado, animación, y mensaje tipo máquina de escribir. */
 .Popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    padding: 2rem;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.75);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 1;
-    backdrop-filter: blur(4px);
-    padding: 2rem;
-  }
+    backdrop-filter: blur(4px); /* Efecto de desenfoque del fondo */
+    cursor: auto; /*Por el efecto de desenfoque del fondo, vuelvo a activar el ratón */
+}
 
-  /* .Popup.isActive {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
-  
-  .Popup-wrapper {
-
+.Popup-wrapper {
     background: #0e0e0e;
-    /* background-image: url('../assets/Fondo-pergamino.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;  */
-    color: #eae3d2;
-    /* color:#0e0e0e; */
+    color: var(--color-light);
+
     padding: 2rem;
     border-radius: 1rem;
     max-width: 650px;
@@ -926,220 +957,47 @@ color: #132841;
     position: relative;
     box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
     animation: popupFade 0.5s ease-out;
-  }
-  
-  .Popup-btn {
+}
+
+/* Botón de cierre del popup */
+.Popup-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: #eae3d2;
-    /* color:#0e0e0e; */
+    font-size: var(--font-s-20);
+    color: var(--color-light);
     cursor: pointer;
-  }
+}
 
-  .Popup-typewriter{
-    font-family: 'Courier New', monospace;
-    color: #eae3d2;
-    /* color:#0e0e0e; */
+/* Texto del popup con efecto "máquina de escribir" */
+.Popup-typewriter {
+    font-family:var(--font-popup);
+    color: var(--color-light);
     white-space: pre-line;
-    font-size: 1rem;
+    font-size: var(--font-s-16);
     padding: 1rem;
     line-height: 1.5;
-  }
+}
 
-  .Popup-typewriter::after{
-    content: '|';
-    animation: blink 1s step-start infinite;
-    color: #eae3d2;
-  }
-  
-  
+/*------------------------- Animaciones Clave----------------------------*/
+/* Animaciones reutilizadas para efectos visuales envolventes. */
 
-
-@media (max-width:1120px) {
-
-    .Header {
-        display: flex;
-        flex-direction: row-reverse; 
-        justify-content: space-between;
-        
-      }
-    
-      .Header-logo-wrapper {
-        width: auto;
-        order: 1; 
-      }
-
-
-
-    .Header-svg {
-        width: 2rem;
-        height: 2rem;
-        /* color: #eae3d2; */
-    }
-
-    .Header-btn {
-        /*Aqui es display: BLOCK!!*/
-        
-        display: block;
-        cursor: pointer;
-        transition: all 0.6s ease;
-        
-        
-    }
-
-    .Header-nav {
-        width: 100%;
-       
-
-    }
-
-    .Header-ul {
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        overflow: hidden;
-        transition: all 0.5s ease;
+/* Animación de aparición escalada */
+@keyframes popupFade {
+    0% {
+        transform: scale(0.95);
         opacity: 0;
-        gap: 0.5rem;
-        height: 0;  
-    
-
     }
 
-    .Header-a {
-        width: 100%;
-        color: #fff;
-    }
-
-
-    .Header-ul.isVisible {
-        height: 10rem;
+    100% {
+        transform: scale(1);
         opacity: 1;
     }
-
-    .Hero
-{
-    justify-content: start;
-}
-    .Hero-title{
-     margin: 5rem 0 0 0;
-    }
-
- 
-    .Hero-p{
-        width: 85%;
-    }
 }
 
-@media (max-width:1120px) {
-    .Footer {
-        grid-template-columns: 1fr; /* Cambia a una sola columna */
-        text-align: center;
-        /* gap: 2rem; */
-      }
-      .Footer-column--logo,
-      .Footer-column--info,
-      .Footer-column--links {
-        justify-content: center;
-        align-items: center;
-      }
-    
-      .Footer-column--links {
-        text-align: center;
-      }
-    
-      .Footer-links {
-        padding: 0;
-      }
-    
-      .Footer-links li {
-        margin-bottom: 0.5rem;
-      }
-    
-      .Footer-up {
-        width: 6rem;
-      }
-}
-
-@media (max-width:875px) {
-.Herowrapper {
-    background-image: url('../assets/Hero-movil-1.png');
-}
-
-.Hero-title{
- 
-    margin: 8rem 0 0 0;
-}
-
-
-
-.Hero-subtitle{
-    width: 100%;
-}
-.Scenario-list {
-    grid-template-columns: 1fr;
-    width: 70%;
-}
-.Scenario-p{
-    
-    width: 70%;
-}
-
-}
-
-@media (max-width:600px){
-
- 
- 
-    .Hero-subtitle{
-        gap: 1rem;
-    }
-    .Hero-p{
-        width: 85%;
-        
-    }
-
-    .Intro-svg--tri2 {
-        left: 10%;
-    }
-
-    .Intro-svg--hex1 {
-        top: 5%;
-        left: 5%;
-    } 
-}
-
-
-@media (max-width:510px){
-    .Hero-ancla {
-    letter-spacing: 0.18rem;
-    }
-
-}
-
-
-
-@keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
-  
-  @keyframes popupFade {
-    from {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
+/* Aparece desde abajo */
 @keyframes fadeInUp {
 
     0% {
@@ -1153,6 +1011,7 @@ color: #132841;
     }
 }
 
+/* Aparece desde arriba */
 @keyframes fadeInDown {
     0% {
         opacity: 0;
@@ -1165,6 +1024,7 @@ color: #132841;
     }
 }
 
+/* Efecto flotante */
 @keyframes float {
 
     0%,
@@ -1173,69 +1033,357 @@ color: #132841;
     }
 
     50% {
-        transform: translateY(-20px) rotate(2deg);
+        transform: translateY(-1.25rem) rotate(2deg);
+    }
+}
+
+/* Efecto de parpadeo con text-shadow */
+@keyframes textBlink {
+
+    0% {
+        text-shadow: 0.0219rem 0 0.05rem rgba(0, 90, 255, .4), -0.0219rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1);
+    }
+
+    10% {
+        text-shadow: 0.135rem 0 0.05rem rgba(0, 90, 255, .4), -0.135rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1.15);
+    }
+
+    20% {
+        text-shadow: 0.015rem 0 0.05rem rgba(0, 90, 255, .4), -0.015rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1.05);
+    }
+
+    30% {
+        text-shadow: 0.175rem 0 0.05rem rgba(0, 90, 255, .4), -0.175rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1.2);
+    }
+
+    40% {
+        text-shadow: 0.08rem 0 0.05rem rgba(0, 90, 255, .4), -0.08rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1.1);
+    }
+
+    50% {
+        text-shadow: 0.195rem 0 0.05rem rgba(0, 90, 255, .4), -0.195rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.2rem;
+        filter: brightness(1.25);
+    }
+
+    60% {
+        text-shadow: 0.11rem 0 0.05rem rgba(0, 90, 255, .4), -0.11rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1.1);
+    }
+
+    70% {
+        text-shadow: 0.004rem 0 0.05rem rgba(0, 90, 255, .4), -0.004rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1);
+    }
+
+    80% {
+        text-shadow: 0.13rem 0 0.05rem rgba(0, 90, 255, .4), -0.13rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.2rem;
+        filter: brightness(1.2);
+    }
+
+    90% {
+        text-shadow: 0.095rem 0 0.05rem rgba(0, 90, 255, .4), -0.095rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.1rem;
+        filter: brightness(1.05);
+    }
+
+    100% {
+        text-shadow: 0.0219rem 0 0.05rem rgba(0, 90, 255, .4), -0.0219rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
+        filter: brightness(1);
     }
 
 }
 
-@keyframes textBlink {
-    
-   
-        0% {
-          text-shadow: 0.0219rem 0 0.05rem rgba(0, 90, 255, .4), -0.0219rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1);
-        }
-      
-        10% {
-          text-shadow: 0.135rem 0 0.05rem rgba(0, 90, 255, .4), -0.135rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1.15);
-        }
-      
-        20% {
-          text-shadow: 0.015rem 0 0.05rem rgba(0, 90, 255, .4), -0.015rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1.05);
-        }
-      
-        30% {
-          text-shadow: 0.175rem 0 0.05rem rgba(0, 90, 255, .4), -0.175rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1.2);
-        }
-      
-        40% {
-          text-shadow: 0.08rem 0 0.05rem rgba(0, 90, 255, .4), -0.08rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1.1);
-        }
-      
-        50% {
-          text-shadow: 0.195rem 0 0.05rem rgba(0, 90, 255, .4), -0.195rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.2rem;
-          filter: brightness(1.25);
-        }
-      
-        60% {
-          text-shadow: 0.11rem 0 0.05rem rgba(0, 90, 255, .4), -0.11rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1.1);
-        }
-      
-        70% {
-          text-shadow: 0.004rem 0 0.05rem rgba(0, 90, 255, .4), -0.004rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1);
-        }
-      
-        80% {
-          text-shadow: 0.13rem 0 0.05rem rgba(0, 90, 255, .4), -0.13rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.2rem;
-          filter: brightness(1.2);
-        }
-      
-        90% {
-          text-shadow: 0.095rem 0 0.05rem rgba(0, 90, 255, .4), -0.095rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.1rem;
-          filter: brightness(1.05);
-        }
-      
-        100% {
-          text-shadow: 0.0219rem 0 0.05rem rgba(0, 90, 255, .4), -0.0219rem 0 0.05rem rgba(180, 100, 255, .3), 0 0 0.15rem;
-          filter: brightness(1);
-        }
-      
-      
 
+/*-------------------------MEDIAS QUERIES----------------------------*/
+
+/* Estilos para el header en pantallas de menos de 1120px (modo tablet y móvil)
+   Ajusta layout, visibilidad del botón del menú y comportamiento del nav */
+@media (max-width:1120px) {
+  /* Ajustes para pantallas tipo tablet y móviles grandes.
+    Modifica el layout del header (menú responsive) */
+      /* Cambia la dirección del header para que el botón hamburguesa quede a la izquierda */
+  .Header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  /* Reordena el logo en móviles */
+  .Header-logo-wrapper {
+    width: auto;
+    order: 1;
+  }
+
+  /* Icono SVG del menú más grande para accesibilidad */
+
+  .Header-svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-light);
+  }
+
+  /* Muestra el botón hamburguesa en móviles */
+  .Header-btn {
+    display: block;
+    cursor: pointer;
+    transition: all 0.6s ease;
+  }
+
+  /* El nav ocupa todo el ancho en responsive */
+  .Header-nav {
+    width: 100%;
+  }
+
+  /* Menú en columna oculto inicialmente */
+  .Header-ul {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    opacity: 0;
+    gap: 0.5rem;
+    height: 0;
+  }
+
+  /* Estilo de enlaces en modo responsive */
+  .Header-a {
+    width: 100%;
+    color: var(--color-white);
+  }
+
+  /* Cuando se activa el menú: se muestra */
+  .Header-ul.isVisible {
+    height: 10rem;
+    opacity: 1;
+  }
+    .Hero {
+        justify-content: start;
+    }
+
+    .Hero-title {
+        margin: 5rem 0 0 0;
+    }
+
+    .Hero-p {
+        width: 85%;
+    }
 }
+
+@media (max-width:900px) {
+     /* Reestructura el footer en una sola columna para pantallas medianas.
+    - Centra el contenido de cada columna.
+    - Ajusta espaciados y tamaños visuales. */
+
+      /* Reestructura el footer a una sola columna en móviles */
+    .Footer {
+        grid-template-columns: 1fr;    /* Cambia a una sola columna */
+        text-align: center;
+    }
+
+  /* Centra todos los bloques del footer */
+    .Footer-column--logo,
+    .Footer-column--info,
+    .Footer-column--links {
+        justify-content: center;
+        align-items: center;
+    }
+
+  /* Centra el texto de los enlaces */
+    .Footer-column--links {
+        text-align: center;
+    }
+
+  /* Elimina padding lateral de los enlaces */
+    .Footer-links {
+        padding: 0;
+    }
+  /* Menor separación vertical entre enlaces */
+    .Footer-links li {
+        margin-bottom: 0.5rem;
+    }
+
+  /* Reduce tamaño del icono de volver arriba */
+    .Footer-up {
+        width: 6rem;
+    }
+}
+
+/* MEDIA QUERY: Ajustes para pantallas pequeñas (< 875px): Aplica a Hero, Scenario, Intro, Cursor, etc. */
+
+@media (max-width:875px) {
+
+    .Hero-title {
+
+        margin: 8rem 0 0 0;
+    }
+
+    .Hero-subtitle {
+        width: 100%;
+    }
+
+    .Scenario-list {
+        grid-template-columns: 1fr;
+        width: 70%;
+    }
+
+    .Scenario-p {
+
+        width: 70%;
+    }
+
+    .Cursor {
+        display: none;
+
+    }
+
+    body {
+        cursor: auto;
+    }
+
+    .Intro-h2 {
+        margin: 1rem 0.5rem;
+    }
+
+    .Intro {
+        gap: 1rem;
+        padding: 0rem;
+    }
+}
+
+/* MEDIA QUERY: Móviles < 600px: Ajusta espaciado y posición de algunos SVG */
+
+@media (max-width:600px) {
+
+    .Hero-subtitle {
+        gap: 1rem;
+    }
+
+    .Hero-p {
+        width: 85%;
+
+    }
+
+    .Intro-svg {
+   
+        opacity: 0.4;
+    
+    }
+
+    .Intro-svg--tri2 {
+        left: 4%;
+    }
+
+    .Intro-svg--hex1 {
+        top: 5%;
+        left: 3%;
+    }
+
+    .Intro-svg--cir2 {
+        bottom: 45%;
+        left: 10%;
+
+    }
+    
+    .Intro-svg--tri1 {
+        top: 10%;
+        right: 10%;
+    }
+
+    .Intro-p {
+        width: 70%;
+    }
+
+    /* Desactiva el intersection observer en movil */
+    .Scenario-card-wrapper {
+        opacity: 1;
+        transform: none ;
+        transition: none;
+      }
+      .Hero-ancla {
+        letter-spacing: 0.18rem;
+    }
+
+    .Hero-ancla:hover{
+        letter-spacing: 0.18rem;
+        transform: scale(1);
+    }
+}
+
+/* MEDIA QUERY: Móviles muy pequeños (< 510px): Ajustes finos de layout */
+
+@media (max-width:510px) {
+
+
+    .Header {
+        padding: 1rem 3rem;
+    }
+
+    .Scenario-card-img {
+        height: 12rem;
+    }
+
+    .Scenario-list {
+
+        width: 75%;
+    }
+}
+
+/* MEDIA QUERY: Soporte para hover (dispositivos con puntero)-    Mejora de interacciones solo si hay hover disponible */
+@media (hover: hover) {
+    .Header-btn:hover {
+        transform: scale(1.05);
+    }
+
+    .Header-a:hover::before,
+    .Header-a--selected::before {
+        width: 100%;
+    }
+
+    /* .Hero-ancla:hover {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        letter-spacing: 0.75rem;
+    } */
+
+    .Intro-btn:hover {
+        transform: translateY(-0.125rem) scale(1.05);
+        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
+    }
+
+    .Intro-ancla:hover {
+        background-color: #eae3d21a;
+        color: var(--color-white);
+        letter-spacing: 0.25rem;
+    }
+
+    .Scenario-card:hover {
+        transform: translateY(-0.125rem) scale(1.05);
+        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
+    }
+
+    .Scenario-card-btn:hover {
+        transform: translateY(-0.125rem) scale(1.05);
+        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
+    }
+
+    .Scenario-btn-scenarios:hover,
+    .Scenario-btn-contact:hover {
+        transform: translateY(-0.125rem) scale(1.05);
+        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
+    }
+
+    .Footer-coordinates--trigger:hover {
+        box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
+        color: var(--color-accent);
+    }
+
+    .Footer-links a:hover {
+        color: var(--color-accent);
+    }
+}
+
+
