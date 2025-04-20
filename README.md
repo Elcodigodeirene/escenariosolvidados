@@ -32,7 +32,7 @@ Una experiencia web inmersiva que simula el archivo secreto de una sociedad fict
 
 ## Link al proyecto
 
-- [https://elcodigodeirene.github.io/escenariosolvidados/] (https://elcodigodeirene.github.io/escenariosolvidados/)
+- [URL Explorador Escenarios Olvidados] (https://elcodigodeirene.github.io/escenariosolvidados/)
 
 
 ## 📬 Contacto
