@@ -1,4 +1,5 @@
 # Explorador de Escenarios Olvidados
+![Portada](https://github.com/user-attachments/assets/796dc003-f608-4feb-abea-9ff37904118f)
 
 Una experiencia web inmersiva que simula el archivo secreto de una sociedad ficticia: *La Sociedad del Viento*. El usuario explora escenarios perdidos a través de narrativa interactiva, imágenes evocadoras, sonido ambiental y una interfaz cuidada.
 
