@@ -211,7 +211,7 @@ body {
         font-family: var(--font-body);
         font-weight: 400;
         font-style: normal;
-        font-size:var(--font-s-20);
+        font-size:var(--font-s-16);
         color: var(--color-light);
         scroll-behavior: smooth;
      /* Configuración para que no se rompan las palabras */
@@ -536,7 +536,6 @@ h1, h2, h3,
     border: 0.1rem solid var(--color-light);
     padding: 0.5rem 1rem;
 
-    font-size: var(--font-s-16);
     box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
 
     transition: transform 1s ease, box-shadow 0.3s ease;
@@ -559,7 +558,6 @@ h1, h2, h3,
     border-radius: 1.25rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    font-size:var(--font-s-16);
     border: 0.063rem solid var(--color-light);
     transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease, transform 1s ease, box-shadow 0.3s ease;
 }
@@ -724,7 +722,6 @@ h1, h2, h3,
 
 /* Descripción del escenario */
 .Scenario-card-p {
-    font-size: var(--font-s-16);
     color: #eae3d2cc;
     line-height: 1.5;
 }
@@ -738,7 +735,6 @@ h1, h2, h3,
     border-radius: 1.25rem;
     border: 0.1rem solid var(--color-light);
     box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
-    font-size:var(--font-s-16);
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -776,7 +772,7 @@ h1, h2, h3,
     margin: 0;
     border-radius: 1.25rem;
     border: 0.1rem solid  var(--color-light);
-    font-size: var(--font-s-16);
+
     box-shadow: 0 0 0.625rem rgba(234, 227, 210, 0.2);
 
     cursor: pointer;
@@ -974,7 +970,7 @@ h1, h2, h3,
     font-family:var(--font-popup);
     color: var(--color-light);
     white-space: pre-line;
-    font-size: var(--font-s-16);
+
     padding: 1rem;
     line-height: 1.5;
 }
@@ -1342,10 +1338,6 @@ h1, h2, h3,
         width: 100%;
     }
 
-    /* .Hero-ancla:hover {
-        font-size: clamp(1rem, 4vw, 1.5rem);
-        letter-spacing: 0.75rem;
-    } */
 
     .Intro-btn:hover {
         transform: translateY(-0.125rem) scale(1.05);
