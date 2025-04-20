@@ -30,11 +30,9 @@ Una experiencia web inmersiva que simula el archivo secreto de una sociedad fict
 - preguntas-no-autorizadas.html → Sección de preguntas ficticias con acordeón interactivo.
 - sobre-nosotros.html →	Descripción de La Sociedad del Viento y sus miembros.
 
-## Cómo visualizar el proyecto
+## Link al proyecto
 
-1. Clona el repositorio: 
-   git clone https://github.com/Elcodigodeirene/escenariosolvidados.git
-2. Abre `index.html` en tu navegador o usa Live Server en VSCode.
+- [https://elcodigodeirene.github.io/escenariosolvidados/] (https://elcodigodeirene.github.io/escenariosolvidados/)
 
 
 ## 📬 Contacto
