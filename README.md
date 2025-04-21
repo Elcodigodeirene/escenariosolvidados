@@ -30,9 +30,9 @@ Una experiencia web inmersiva que simula el archivo secreto de una sociedad fict
 - preguntas-no-autorizadas.html → Sección de preguntas ficticias con acordeón interactivo.
 - sobre-nosotros.html →	Descripción de La Sociedad del Viento y sus miembros.
 
-## Instalación
+## Link al proyecto
 
-Este proyecto no necesita instalación. Simplemente abre la carpeta o haz doble click en el .html.
+- [URL Explorador Escenarios Olvidados] (https://elcodigodeirene.github.io/escenariosolvidados/)
 
 
 ## 📬 Contacto
