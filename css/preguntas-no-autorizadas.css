@@ -728,36 +728,3 @@ h3,
   }
 }
 
-@media (hover: hover) {
-  /*Aplica efectos de hover solo en dispositivos que lo soportan.
-- Mejora el rendimiento en táctiles y evita confusión visual.
-- Todos los efectos visuales están separados aquí para mantener control. */
-
-  .Header-btn:hover {
-    transform: scale(1.05);
-  }
-
-  .Header-a:hover::before,
-  .Header-a--selected::before {
-    width: 100%;
-  }
-
-  .Footer-coordinates--trigger:hover {
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-    color: var(--color-accent);
-  }
-
-  .Footer-links a:hover {
-    color: var(--color-accent);
-  }
-
-  .Cursor.isHover {
-    transform: scale(2);
-  }
-
-  .Popup-btn:hover {
-    opacity: 0.9;
-    /* Esto es opcional si quieres dar algo de feedback al pasar el ratón */
-  }
-
-}

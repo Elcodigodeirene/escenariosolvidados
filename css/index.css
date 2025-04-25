@@ -457,7 +457,7 @@ h1, h2, h3,
     font-size:var(--font-s-p);
     transform: translateY(1.875rem);
     opacity: 0;
-    transition: opacity 2s ease, transform 2s ease;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
 .Intro-p.isVisible {
@@ -468,45 +468,44 @@ h1, h2, h3,
 
 /* Apareción con efecto cascada */
 .Intro-p:nth-of-type(1) {
-    transition-delay: .5s;
+    transition-delay: 0s;
 }
 
 .Intro-p:nth-of-type(2) {
-    transition-delay: 1.5s;
+    transition-delay: 0.2s;
 }
 
 .Intro-p:nth-of-type(3) {
-    transition-delay: 2s;
+    transition-delay: 0.4s;
 }
 
 .Intro-p:nth-of-type(4) {
-    transition-delay: 2.5s;
+    transition-delay: 0.6s;
 }
 
 .Intro-p:nth-of-type(5) {
-    transition-delay: 3s;
+    transition-delay: 1s;
 }
 
 .Intro-p:nth-of-type(6) {
-    transition-delay: 3.5s;
+    transition-delay: 1.5s;
 }
 
 .Intro-p:nth-of-type(7) {
-    transition-delay: 4s;
+    transition-delay: 2s;
 }
 
 .Intro-p:nth-of-type(8) {
-    transition-delay: 4.5s;
+    transition-delay: 2.5s;
 }
 
 .Intro-p:nth-of-type(9) {
-    transition-delay: 5s;
+    transition-delay: 3s;
 }
 
 .Intro-p:nth-of-type(10) {
-    transition-delay: 5.5s;
+    transition-delay: 3.5s;
 }
-
 /* Botones agrupados que aparecen al final */
 .Intro-btns {
     display: flex;
@@ -524,7 +523,7 @@ h1, h2, h3,
     opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
-    transition-delay: 6s;
+    transition-delay: 4s;
 }
 
 /* Botón claro con sombra */
@@ -582,7 +581,6 @@ h1, h2, h3,
     position: absolute;
 
     opacity: 0.7;
-
 }
 
 .Intro-svg--hex1 {
@@ -642,7 +640,7 @@ h1, h2, h3,
     font-size:var(--font-s-p);
     line-height: 4rem;
     opacity: 0;
-    transition: opacity 1s ease, line-height 2.5s ease;
+    transition: opacity 1s ease, line-height 1s ease;
     transition-delay: 0.2s;
 }
 
@@ -680,7 +678,7 @@ h1, h2, h3,
 .Scenario-card-wrapper {
     opacity: 0;
     transform: translateY(1.25rem);
-    transition: opacity 1.5s ease, transform 1.5s ease;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
 .Scenario-card-wrapper.isVisible {
@@ -1251,6 +1249,12 @@ h1, h2, h3,
         gap: 1rem;
         padding: 0rem;
     }
+
+    
+    .Scenario-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
 }
 
 /* MEDIA QUERY: Móviles < 600px: Ajusta espaciado y posición de algunos SVG */
@@ -1328,59 +1332,6 @@ h1, h2, h3,
     .Scenario-list {
 
         width: 75%;
-    }
-}
-
-/* MEDIA QUERY: Soporte para hover (dispositivos con puntero)-    Mejora de interacciones solo si hay hover disponible */
-@media (hover: hover) {
-    .Header-btn:hover {
-        transform: scale(1.05);
-    }
-
-    .Header-a:hover::before,
-    .Header-a--selected::before {
-        width: 100%;
-    }
-
-    /* .Hero-ancla:hover {
-        font-size: clamp(1rem, 4vw, 1.5rem);
-        letter-spacing: 0.75rem;
-    } */
-
-    .Intro-btn:hover {
-        transform: translateY(-0.125rem) scale(1.05);
-        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-    }
-
-    .Intro-ancla:hover {
-        background-color: #eae3d21a;
-        color: var(--color-white);
-        letter-spacing: 0.25rem;
-    }
-
-    .Scenario-card:hover {
-        transform: translateY(-0.125rem) scale(1.05);
-        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-    }
-
-    .Scenario-card-btn:hover {
-        transform: translateY(-0.125rem) scale(1.05);
-        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-    }
-
-    .Scenario-btn-scenarios:hover,
-    .Scenario-btn-contact:hover {
-        transform: translateY(-0.125rem) scale(1.05);
-        box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-    }
-
-    .Footer-coordinates--trigger:hover {
-        box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-        color: var(--color-accent);
-    }
-
-    .Footer-links a:hover {
-        color: var(--color-accent);
     }
 }
 

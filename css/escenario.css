@@ -405,7 +405,7 @@ Contenedor principal del Hero.
   padding: 1rem 2rem;
 
   opacity: 0;
-  transition: opacity 3s ease;
+  transition: opacity 2s ease;
 }
 
 
@@ -425,7 +425,7 @@ Contenedor principal del Hero.
   padding: 1rem 4rem;
   opacity: 0;
   transform: translateY(1.875rem);
-  transition: opacity 4s ease, transform 4s ease;
+  transition: opacity 1s ease, transform 1.5s ease;
 }
 
 
@@ -495,7 +495,7 @@ Contenedor principal del Hero.
   color: #eae3d2cc;
   line-height: 4rem;
   opacity: 0;
-  transition: opacity 1s ease, line-height 2.5s ease;
+  transition: opacity 1s ease, line-height 1s ease;
 }
 
 .Story-p.isVisible {
@@ -575,7 +575,7 @@ Contenedor principal del Hero.
   text-shadow: var(--text-shadow);
 
   opacity: 0;
-  transition: opacity 3s ease;
+  transition: opacity 1s ease;
 }
 
 
@@ -590,8 +590,7 @@ Contenedor principal del Hero.
 
   line-height: 4rem;
   opacity: 0;
-  transition: opacity 1s ease, line-height 2.5s ease;
-
+  transition: opacity 1s ease, line-height 1s ease;
 
 }
 
@@ -624,7 +623,7 @@ Contenedor principal del Hero.
 
   opacity: 0;
   transform: translateY(3.125rem);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: opacity 1s ease, transform 1s ease;
 
 }
 
@@ -635,31 +634,26 @@ Contenedor principal del Hero.
 
 /* Efecto delay escalonado para animaciones */
 .Galery-li:nth-child(1) {
-  transition-delay: 0.5s;
-  transition-duration: 3s;
-}
-
-.Galery-li:nth-child(2) {
-  transition-delay: 1s;
-  transition-duration: 2s;
-}
-
-.Galery-li:nth-child(3) {
-  transition-delay: 1s;
-  transition-duration: 2s;
-
-}
-
-.Galery-li:nth-child(4) {
-  transition-delay: 1.5s;
+  transition-delay: 0s;
   transition-duration: 1.5s;
 }
 
-/* Hover de las tarjetas de imagen */
-.Galery-li:hover {
-  transform: scale(0.95);
-  box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.15), 0 0 1.875rem rgba(92, 136, 167, 0.1);
+.Galery-li:nth-child(2) {
+  transition-delay: 0.3s;
+  transition-duration: 1.2s;
 }
+
+.Galery-li:nth-child(3) {
+  transition-delay: 0.6s;
+  transition-duration: 0.9s;
+}
+
+.Galery-li:nth-child(4) {
+  transition-delay: 0.9s;
+  transition-duration: 0.6s;
+}
+
+
 
 /* Imagen dentro de cada tarjeta. Se aplica un pequeño zoom de entrada que se revierte al hacer hover */
 .Galery-img {
@@ -713,6 +707,8 @@ Contenedor principal del Hero.
 .Lightbox.isActive {
   opacity: 1;
   pointer-events: auto;
+  /* se aplica un delay al lightbox para dejar que cargue la imagen */
+  transition-delay: 0.2s; 
 }
 
 /* Botón de cierre del Lightbox con hover animado */
@@ -780,7 +776,7 @@ Contenedor principal del Hero.
 
   line-height: 4rem;
   opacity: 0;
-  transition: opacity 1s ease, line-height 2.5s ease;
+  transition: opacity 1s ease, line-height 1s ease;
 }
 
 .Fragment-p.isVisible {
@@ -810,7 +806,7 @@ Contenedor principal del Hero.
 
   opacity: 0;
   transform: translateY(3.125rem);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .Carrousel.isVisible {
@@ -1288,14 +1284,30 @@ Contenedor principal del Hero.
 
   .Galery-img {
     cursor: default;
-    /* Evita que parezca clicable */
+    transform: scale(1); 
+    height: 30rem;
+ 
   }
+
+   .Galery-img:hover,
+  .Galery-img:active {
+    transform: scale(1); 
+  } 
+
     /* Deactiva la aparación de las cards desde abajo */
   .Galery-li {
     opacity: 1;
     transform: translateY(0);
     transition: none;
   }
+
+  .Story-p{
+    transition: opacity .5s ease, line-height .5s ease;
+  }
+
+  .Galery-p {
+    transition: opacity .5s ease, line-height .5s ease;
+}
 }
 
 
@@ -1331,59 +1343,3 @@ Contenedor principal del Hero.
   }
 }
 
-@media (hover: hover) {
-  /*Aplica efectos de hover solo en dispositivos que lo soportan.
-- Mejora el rendimiento en táctiles y evita confusión visual.
-- Todos los efectos visuales están separados aquí para mantener control. */
-
-  .Header-btn:hover {
-    transform: scale(1.05);
-  }
-
-  .Header-a:hover::before,
-  .Header-a--selected::before {
-    width: 100%;
-  }
-
-  .Galery-li:hover {
-    transform: scale(0.95);
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.15), 0 0 1.875rem rgba(92, 136, 167, 0.1);
-  }
-
-  .Galery-img:hover {
-    transform: scale(1);
-  }
-
-  .Footer-coordinates--trigger:hover {
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-    color: var(--color-accent);
-  }
-
-  .Footer-links a:hover {
-    color: var(--color-accent);
-  }
-
-  .Carrousel-arrow:hover {
-    transform: scale(.9);
-  }
-
-  .Carrousel-btn:hover {
-    transform: scale(1.1);
-    background-color: rgba(234, 227, 210, 0.4);
-  }
-
-  .Sound-btn:hover {
-    transform: scale(1.05);
-    background-color: var(--color-light);
-    color: var(--color-header);
-    border: 0.1rem solid var(--color-header);
-    box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-  }
-
-  .Lightbox-boton:hover {
-    transform: scale(.95);
-  }
-
-
-
-}

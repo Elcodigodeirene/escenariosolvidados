@@ -352,7 +352,7 @@ h3,
   text-align: center;
 
   opacity: 0;
-  transition: opacity 3s ease;
+  transition: opacity 2s ease;
 }
 
 
@@ -368,7 +368,7 @@ h3,
 
   opacity: 0;
   transform: translateY(3rem);
-  transition: opacity 3s ease, transform 3s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .About-p.isVisible {
@@ -396,7 +396,7 @@ h3,
   margin: 0;
 
   opacity: 0;
-  transition: opacity 3s ease;
+  transition: opacity 2s ease;
 }
 
 .About-members-h2.isVisible {
@@ -410,7 +410,7 @@ h3,
 
   opacity: 0;
   transform: translateY(1.85rem);
-  transition: opacity 3s ease, transform 3s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .About-members-p.isVisible {
@@ -448,12 +448,6 @@ h3,
   transform: translateY(0);
 }
 
-/* Hover con zoom suave y sombra brillante */
-.Members-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.2), 0 0 2.5rem rgba(234, 227, 210, 0.1);
-  backdrop-filter: blur(0.125rem);
-}
 
 /* Imagen superior de la card (miembro) */
 .Members-card-img {
@@ -536,7 +530,7 @@ h3,
 
   opacity: 0;
   transform: translateY(3.125rem);
-  transition: opacity 5s ease, transform 5s ease;
+  transition: opacity 2s ease, transform 2s ease;
 }
 
 .About-quote.isVisible {
@@ -921,6 +915,9 @@ Modifica el layout del header (menú responsive) */
     padding: 1rem 3rem;
   }
 
+  .About-p {
+    transition: opacity .5s ease, transform .5s ease;
+  }
 }
 
 
@@ -939,49 +936,3 @@ Modifica el layout del header (menú responsive) */
 }
 
 
-@media (hover: hover) {
-  /*Aplica efectos de hover solo en dispositivos que lo soportan.
-- Mejora el rendimiento en táctiles y evita confusión visual.
-- Todos los efectos visuales están separados aquí para mantener control. */
-
-  .Header-btn:hover {
-    transform: scale(1.05);
-  }
-
-  .Header-a:hover::before,
-  .Header-a--selected::before {
-    width: 100%;
-  }
-
-  .Members-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.2), 0 0 2.5rem rgba(234, 227, 210, 0.1);
-    backdrop-filter: blur(0.125rem);
-  }
-
-  .Members-card-h3:hover {
-    color: var(--color-white);
-    text-shadow: 0 0 0.5rem rgba(234, 227, 210, 0.6);
-  }
-
-  .Members-card-h3--explorer:hover::after {
-    opacity: 1;
-  }
-
-  .Sound-btn:hover {
-    transform: scale(1.05);
-    background-color: var(--color-light);
-    color: var(--color-header);
-    border: 0.1rem solid var(--color-header);
-    box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-  }
-
-  .Footer-coordinates--trigger:hover {
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-    color: var(--color-accent);
-  }
-
-  .Footer-links a:hover {
-    color: var(--color-accent);
-  }
-}

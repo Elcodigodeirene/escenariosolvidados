@@ -350,38 +350,19 @@ h3,
   text-shadow: var(--text-shadow);
   text-align: center;
 
-  /* opacity: 0;
-  transition: opacity 3s ease;
-  transition-delay: 0.5s; */
-  animation: fromBelowScale 1.2s ease-out both;
-  animation-delay: 0.5s;
+  animation: fromBelowScale 1s ease-out both;
+  animation-delay: 0.3s;
 }
-
-/* 
-.Archive-h1.isVisible{
-  opacity: 1;
-}
- */
 
 .Archive-p {
   font-size: var(--font-s-p);
   line-height: 1.8;
   margin: 0.5rem auto;
 
-  /* opacity: 0;
-  transform: translateY(3.125rem);
-  transition: opacity 3s ease, transform 3s ease;
-  transition-delay: 1s; */
-
-  animation: fromBelowScale 1.2s ease-out both;
-  animation-delay: 1s;
+  animation: fromBelowScale 1s ease-out both;
+  animation-delay: 0.6s;
 
 }
-
-/* .Archive-p.isVisible {
-  opacity: 1;
-  transform: translateY(0);
-} */
 
 .Archive-img {
   width: 47rem;
@@ -390,21 +371,11 @@ h3,
 
   object-fit: cover;
   object-position: top;
-  /* 
-  opacity: 0;
-  transform: translateY(3rem);
-  transition: opacity 3s ease, transform 3s ease;
-  transition-delay: 1.5s; */
 
-  animation: fromBelowScale 1.2s ease-out both;
-  animation-delay: 1.5s;
+  animation: fromBelowScale 1s ease-out both;
+  animation-delay: 0.9s;
 
 }
-
-/* .Archive-img.isVisible {
-  opacity: 1;
-  transform: translateY(0);
-} */
 
 .Archive-p-intro {
 
@@ -413,14 +384,9 @@ h3,
   /* opacity: 0;
   transform: translateY(1.25rem);
   transition: opacity 1.5s ease, transform 1.5s ease; */
-  animation: fromBelowScale 1.2s ease-out both;
-  animation-delay: 2s;
+  animation: fromBelowScale 1s ease-out both;
+  animation-delay: 1.2s;
 }
-
-/* .Archive-p-intro.isVisible {
-  opacity: 1;
-  transform: translateY(0);
-} */
 
 .Archive-scroll-btn {
   animation: floatDown 3s ease-in-out infinite;
@@ -437,17 +403,10 @@ h3,
   stroke: var(--color-white);
   stroke-width: 0.2;
 
-  /* opacity: 0;
-  transform: translateY(1.25rem);
-  transition: opacity 1.5s ease, transform 1.5s ease; */
-  animation: fromBelowScale 1.2s ease-out both;
-  animation-delay: 2.5s;
+  animation: fromBelowScale 1s ease-out both;
+  animation-delay: 1.5s;
 }
 
-/* .Archive-scroll-svg.isVisible {
-  opacity: 1;
-  transform: translateY(0);
-} */
 
 
 /*-------------------------SECCIÓN DE ESCENARIOS----------------------------*/
@@ -487,7 +446,7 @@ h3,
 
   opacity: 0;
   transform: translateY(3.125rem);
-  transition: opacity 3s ease, transform 3s ease;
+  transition: opacity 1s ease, transform 1s ease;
 
 }
 
@@ -497,22 +456,7 @@ h3,
 }
 
 
-.Archive-scenarios-final {
-  font-size: var(--font-s-p);
-  line-height: 1.8;
-  max-width: 1200px;
-  margin: 1.5rem auto;
-  text-align: center;
 
-  opacity: 0;
-  transform: translateY(3.125rem);
-  transition: opacity 3s ease, transform 3s ease;
-}
-
-.Archive-scenarios-final.isVisible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /*-------------------------Tarjeras de escenarios----------------------------*/
 /* Usa CSS Grid para distribuir las tarjetas (.Archive-card) de forma responsive. Se ajusta automáticamente a diferentes tamaños de pantalla. */
@@ -543,7 +487,7 @@ h3,
 .Archive-card-wrapper {
   opacity: 0;
   transform: translateY(3.125rem);
-  transition: opacity 3s ease, transform 3s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .Archive-card-wrapper.isVisible {
@@ -553,27 +497,27 @@ h3,
 
 /* Animación escalonada de aparición para las tarjetas usando delay progresivo */
 .Archive-card-wrapper:nth-child(1) {
-  transition-delay: 1s;
+  transition-delay: 0.5s;
 }
 
 .Archive-card-wrapper:nth-child(2) {
-  transition-delay: 2s;
+  transition-delay: 1s;
 }
 
 .Archive-card-wrapper:nth-child(3) {
-  transition-delay: 3s;
+  transition-delay: 1.5s;
 }
 
 .Archive-card-wrapper:nth-child(4) {
-  transition-delay: 4s;
+  transition-delay: 2s;
 }
 
 .Archive-card-wrapper:nth-child(5) {
-  transition-delay: 5s;
+  transition-delay: 2.5s;
 }
 
 .Archive-card-wrapper:nth-child(6) {
-  transition-delay: 6s;
+  transition-delay: 3s;
 }
 
 /*Imagen del escenario. Se adapta con object-fit: cover y asegura que se muestre correctamente en cualquier tamaño. */
@@ -627,6 +571,23 @@ h3,
   box-shadow: 0 0 0.5rem rgba(234, 227, 210, 0.3);
 }
 
+/* Frases del final */
+.Archive-scenarios-final {
+  font-size: var(--font-s-p);
+  line-height: 1.8;
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(3.125rem);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.Archive-scenarios-final.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /*-------------------------FOOTER----------------------------*/
 /* Pie de página con tres columnas: logo, info y enlaces. */
@@ -976,6 +937,16 @@ Modifica el layout del header (menú responsive) */
     transform: none;
     transition: none;
   }
+
+  .Archive-card-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .Archive-card:hover{
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 @media (max-width:510px) {
@@ -993,37 +964,5 @@ Modifica el layout del header (menú responsive) */
 
   .Archive-img {
     height: 18.75rem;
-  }
-}
-
-@media (hover: hover) {
-
-  /* Solo aplica estilos hover si el dispositivo tiene puntero (evita errores en móviles). */
-  .Header-btn:hover {
-    transform: scale(1.05);
-  }
-
-  .Header-a:hover::before,
-  .Header-a--selected::before {
-    width: 100%;
-  }
-
-  .Archive-card:hover {
-    transform: translateY(-0.125rem) scale(1.05);
-    box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-  }
-
-  .Archive-card-btn:hover {
-    transform: translateY(-0.125rem) scale(1.05);
-    box-shadow: 0 0 1rem rgba(234, 227, 210, 0.4);
-  }
-
-  .Footer-coordinates--trigger:hover {
-    box-shadow: 0 0 1.25rem rgba(234, 227, 210, 0.4);
-    color: var(--color-accent);
-  }
-
-  .Footer-links a:hover {
-    color: var(--color-accent);
   }
 }

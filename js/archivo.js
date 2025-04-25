@@ -20,7 +20,7 @@
   const headerUL = document.querySelector(".Header-ul")       // Lista de enlaces de navegación
 
   //Constantes del Intersection Observer
-  const elementosAnimados = document.querySelectorAll(`.Archive-h1, .Archive-p,  .Archive-img, .Archive-p-intro, .Archive-scroll-svg, .Archive-scenarios-h2, .Archive-scenarios-p, .Archive-card-wrapper, .Archive-scenarios-final`)
+  const elementosAnimados = document.querySelectorAll(`.Archive-scenarios-h2, .Archive-scenarios-p, .Archive-card-wrapper, .Archive-scenarios-final`)
 
 
   //Constantes del Popup interactivo
